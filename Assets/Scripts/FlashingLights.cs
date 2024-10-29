@@ -12,29 +12,35 @@ public class FlashingLights : MonoBehaviour
 
     float timer;
     bool alarmOn = false;
+    bool alarmHasBeenTurnedOff = false;
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        if(timer > BlinkingTime)
-        {
-            StartCoroutine("Blink"); //start blinking
-            if (!alarmOn)
+        if (!alarmHasBeenTurnedOff) { 
+        if (!alarmOn)
+
+            if (timer > BlinkingTime)
             {
-                alarm.Play();  //play the audio
-                alarmOn = true;
+                {
+                    StartCoroutine("Blink"); //start blinking
+                    alarm.Play();  //play the audio
+                    alarmOn = true;
+                }
+
+                timer = 0;
             }
-         
-            timer = 0;
-        }
+    }
 
     }
 
-     void StopAlarm()
+     public void StopAlarm()
     {
+        Debug.Log("Stopping Alarm");
         alarm.Stop();
         alarmOn = false;
+        alarmHasBeenTurnedOff = true;
     }
     IEnumerator Blink()
     {
