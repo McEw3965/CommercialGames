@@ -27,6 +27,7 @@ public class taskTerminal : MonoBehaviour
         {
             case 0:
                 ventBehaviour.igniteVent();
+                print("Task Chosen: Vent Ignition");
                 break;
         }
     }

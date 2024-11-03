@@ -21,13 +21,21 @@ public class ventBehaviour : MonoBehaviour
 
     public void igniteVent()
     {
-        isOnFire = true;
-        fireEffects.SetActive(true);
+        if (!isOnFire)
+        {
+            isOnFire = true;
+            fireEffects.SetActive(true);
+            print("Vent Ignited");
+        }
     }
 
     public void repairVent()
     {
-        isOnFire = false;
-        fireEffects.SetActive(false);
+        if (isOnFire)
+        {
+            isOnFire = false;
+            fireEffects.SetActive(false);
+            print("Vent Repaired");
+        }
     }
 }
