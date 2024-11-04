@@ -36,6 +36,7 @@ public class counterManager : MonoBehaviour
         taskMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        
     }
 
     public void hideMenu()

@@ -5,7 +5,9 @@ using UnityEngine;
 public class taskTerminal : MonoBehaviour
 {
     private int chosenTask;
-    public ventBehaviour ventBehaviour;
+    public ventBehaviour[] ventBehaviour;
+
+    public bool ventTaskActive;
   
     // Start is called before the first frame update
     void Start()
@@ -26,8 +28,12 @@ public class taskTerminal : MonoBehaviour
         switch (chosenTask)
         {
             case 0:
-                ventBehaviour.igniteVent();
-                print("Task Chosen: Vent Ignition");
+                if (!ventTaskActive)
+                {
+                    ventBehaviour[Random.Range(0, 3)].igniteVent();
+                    ventTaskActive = true;
+                    print("Task Chosen: Vent Ignition");
+                } 
                 break;
         }
     }

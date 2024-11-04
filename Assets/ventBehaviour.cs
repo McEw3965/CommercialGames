@@ -7,6 +7,8 @@ public class ventBehaviour : MonoBehaviour
     public GameObject fireEffects;
 
     private bool isOnFire = false;
+    public taskTerminal TT;
+    public AudioSource alarm;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +27,7 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = true;
             fireEffects.SetActive(true);
+            alarm.Play();
             print("Vent Ignited");
         }
     }
@@ -35,7 +38,9 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = false;
             fireEffects.SetActive(false);
+            alarm.Pause();
             print("Vent Repaired");
+            TT.ventTaskActive = false;
         }
     }
 }
