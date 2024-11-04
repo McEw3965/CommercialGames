@@ -6,8 +6,15 @@ public class RadioController : MonoBehaviour
     public AudioSource[] RadioTracks;
     int trackNum = 0;
     bool isRadioOn = false;
+    public alienBehaviour AB;
 
    public void TurnRadioOn() {
+
+        if (AB.isFollowing == true)
+        {
+            AB.radioChanged = true;
+        }
+
         if (!isRadioOn) //if the radio is off
         {
             Debug.Log("Playing Radio");
