@@ -29,6 +29,11 @@ public class counterManager : MonoBehaviour
             timer = 0.25f;
             currentLevel -= 0.1f;
         }
+
+        if (currentLevel <= 0)
+        {
+            Application.Quit();
+        }
     }
 
     public void showMenu()
