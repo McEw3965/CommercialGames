@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isFollowing: 0
-  AiNav: {fileID: 0}
+  AiNav: {fileID: 324755125}
   radioChanged: 0
 --- !u!114 &324755120
 MonoBehaviour:
@@ -23566,7 +23566,7 @@ MonoBehaviour:
   RadioTracks:
   - {fileID: 1187475048}
   - {fileID: 1976705707}
-  AB: {fileID: 0}
+  AB: {fileID: 324755119}
 --- !u!23 &1563308413
 MeshRenderer:
   m_ObjectHideFlags: 0
