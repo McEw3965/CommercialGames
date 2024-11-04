@@ -10,6 +10,7 @@ public class counterManager : MonoBehaviour
     private float timer = 0.25f;
 
     public Text counter;
+    public GameObject taskMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +29,19 @@ public class counterManager : MonoBehaviour
             timer = 0.25f;
             currentLevel -= 0.1f;
         }
+    }
+
+    public void showMenu()
+    {
+        taskMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void hideMenu()
+    {
+        taskMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }
