@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class buttonBehaviour : MonoBehaviour
 {
-    string test;
+    public counterManager CM;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +19,12 @@ public class buttonBehaviour : MonoBehaviour
 
     public void buttonPressed()
     {
-        test = this.gameObject.name;
-        print(test);
+        if (this.gameObject.name == "Up" && CM.currentLevel + 0.5f <= 100)
+        {
+            CM.currentLevel += 0.5f;
+        } else if(this.gameObject.name == "Down")
+        {
+            CM.currentLevel -= 0.5f;
+        }
     }
 }
