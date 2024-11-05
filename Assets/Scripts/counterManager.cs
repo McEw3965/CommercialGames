@@ -11,6 +11,7 @@ public class counterManager : MonoBehaviour
 
     public Text counter;
     public GameObject taskMenu;
+    public Light mainLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +31,9 @@ public class counterManager : MonoBehaviour
             currentLevel -= 0.1f;
         }
 
-        if (currentLevel <= 0)
-        {
-            Application.Quit();
-        }
+        oxygenLevelEvents();
+
+
     }
 
     public void showMenu()
@@ -41,7 +41,7 @@ public class counterManager : MonoBehaviour
         taskMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        
+
     }
 
     public void hideMenu()
@@ -49,5 +49,22 @@ public class counterManager : MonoBehaviour
         taskMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    private void oxygenLevelEvents()
+    {
+        if (currentLevel <= 30)
+        {
+            mainLight.color = Color.blue;
+        }
+        else if (currentLevel > 30)
+        {
+            mainLight.color = Color.white;
+
+        }
+        else if (currentLevel <= 0)
+        {
+            Application.Quit();
+        }
     }
 }
