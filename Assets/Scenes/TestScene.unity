@@ -1741,13 +1741,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 383728816}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalRotation: {x: 0.44625375, y: -0.15007424, z: 0.27872178, w: 0.8370482}
+  m_LocalPosition: {x: 0, y: 17.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 56.174, y: -0.255, z: 36.698}
 --- !u!114 &383728819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12443,6 +12443,7 @@ MonoBehaviour:
   fireEffects: {fileID: 489632963}
   TT: {fileID: 543408433}
   alarm: {fileID: 1339424418}
+  mainLight: {fileID: 383728817}
 --- !u!4 &1123276650
 Transform:
   m_ObjectHideFlags: 0
@@ -12763,7 +12764,7 @@ RectTransform:
   m_GameObject: {fileID: 1193298087}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.7659625, y: 1.7659625, z: 1.7659625}
+  m_LocalScale: {x: 0.9275732, y: 0.9275732, z: 0.9275732}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1590110961}
@@ -12774,7 +12775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 2.0122}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193298089
@@ -22863,8 +22864,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 60954cbb8abb1564ea4a46c8911d8403, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
+  m_Volume: 0.24
+  m_Pitch: 0.63
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -23544,6 +23545,7 @@ MonoBehaviour:
   fireEffects: {fileID: 1889149832}
   TT: {fileID: 543408433}
   alarm: {fileID: 1339424418}
+  mainLight: {fileID: 383728817}
 --- !u!114 &1555272244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25707,6 +25709,7 @@ MonoBehaviour:
   fireEffects: {fileID: 261539636}
   TT: {fileID: 543408433}
   alarm: {fileID: 1339424418}
+  mainLight: {fileID: 383728817}
 --- !u!4 &2070228828
 Transform:
   m_ObjectHideFlags: 0

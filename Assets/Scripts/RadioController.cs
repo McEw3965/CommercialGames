@@ -13,6 +13,7 @@ public class RadioController : MonoBehaviour
         if (AB.isFollowing == true)
         {
             AB.radioChanged = true;
+            print(AB.radioChanged);
         }
 
         if (!isRadioOn) //if the radio is off

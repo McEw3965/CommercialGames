@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 public class ventBehaviour : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ventBehaviour : MonoBehaviour
     private bool isOnFire = false;
     public taskTerminal TT;
     public AudioSource alarm;
+    public Light mainLight;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,7 @@ public class ventBehaviour : MonoBehaviour
             fireEffects.SetActive(true);
             alarm.Play();
             print("Vent Ignited");
+            mainLight.color = Color.red;
         }
     }
 
@@ -41,6 +44,8 @@ public class ventBehaviour : MonoBehaviour
             alarm.Pause();
             print("Vent Repaired");
             TT.ventTaskActive = false;
+            mainLight.color = Color.white;
+
         }
     }
 }

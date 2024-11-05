@@ -20,18 +20,20 @@ public class alienBehaviour : MonoBehaviour
     {
         radioTimer -= Time.deltaTime;
 
-        if (radioTimer <= 0)
+        if (radioTimer <= 0 && isFollowing != true)
         {
             AiNav.canFollowPlayer = true;
             isFollowing = true;
+            print("Change Radio NOW");
         }
 
         if (radioChanged == true)
         {
-
+            print("Happy with Radio :)");
             radioTimer = Random.Range(30f, 90f);
             radioChanged = false;
             AiNav.canFollowPlayer = false;
+            isFollowing = false;
 
         }
     }
