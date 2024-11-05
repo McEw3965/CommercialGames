@@ -11,6 +11,7 @@ public class ventBehaviour : MonoBehaviour
     public taskTerminal TT;
     public AudioSource alarm;
     public Light mainLight;
+    public MainUIManager UIManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +46,7 @@ public class ventBehaviour : MonoBehaviour
             print("Vent Repaired");
             TT.ventTaskActive = false;
             mainLight.color = Color.white;
+            UIManager.AdjustScore(50);
 
         }
     }

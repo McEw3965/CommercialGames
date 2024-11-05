@@ -12,6 +12,7 @@ public class counterManager : MonoBehaviour
     public Text counter;
     public GameObject taskMenu;
     public Light mainLight;
+    public MainUIManager UIManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +57,7 @@ public class counterManager : MonoBehaviour
         if (currentLevel <= 30)
         {
             mainLight.color = Color.blue;
+            UIManager.AdjustScore(-25);
         }
         else if (currentLevel > 30)
         {
