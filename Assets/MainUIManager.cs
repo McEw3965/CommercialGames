@@ -20,14 +20,13 @@ public class MainUIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        ratingValue.text = rating.ToString();
     }
 
     public void AdjustScore(float score)
     {
         rating += score;
         ratingValue.color = Color.green;
-        ratingValue.text = rating.ToString();
         ratingHeader.SetActive(true);
     }
 }
