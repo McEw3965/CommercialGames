@@ -12,7 +12,7 @@ public class alienBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        alienAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,10 +38,15 @@ public class alienBehaviour : MonoBehaviour
         }
     }
 
-    public void wave()
+    public void AlienWave()
     {
-        alienAnimator.SetBool("Wave", true);
-
+        Debug.Log("Wave");
+        alienAnimator.SetBool("wave", true);
+        StartCoroutine(ResetWave(0.5f));
     }
-
+    private IEnumerator ResetWave(float delay)
+    {
+        yield return new WaitForSeconds(delay); //Wait
+        alienAnimator.SetBool("wave", false); //Set the bool to false to end the animation
+    }
 }
