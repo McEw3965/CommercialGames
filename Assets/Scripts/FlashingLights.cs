@@ -1,14 +1,13 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class FlashingLights : MonoBehaviour
 {
     public Light lights; //the light its changing
     public float BlinkingTime; //time per blink
     public AudioSource alarm; //alarm audio
-    public RawImage WarningSign; //warning sign
+    public TextMeshProUGUI Task; //alarm task
 
     float timer;
     bool alarmOn = false;
@@ -18,38 +17,38 @@ public class FlashingLights : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (!alarmHasBeenTurnedOff) { 
-        if (!alarmOn)
-
-            if (timer > BlinkingTime)
+        if (!alarmHasBeenTurnedOff)
+        {
+            if (!alarmOn && timer > BlinkingTime)
             {
-                {
-                    StartCoroutine("Blink"); //start blinking
-                    alarm.Play();  //play the audio
-                    alarmOn = true;
-                }
-
-                timer = 0;
+                StartCoroutine(Blink());  // Start the blinking coroutine
+                alarm.Play();             // Play the audio alarm
+                alarmOn = true;           // Set alarmOn to true to avoid repeating this block
+                timer = 0;                // Reset timer
             }
+        }
     }
 
-    }
-
-     public void StopAlarm()
+    public void StopAlarm()
     {
         Debug.Log("Stopping Alarm");
         alarm.Stop();
+        removeTaskFromList();
         alarmOn = false;
         alarmHasBeenTurnedOff = true;
     }
+
+
+    void removeTaskFromList()
+    {
+        Task.fontStyle = FontStyles.Strikethrough;
+    }
     IEnumerator Blink()
     {
-
-        lights.color = Color.yellow; //changes light to yellow color
-        WarningSign.enabled = true; //display image
+        Debug.Log("Blink");
+        lights.color = Color.red; //changes light to yellow color
         yield return new WaitForSeconds(.4f); //wait 0.4 seconds
         lights.color = Color.white; //change color to white
-        WarningSign.enabled = false; //remove image
 
     }
 
