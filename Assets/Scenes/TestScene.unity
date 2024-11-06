@@ -12391,6 +12391,7 @@ GameObject:
   - component: {fileID: 1000404869}
   - component: {fileID: 1000404868}
   - component: {fileID: 1000404873}
+  - component: {fileID: 1000404874}
   m_Layer: 7
   m_Name: Change Gravity Button
   m_TagString: Untagged
@@ -12504,13 +12505,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000404867}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.9, y: 0.253, z: -0.24}
-  m_LocalScale: {x: 1, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0.6823343, y: 0.18552609, z: -0.18552609, w: 0.6823343}
+  m_LocalPosition: {x: 13.3, y: 1.86, z: 23.67}
+  m_LocalScale: {x: 3.6428, y: 1.8214, z: 3.6428}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -30.422}
 --- !u!114 &1000404873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12538,6 +12539,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1000404874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000404867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838f9cebc4563ee45bbd618b1b9afe01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1123276648
 GameObject:
   m_ObjectHideFlags: 0
