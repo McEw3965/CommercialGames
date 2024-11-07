@@ -9,7 +9,7 @@ public class FlashingLights : MonoBehaviour
     public AudioSource alarm; //alarm audio
     public TextMeshProUGUI Task; //alarm task
 
-    float timer;
+    float timer = 1.5f;
     bool alarmOn = false;
     bool alarmHasBeenTurnedOff = false;
 
@@ -17,7 +17,7 @@ public class FlashingLights : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        if (!alarmHasBeenTurnedOff)
+        /*if (!alarmHasBeenTurnedOff)
         {
             if (!alarmOn && timer > BlinkingTime)
             {
@@ -26,6 +26,19 @@ public class FlashingLights : MonoBehaviour
                 alarmOn = true;           // Set alarmOn to true to avoid repeating this block
                 timer = 0;                // Reset timer
             }
+        } */
+
+        if (!alarmOn)
+        {
+            alarm.Play();
+            alarmOn = true;
+
+        }
+
+        if (alarmOn && timer > BlinkingTime)
+        {
+            StartCoroutine(Blink());
+            timer = 0;
         }
     }
 
@@ -47,10 +60,8 @@ public class FlashingLights : MonoBehaviour
     {
         Debug.Log("Blink");
         lights.color = Color.red; //changes light to yellow color
-        print(lights.color);
         yield return new WaitForSeconds(.4f); //Wait 0.4 seconds
         lights.color = Color.white; //change color to white
-        print(lights.color);
 
     }
 
