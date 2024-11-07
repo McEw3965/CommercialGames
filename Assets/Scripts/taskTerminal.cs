@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class taskTerminal : MonoBehaviour
 {
@@ -10,6 +12,9 @@ public class taskTerminal : MonoBehaviour
 
     public bool ventTaskActive;
     public bool lightTaskActive;
+
+    public TextMeshProUGUI currentTask;
+    
   
     // Start is called before the first frame update
     void Start()
@@ -25,7 +30,7 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-        chosenTask = Random.Range(1, 2);
+        chosenTask = Random.Range(0, 2);
 
         switch (chosenTask)
         {
@@ -34,6 +39,7 @@ public class taskTerminal : MonoBehaviour
                 {
                     ventBehaviour[Random.Range(0, 3)].igniteVent();
                     ventTaskActive = true;
+                    currentTask.text = "Extinguish Vents";
                     print("Task Chosen: Vent Ignition");
                 } 
                 break;
@@ -42,9 +48,15 @@ public class taskTerminal : MonoBehaviour
                 if(!lightTaskActive)
                 {
                     lightFlash.alarmOn = true;
+                    currentTask.text = "Fix Lights";
                     print("Task Chosen: Fix Lights");
                 }
                 break;
         }
+    }
+
+    public void eraseTaskList()
+    {
+        currentTask.text = string.Empty;
     }
 }

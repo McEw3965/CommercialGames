@@ -54,6 +54,7 @@ public class FlashingLights : MonoBehaviour
         alarmOn = false;
         alarmHasBeenTurnedOff = true;
         TT.lightTaskActive = false;
+        TT.eraseTaskList();
     }
 
 
