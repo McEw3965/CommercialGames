@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 13890193}
   - component: {fileID: 13890192}
   - component: {fileID: 13890191}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12218,7 +12218,7 @@ GameObject:
   - component: {fileID: 776809023}
   - component: {fileID: 776809022}
   - component: {fileID: 776809021}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23851,7 +23851,7 @@ GameObject:
   - component: {fileID: 1529308528}
   - component: {fileID: 1529308527}
   - component: {fileID: 1529308529}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Tasks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26344,8 +26344,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 14.222611, z: 1}
+  m_Center: {x: 0.000000022125006, y: -6.611304, z: 0}
 --- !u!23 &2010230147
 MeshRenderer:
   m_ObjectHideFlags: 0
