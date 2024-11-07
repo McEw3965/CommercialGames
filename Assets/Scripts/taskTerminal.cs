@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,28 +31,32 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-        chosenTask = Random.Range(0, 2);
-
-        switch (chosenTask)
+        if (!ventTaskActive && !lightTaskActive)
         {
-            case 0:
-                if (!ventTaskActive)
-                {
-                    ventBehaviour[Random.Range(0, 3)].igniteVent();
-                    ventTaskActive = true;
-                    currentTask.text = "Extinguish Vents";
-                    print("Task Chosen: Vent Ignition");
-                } 
-                break;
+            chosenTask = Random.Range(0, 2);
 
-            case 1:
-                if(!lightTaskActive)
-                {
-                    lightFlash.alarmOn = true;
-                    currentTask.text = "Fix Lights";
-                    print("Task Chosen: Fix Lights");
-                }
-                break;
+            switch (chosenTask)
+            {
+                case 0:
+                    if (!ventTaskActive)
+                    {
+                        ventBehaviour[Random.Range(0, 3)].igniteVent();
+                        ventTaskActive = true;
+                        currentTask.text = "Extinguish Vents";
+                        print("Task Chosen: Vent Ignition");
+                    }
+                    break;
+
+                case 1:
+                    if (!lightTaskActive)
+                    {
+                        lightFlash.alarmOn = true;
+                        lightTaskActive = true;
+                        currentTask.text = "Fix Lights";
+                        print("Task Chosen: Fix Lights");
+                    }
+                    break;
+            }
         }
     }
 
