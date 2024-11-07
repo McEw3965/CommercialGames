@@ -10,8 +10,10 @@ public class FlashingLights : MonoBehaviour
     public TextMeshProUGUI Task; //alarm task
 
     float timer = 1.5f;
-    bool alarmOn = false;
+    public bool alarmOn = false;
     bool alarmHasBeenTurnedOff = false;
+
+    taskTerminal TT;
 
     void Update()
     {
@@ -28,17 +30,19 @@ public class FlashingLights : MonoBehaviour
             }
         } */
 
-        if (!alarmOn)
+        if (alarmOn) //Lights blink if alarm is on
         {
-            alarm.Play();
-            alarmOn = true;
+            if (!alarm.isPlaying)
+            {
+                alarm.Play();
+            }
 
-        }
+            if (timer > BlinkingTime)
+            {
+                StartCoroutine(Blink());
+                timer = 0;
+            }
 
-        if (alarmOn && timer > BlinkingTime)
-        {
-            StartCoroutine(Blink());
-            timer = 0;
         }
     }
 
@@ -49,7 +53,9 @@ public class FlashingLights : MonoBehaviour
         removeTaskFromList();
         alarmOn = false;
         alarmHasBeenTurnedOff = true;
+        TT.lightTaskActive = false;
     }
+
 
 
     void removeTaskFromList()

@@ -1994,6 +1994,7 @@ MonoBehaviour:
   BlinkingTime: 2
   alarm: {fileID: 1339424418}
   Task: {fileID: 661305604}
+  alarmOn: 0
 --- !u!1001 &489632962
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26350,7 +26351,9 @@ MonoBehaviour:
   - {fileID: 1555272243}
   - {fileID: 2070228827}
   - {fileID: 1123276649}
+  lightFlash: {fileID: 383728820}
   ventTaskActive: 0
+  lightTaskActive: 0
 --- !u!114 &2010230150
 MonoBehaviour:
   m_ObjectHideFlags: 0

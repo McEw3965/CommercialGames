@@ -6,8 +6,10 @@ public class taskTerminal : MonoBehaviour
 {
     private int chosenTask;
     public ventBehaviour[] ventBehaviour;
+    public FlashingLights lightFlash;
 
     public bool ventTaskActive;
+    public bool lightTaskActive;
   
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-        chosenTask = Random.Range(0, 1);
+        chosenTask = Random.Range(1, 2);
 
         switch (chosenTask)
         {
@@ -34,6 +36,14 @@ public class taskTerminal : MonoBehaviour
                     ventTaskActive = true;
                     print("Task Chosen: Vent Ignition");
                 } 
+                break;
+
+            case 1:
+                if(!lightTaskActive)
+                {
+                    lightFlash.alarmOn = true;
+                    print("Task Chosen: Fix Lights");
+                }
                 break;
         }
     }
