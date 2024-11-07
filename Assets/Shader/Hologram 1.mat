@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hologram
-  m_Shader: {fileID: -6465566751694194690, guid: 5e6cd7c6abf695b409c1ee3ceef0c5c0,
+  m_Name: Hologram 1
+  m_Shader: {fileID: -6465566751694194690, guid: 3f825f2fe33f26745a936ab60a319ffa,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -78,35 +78,38 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AmplitudeWave: 0.15
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fresnel_Strength: 2.84
+    - _Fresnel_Strength: 3.33
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Line_Freq: 13.31
-    - _Line_Rotation: 132.46
-    - _Line_Strength: 0.45
-    - _Line_Thickness: 0.5
+    - _Line_Freq: 15.04
+    - _Line_Rotation: 78
+    - _Line_Strength: 1.36
+    - _Line_Thickness: 0.7
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _ScrollSpeed: -1
+    - _ScrollSpeed: -2.55
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - _size: 0.64
+    - _wavewavelength: 0.31
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Color: {r: 0.7271271, g: 1.887395, b: 3.584906, a: 0.5176471}
-    - _Tint: {r: 0, g: 0.8793845, b: 1, a: 0.6235294}
+    - _Fresnel_Color: {r: 0.13454758, g: 0.77092123, b: 0.6076412, a: 1}
+    - _Tint: {r: 0.048104316, g: 0.3247394, b: 0.4433962, a: 0.6235294}
   m_BuildTextureStacks: []
 --- !u!114 &546855560488640352
 MonoBehaviour:
