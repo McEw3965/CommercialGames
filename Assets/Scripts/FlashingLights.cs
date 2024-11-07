@@ -13,7 +13,7 @@ public class FlashingLights : MonoBehaviour
     public bool alarmOn = false;
     bool alarmHasBeenTurnedOff = false;
 
-    taskTerminal TT;
+    public taskTerminal TT;
 
     void Update()
     {
