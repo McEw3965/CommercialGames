@@ -47,8 +47,10 @@ public class FlashingLights : MonoBehaviour
     {
         Debug.Log("Blink");
         lights.color = Color.red; //changes light to yellow color
-        yield return new WaitForSeconds(.4f); //wait 0.4 seconds
+        print(lights.color);
+        yield return new WaitForSeconds(.4f); //Wait 0.4 seconds
         lights.color = Color.white; //change color to white
+        print(lights.color);
 
     }
 

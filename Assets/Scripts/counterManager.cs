@@ -61,7 +61,7 @@ public class counterManager : MonoBehaviour
         }
         else if (currentLevel > 30)
         {
-            mainLight.color = Color.white;
+            //mainLight.color = Color.white;
 
         }
         else if (currentLevel <= 0)
