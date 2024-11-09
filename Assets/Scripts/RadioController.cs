@@ -4,11 +4,12 @@ using UnityEngine;
 public class RadioController : MonoBehaviour
 {
     public AudioSource[] RadioTracks;
-    int trackNum = 0;
-    bool isRadioOn = false;
+    public int trackNum = 0;
+    public bool isRadioOn = false;
     public alienBehaviour AB;
+    public taskTerminal TT;
 
-   public void TurnRadioOn() {
+    public void TurnRadioOn() {
 
         if (AB.isFollowing == true)
         {
@@ -21,6 +22,7 @@ public class RadioController : MonoBehaviour
             Debug.Log("Playing Radio");
             RadioTracks[trackNum].Play(); //play the first track
             isRadioOn = true;
+
         }
 
         else if (isRadioOn && trackNum < RadioTracks.Length - 1)
@@ -30,6 +32,7 @@ public class RadioController : MonoBehaviour
             RadioTracks[trackNum].Stop(); //stop the music
             trackNum++; //increase the track by one
             RadioTracks[trackNum].Play(); //play the new track 
+           
         }
 
         else //if radio is on the last track
@@ -39,7 +42,11 @@ public class RadioController : MonoBehaviour
             RadioTracks[trackNum].Stop(); //stop the music
             trackNum = 0; //reset the track
             isRadioOn = false;
+
+            
         }
+        TT.eraseTaskList();
+
     }
 
 }

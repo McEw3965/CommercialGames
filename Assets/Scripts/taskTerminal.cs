@@ -10,28 +10,17 @@ public class taskTerminal : MonoBehaviour
     private int chosenTask;
     public ventBehaviour[] ventBehaviour;
     public FlashingLights lightFlash;
-
     public bool ventTaskActive;
     public bool lightTaskActive;
+    public bool radioTaskActive;
 
     public TextMeshProUGUI currentTask;
-    
+    public RadioController rc;
   
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-     
-    }
 
     public void selectTask()
     {
-        if (!ventTaskActive && !lightTaskActive)
+        if (!ventTaskActive && !lightTaskActive && !radioTaskActive)
         {
             chosenTask = Random.Range(0, 2);
 
@@ -44,6 +33,8 @@ public class taskTerminal : MonoBehaviour
                         ventTaskActive = true;
                         currentTask.text = "Extinguish Vents";
                         print("Task Chosen: Vent Ignition");
+
+
                     }
                     break;
 
@@ -55,6 +46,35 @@ public class taskTerminal : MonoBehaviour
                         currentTask.text = "Fix Lights";
                         print("Task Chosen: Fix Lights");
                     }
+                    break;
+                case 2:
+                    if (!radioTaskActive)
+                    {
+                        radioTaskActive = true;
+                       
+
+                        currentTask.text = "Press Radio";
+                        print("Task radio active");
+
+                        /*
+                        if (!rc.isRadioOn)
+                        {
+                            currentTask.text = "Turn on Radio";
+                        }
+
+                        else if (rc.isRadioOn && rc.trackNum < rc.RadioTracks.Length - 1)
+                        {
+                            currentTask.text = "Change Track on Radio";
+
+                        }
+                        else
+                        {
+                            currentTask.text = "Turn Radio Off";
+                        }
+                        print("Task Chosen: Play Radio");
+                    }*/
+                    }
+
                     break;
             }
         }
