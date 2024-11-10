@@ -48,8 +48,11 @@ public class FlashingLights : MonoBehaviour
         Debug.Log("Stopping Alarm");
         alarm.Stop();
         alarmOn = false;
-        TT.lightTaskActive = false;
-        TT.eraseTaskList();
+        if (TT.lightTaskActive)
+        {
+            TT.lightTaskActive = false;
+            TT.eraseTaskList();
+        }
 
         bool lever = animator.GetBool("leverDown");
 
