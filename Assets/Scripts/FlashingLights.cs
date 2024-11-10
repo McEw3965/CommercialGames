@@ -30,7 +30,6 @@ public class FlashingLights : MonoBehaviour
             if (!alarm.isPlaying)
             {
                 alarm.Play();
-                animator.SetBool("leverDown", false);
             }
 
             if (timer > BlinkingTime)
