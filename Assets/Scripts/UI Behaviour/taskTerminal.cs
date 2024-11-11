@@ -30,7 +30,7 @@ public class taskTerminal : MonoBehaviour
         WaveAlienTaskActive = false;
         eraseTaskList();*/
 
-            chosenTask = Random.Range(1, 2);
+            chosenTask = Random.Range(0, 4);
 
             switch (chosenTask)
             {

@@ -8,6 +8,11 @@ public class RadioController : MonoBehaviour
     public bool isRadioOn = false;
     public alienBehaviour AB;
     public taskTerminal TT;
+    MainUIManager UIManager;
+    private void Start()
+    {
+        UIManager = FindAnyObjectByType<MainUIManager>();
+    }
 
     public void TurnRadioOn() {
         if (AB.isFollowing == true)
@@ -49,6 +54,7 @@ public class RadioController : MonoBehaviour
             if (TT.radioTaskActive)
         {
             TT.radioTaskActive = false;
+            UIManager.AdjustScore(10);
             TT.eraseTaskList();
         }
 
