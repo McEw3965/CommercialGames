@@ -14,13 +14,17 @@ public class FlashingLights : MonoBehaviour
     public bool alarmOn = false;
     
     public taskTerminal TT;
+    MainUIManager UIManager;
 
+    private void Start()
+    {
+        UIManager = FindAnyObjectByType<MainUIManager>();
+    }
 
 
     void Update()
     {
-
-
+     
         timer += Time.deltaTime;
 
 
@@ -56,6 +60,8 @@ public class FlashingLights : MonoBehaviour
         bool lever = animator.GetBool("leverDown");
 
         animator.SetBool("leverDown", !lever);
+
+        UIManager.AdjustScore(20);
 
     }
 
