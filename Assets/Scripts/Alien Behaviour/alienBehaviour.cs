@@ -10,10 +10,14 @@ public class alienBehaviour : MonoBehaviour
     private float radioTimer = 20f;
     public bool radioChanged;
     public taskTerminal TT; 
+    MainUIManager UIManager;
     // Start is called before the first frame update
     void Start()
     {
         alienAnimator = GetComponent<Animator>();
+
+        UIManager = FindAnyObjectByType<MainUIManager>();
+
     }
 
     // Update is called once per frame
@@ -48,6 +52,7 @@ public class alienBehaviour : MonoBehaviour
         if (TT.WaveAlienTaskActive)
         {
             TT.WaveAlienTaskActive = false;
+            UIManager.AdjustScore(10);
 
             TT.eraseTaskList();
         }
