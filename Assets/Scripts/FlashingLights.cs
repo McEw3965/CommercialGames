@@ -60,8 +60,11 @@ public class FlashingLights : MonoBehaviour
 
             bool lever = animator.GetBool("leverDown");
 
+            print("AT 1; " + lever);
             animator.SetBool("leverDown", !lever);
-
+            print("AT 2; " + lever);
+            animator.SetBool("leverDown", !lever);
+            print("AT 3; " + lever);
             UIManager.AdjustScore(20);
         }
 
