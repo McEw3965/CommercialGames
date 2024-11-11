@@ -47,21 +47,23 @@ public class FlashingLights : MonoBehaviour
 
     public void StopAlarm()
     {
-
-        Debug.Log("Stopping Alarm");
-        alarm.Stop();
-        alarmOn = false;
         if (TT.lightTaskActive)
         {
-            TT.lightTaskActive = false;
-            TT.eraseTaskList();
+            Debug.Log("Stopping Alarm");
+            alarm.Stop();
+            alarmOn = false;
+            if (TT.lightTaskActive)
+            {
+                TT.lightTaskActive = false;
+                TT.eraseTaskList();
+            }
+
+            bool lever = animator.GetBool("leverDown");
+
+            animator.SetBool("leverDown", !lever);
+
+            UIManager.AdjustScore(20);
         }
-
-        bool lever = animator.GetBool("leverDown");
-
-        animator.SetBool("leverDown", !lever);
-
-        UIManager.AdjustScore(20);
 
     }
 
