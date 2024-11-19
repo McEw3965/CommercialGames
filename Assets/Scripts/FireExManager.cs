@@ -52,6 +52,15 @@ public class FireExManager : MonoBehaviour
         }
     }
 
+    void OnParticleCollision(GameObject other)
+    {
+        Debug.Log("Hit Particle");
+
+        if(vb.isOnFire)
+        {
+            vb.repairVent();
+        }
+    }
 
 }
 

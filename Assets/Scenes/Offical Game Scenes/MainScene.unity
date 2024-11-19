@@ -462,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 1839739098}
   interactionRange: 5
+  isPickedUp: 0
 --- !u!114 &112656392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8009,7 +8010,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 440dd994ed787b047a5186451e30dfeb,
         type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 440dd994ed787b047a5186451e30dfeb,
         type: 3}
@@ -31274,7 +31275,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -31297,7 +31298,7 @@ ParticleSystemRenderer:
   m_VertexStreams: 00010304
   m_UseCustomTrailVertexStreams: 0
   m_TrailVertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -35069,7 +35070,7 @@ ParticleSystem:
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
@@ -38894,6 +38895,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particles: {fileID: 1362974028}
   vb: {fileID: 1555272243}
+  pickup: {fileID: 112656385}
 --- !u!1 &1882151591 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9423799c40f73524da64b0d355cde241,
