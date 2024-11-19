@@ -6,8 +6,7 @@ using UnityEngine.Experimental.GlobalIllumination;
 public class ventBehaviour : MonoBehaviour
 {
     public GameObject fireEffects;
-
-    private bool isOnFire = false;
+    public bool isOnFire = false;
     public taskTerminal TT;
     public AudioSource alarm;
     public Light mainLight;

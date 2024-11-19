@@ -7,7 +7,7 @@ public class PickUpItem : MonoBehaviour
     public Camera playerCamera; // The player's camera
     public float interactionRange = 5f; // How far the player can interact with an object
     private GameObject currentItem; // The current item the player is interacting with
-    private bool isPickedUp = false; // Whether the item is picked up
+    public bool isPickedUp = false;
 
     void Update()
     {
