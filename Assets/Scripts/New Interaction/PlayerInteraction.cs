@@ -2,16 +2,40 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
     Interactable currentInteractable;
+
+    public PlayerControls interaction;
+    private InputAction interact;
+
+
+    private void Awake()
+    {
+        interaction = new PlayerControls();
+    }
+
+
+    private void OnEnable()
+    {
+        interact = interaction.Player.Interact;
+        interact.Enable();
+    }
+
+    private void OnDisable()
+    {
+        interact.Disable();
+    }
+
+
     // Update is called once per frame
     void Update()
     {
         CheckInteraction();
-        if (Input.GetKeyDown(KeyCode.E) && currentInteractable != null)
+        if (interact.triggered && currentInteractable != null)
         {
             currentInteractable.Interact();
         }

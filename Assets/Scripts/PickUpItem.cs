@@ -1,61 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PickUpItem : MonoBehaviour
 {
     public Camera playerCamera; // The player's camera
-    public float interactionRange = 5f; // How far the player can interact with an object
-    private GameObject currentItem; // The current item the player is interacting with
+    public float interactionRange = 5f; 
+    public GameObject currentItem;
+    public bool itemInHand = false;
     public bool isPickedUp = false;
 
     void Update()
     {
-        // Cast a ray from the camera's position to where the player is looking
-        RaycastHit hit;
-        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, interactionRange))
+        if (!itemInHand)
         {
-            // If the ray hits an object, set it as the current item
-            if (hit.collider != null)
+            RaycastHit hit;
+            if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, interactionRange))
             {
-                currentItem = hit.collider.gameObject; // Store the object that was hit
+                if (hit.collider != null)
+                {
+                    currentItem = hit.collider.gameObject;
+                }
             }
         }
     }
 
-    // Call this method when the player presses E to interact with the item
+
+    //this is being called with interaction script
     public void pickUpItem()
     {
-        if (currentItem != null)
+        Rigidbody itemRigidbody = null;
+
+        if (!itemInHand) //picked up
         {
-            isPickedUp = !isPickedUp; // Toggle the pickup status
-
-            Rigidbody itemRigidbody = currentItem.GetComponent<Rigidbody>(); // Get the Rigidbody of the object
-
-            if (isPickedUp)
-            {
-                // Pick up logic
-                if (itemRigidbody != null)
+           
+                if (currentItem.CompareTag("Interactable"))
                 {
-                    itemRigidbody.isKinematic = true; // Disable physics interaction
-                }
+                    itemInHand = true;
+                    //isPickedUp = true;
+                    itemRigidbody = currentItem.GetComponent<Rigidbody>();
 
-                // Parent the item to the camera and adjust its position
-                currentItem.transform.SetParent(playerCamera.transform);
-                currentItem.transform.localPosition = new Vector3(0, 0, 2); // Adjust position relative to camera
-            }
-            else
-            {
-                // Drop logic
-                if (itemRigidbody != null)
-                {
-                    itemRigidbody.isKinematic = false; // Enable physics interaction
-                    itemRigidbody.velocity = Vector3.zero; // Optionally, reset velocity to stop movement when dropped
-                }
+                    if (itemRigidbody != null)
+                    {
+                        itemRigidbody.isKinematic = true;
+                    }
 
-                // Unparent the item from the camera
-                currentItem.transform.SetParent(null);
-            }
+                    currentItem.transform.SetParent(playerCamera.transform);
+                    currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
+                    currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+                }
+       
+        } else //drop?
+        {
+            Debug.Log("DropItem called");
+            dropItem(itemRigidbody);
+            ///isPickedUp = false;
+            //itemInHand = false;
         }
+    }
+
+
+
+    //this is then being called with E 
+    void dropItem(Rigidbody currentItem)
+    {
+        Debug.Log("Dropitem running");
+            currentItem.isKinematic = false;
+            currentItem.velocity = Vector3.zero;
+            currentItem.transform.SetParent(null);
+            itemInHand = false;
     }
 }

@@ -39,7 +39,7 @@ public class FireExManager : MonoBehaviour
             if (!particles.isPlaying)
             {
                 particles.Play();
-                Debug.Log("Particles started");
+             //   Debug.Log("Particles started");
             }
         }
         else
@@ -47,7 +47,7 @@ public class FireExManager : MonoBehaviour
             if (particles.isPlaying)
             {
                 particles.Stop();
-                Debug.Log("Particles stopped");
+           //     Debug.Log("Particles stopped");
             }
         }
     }
