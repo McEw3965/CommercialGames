@@ -10,6 +10,7 @@ public class FireExManager : MonoBehaviour
     public PlayerControls interaction;
     private InputAction fireExtinguishAction;
     public PickUpItem pickup;
+
     private void Awake()
     {
         interaction = new PlayerControls();
@@ -33,7 +34,7 @@ public class FireExManager : MonoBehaviour
     void Update()
     {
  
-        if(pickup.isPickedUp && this.GetComponent<FireExManager>() != null) //make it so if the fire ex has this script and picked up
+        if(pickup.itemInHand && this.GetComponent<FireExManager>() != null) //make it so if the fire ex has this script and picked up
         if (fireExtinguishAction.ReadValue<float>() > 0) 
         {
             if (!particles.isPlaying)
