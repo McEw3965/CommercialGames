@@ -46,7 +46,7 @@ public class PlayerInteraction : MonoBehaviour
         RaycastHit hit;
         Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
         if(Physics.Raycast(ray, out hit, playerReach)) {
-            if (hit.collider.tag == "Interactable")
+            if (hit.collider.tag == "Interactable" || hit.collider.tag == "CanPickUp")
             {
                 Interactable newInteractable = hit.collider.GetComponent<Interactable>(); 
                 

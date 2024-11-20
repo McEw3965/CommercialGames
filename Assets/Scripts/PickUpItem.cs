@@ -79,6 +79,13 @@ public class PickUpItem : MonoBehaviour
                 {
                     itemRigidbody.isKinematic = true;
                 }
+
+            Collider itemCollider = currentItem.GetComponent<Collider>();
+            if (itemCollider != null)
+            {
+                itemCollider.enabled = false; // Disable collisions
+            }
+
             originalScale = currentItem.transform.localScale;
             currentItem.transform.SetParent(playerCamera.transform);
             currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
@@ -114,6 +121,12 @@ public class PickUpItem : MonoBehaviour
             {
                 itemRigidbody.isKinematic = false;
                 itemRigidbody.velocity = Vector3.zero;
+            }
+
+            Collider itemCollider = currentItem.GetComponent<Collider>();
+            if (itemCollider != null)
+            {
+                itemCollider.enabled = true; // Disable collisions
             }
 
             // Unparent the item

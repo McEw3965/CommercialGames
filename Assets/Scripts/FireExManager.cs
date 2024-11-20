@@ -34,23 +34,24 @@ public class FireExManager : MonoBehaviour
     }
     void Update()
     {
- 
-        if(pickup.itemInHand && this.GetComponent<FireExManager>() != null) //make it so if the fire ex has this script and picked up
-        if (fireExtinguishAction.ReadValue<float>() > 0) 
-        {
-            if (!particles.isPlaying)
+
+        if (pickup.itemInHand && pickup.currentItem.CompareTag("CanPickUp")) {
+            if (fireExtinguishAction.ReadValue<float>() > 0)
             {
-                particles.Play();
-                fireExSound.Play();
-            }
-        }
-        else
-        {
-            if (particles.isPlaying)
-            {
-                particles.Stop();
-                fireExSound.Stop();
+                if (!particles.isPlaying)
+                {
+                    particles.Play();
+                    fireExSound.Play();
                 }
+            }
+            else
+            {
+                if (particles.isPlaying)
+                {
+                    particles.Stop();
+                    fireExSound.Stop();
+                }
+            }
         }
     }
 
