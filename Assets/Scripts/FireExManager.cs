@@ -11,6 +11,7 @@ public class FireExManager : MonoBehaviour
     private InputAction fireExtinguishAction;
     public PickUpItem pickup;
     public taskTerminal TT;
+    public AudioSource fireExSound;
     private void Awake()
     {
         interaction = new PlayerControls();
@@ -40,7 +41,7 @@ public class FireExManager : MonoBehaviour
             if (!particles.isPlaying)
             {
                 particles.Play();
-             //   Debug.Log("Particles started");
+                fireExSound.Play();
             }
         }
         else
@@ -48,8 +49,8 @@ public class FireExManager : MonoBehaviour
             if (particles.isPlaying)
             {
                 particles.Stop();
-           //     Debug.Log("Particles stopped");
-            }
+                fireExSound.Stop();
+                }
         }
 
 
@@ -58,10 +59,9 @@ public class FireExManager : MonoBehaviour
 
     void OnParticleCollision(GameObject other)
     {
-        Debug.Log("Hit Particle");
+         Debug.Log("Hit Particle");
          ventBehaviour[TT.ventNumber].repairVent();
         
-     
     }
 
 }
