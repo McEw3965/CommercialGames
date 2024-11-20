@@ -6,11 +6,11 @@ using UnityEngine.InputSystem;
 public class FireExManager : MonoBehaviour
 {
     public ParticleSystem particles;
-    public ventBehaviour vb;
+    public ventBehaviour[] ventBehaviour;
     public PlayerControls interaction;
     private InputAction fireExtinguishAction;
     public PickUpItem pickup;
-
+    public taskTerminal TT;
     private void Awake()
     {
         interaction = new PlayerControls();
@@ -51,16 +51,17 @@ public class FireExManager : MonoBehaviour
            //     Debug.Log("Particles stopped");
             }
         }
+
+
+
     }
 
     void OnParticleCollision(GameObject other)
     {
         Debug.Log("Hit Particle");
-
-        if(vb.isOnFire)
-        {
-            vb.repairVent();
-        }
+         ventBehaviour[TT.ventNumber].repairVent();
+        
+     
     }
 
 }

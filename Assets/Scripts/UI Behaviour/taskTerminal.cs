@@ -14,7 +14,7 @@ public class taskTerminal : MonoBehaviour
     public bool lightTaskActive;
     public bool radioTaskActive;
     public bool WaveAlienTaskActive;
-
+    public int ventNumber;
     public TextMeshProUGUI currentTask;
     public RadioController rc;
   
@@ -37,7 +37,10 @@ public class taskTerminal : MonoBehaviour
                 case 0:
                     if (!ventTaskActive) //vent task
                     {
-                        ventBehaviour[Random.Range(0, 3)].igniteVent();
+                        ventNumber = Random.Range(0, 3);
+                        ventBehaviour[ventNumber].igniteVent();
+
+
                         ventTaskActive = true;
                         currentTask.text = "Extinguish Vents";
                         print("Task Chosen: Vent Ignition");

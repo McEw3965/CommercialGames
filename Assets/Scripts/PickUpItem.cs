@@ -60,8 +60,6 @@ public class PickUpItem : MonoBehaviour
    //this is being called with interaction script
     public void grabItem()
         {
-      
-
           if (!itemInHand) //picked up
           {
 
