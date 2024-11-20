@@ -11,8 +11,6 @@ public class PickUpItem : MonoBehaviour
     public GameObject currentItem;
     public bool itemInHand = false; //this is being used in the fire ex manager script
 
-
-
     //unity new input system:
     public PlayerControls interaction;
     private InputAction dropItemBtn;
@@ -23,7 +21,7 @@ public class PickUpItem : MonoBehaviour
     }
     private void OnEnable()
     {
-        dropItemBtn = interaction.Player.DropItem;
+        dropItemBtn = interaction.Player.Interact;
         dropItemBtn.Enable();
     }
 
@@ -47,40 +45,47 @@ public class PickUpItem : MonoBehaviour
             }
         }
 
-        if (dropItemBtn.ReadValue<float>() > 0) //if player right clicks
+        if (dropItemBtn.triggered) //if player right clicks
         {
-            if (currentItem.GetComponent<Rigidbody>()) //check if the current item has a rigidbody first to stop any errosr
+            if (!itemInHand) //picked up
             {
-                //drop item
-                dropItem(currentItem.GetComponent<Rigidbody>());
+
+                grabItem();
+            } else
+            {
+                if (currentItem.GetComponent<Rigidbody>()) //check if the current item has a rigidbody first to stop any errosr
+                {
+                    //drop item
+                    dropItem(currentItem.GetComponent<Rigidbody>());
+                }
             }
+
+        
         }
     }
 
    //this is being called with interaction script
     public void grabItem()
         {
-          if (!itemInHand) //picked up
-          {
+      
+            if (currentItem != null && currentItem.CompareTag("CanPickUp")) {
+                itemInHand = true;
 
-              if (currentItem.CompareTag("Interactable")) //if the item is interactable
-              {
-                  itemInHand = true;
-             
-                   Rigidbody itemRigidbody = currentItem.GetComponent<Rigidbody>();
+                Rigidbody itemRigidbody = currentItem.GetComponent<Rigidbody>();
 
-                  if (itemRigidbody != null)
-                  {
-                      itemRigidbody.isKinematic = true;
-                  }
+                if (itemRigidbody != null)
+                {
+                    itemRigidbody.isKinematic = true;
+                }
 
-                  //positions where the item is picked up in the camera view
-                  currentItem.transform.SetParent(playerCamera.transform);
-                  currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
-                  currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
-              }
-
-          }
+                //positions where the item is picked up in the camera view
+                currentItem.transform.SetParent(playerCamera.transform);
+                currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
+                currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+            }
+        
+        
+          
        }
 
        //drops the item

@@ -43,7 +43,7 @@ public class taskTerminal : MonoBehaviour
 
                         ventTaskActive = true;
                         currentTask.text = "Extinguish Vents";
-                        print("Task Chosen: Vent Ignition");
+                        print("Task Chosen: Vent Ignition" + ventNumber);
                     }
                     break;
 

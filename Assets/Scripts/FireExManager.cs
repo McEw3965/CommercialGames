@@ -52,16 +52,14 @@ public class FireExManager : MonoBehaviour
                 fireExSound.Stop();
                 }
         }
-
-
-
     }
 
     void OnParticleCollision(GameObject other)
     {
          Debug.Log("Hit Particle");
-         ventBehaviour[TT.ventNumber].repairVent();
-        
+ 
+        ventBehaviour[TT.ventNumber].repairVent();
+     
     }
 
 }
