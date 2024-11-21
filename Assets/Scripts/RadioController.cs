@@ -3,27 +3,45 @@ using UnityEngine;
 using TMPro;
 public class RadioController : MonoBehaviour
 {
+    public Camera playerCamera; // The player's camera
+    public GameObject Player;
     public AudioSource[] RadioTracks;
     public int trackNum = 0;
     public bool isRadioOn = false;
-//    public alienBehaviour AB;
+    //    public alienBehaviour AB;
     public taskTerminal TT;
     public TMPro.TextMeshPro textMeshPro;
     MainUIManager UIManager;
+    Vector3 originalScale;
     private void Start()
     {
         UIManager = FindAnyObjectByType<MainUIManager>();
         textMeshPro.text = ""; //turn off any text dispaly
     }
-
+    
     public void TurnRadioOn() {
-       /* if (AB.isFollowing == true)
-        {
-            AB.radioChanged = true;
-            print(AB.radioChanged);
-        }*/
+        /* if (AB.isFollowing == true)
+         {
+             AB.radioChanged = true;
+             print(AB.radioChanged);
+         }*/
 
-            if (!isRadioOn) //if the radio is off
+
+
+
+        GameObject radio = this.gameObject;
+        originalScale = this.transform.localScale;
+        this.transform.SetParent(playerCamera.transform);
+        radio.transform.localPosition = new Vector3(0,-2.5f, 2);
+        radio.transform.localScale = originalScale; // Restore original scale
+
+
+        Player.GetComponent<FirstPersonController>().playerCanMove = false;
+        Player.GetComponent<FirstPersonController>().cameraCanMove = false;
+        //Player.GetComponent<FirstPersonController>().
+
+
+        if (!isRadioOn) //if the radio is off
             {
                 Debug.Log("Playing Radio");
                 RadioTracks[trackNum].Play(); //play the first track
@@ -61,7 +79,8 @@ public class RadioController : MonoBehaviour
             TT.eraseTaskList();
         }
 
-          
+       // Player.GetComponent<FirstPersonController>().playerCanMove = true;
+       // Player.GetComponent<FirstPersonController>().cameraCanMove = true;
 
     }
 
