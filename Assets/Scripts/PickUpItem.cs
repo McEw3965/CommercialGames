@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PickUpItem : MonoBehaviour
 {
-    public Camera playerCamera; // The player's camera
+    Camera playerCamera; // The player's camera
     public float interactionRange = 5f; 
     public GameObject currentItem;
     public bool itemInHand = false; //this is being used in the fire ex manager script
@@ -32,7 +32,10 @@ public class PickUpItem : MonoBehaviour
     {
         dropItemBtn.Disable();
     }
-
+    private void Start()
+    {
+        playerCamera = Camera.main;
+    }
     void Update()
     {
         if (!itemInHand) //if there is nothing in the players hand
@@ -65,9 +68,24 @@ public class PickUpItem : MonoBehaviour
         
         }
     }
+  
 
-   //this is being called with interaction script
-     void grabItem()
+
+    public void SetPosition(Vector3 position) 
+    {
+        currentItem.transform.localPosition = position;
+
+    }
+
+    public void SetRotaion(Vector3 rotation)
+    {
+        currentItem.transform.localRotation = Quaternion.Euler(rotation);
+
+    }
+
+
+    //this is being called with interaction script
+    void grabItem()
         {
       
             if (currentItem != null && currentItem.CompareTag("CanPickUp")) {
@@ -88,20 +106,14 @@ public class PickUpItem : MonoBehaviour
 
             originalScale = currentItem.transform.localScale;
             currentItem.transform.SetParent(playerCamera.transform);
-            currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
-            currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
+           // currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
+           // currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
             currentItem.transform.localScale = originalScale; // Restore original scale
 
-            /*
-            //positions where the item is picked up in the camera view
-            currentItem.transform.SetParent(playerCamera.transform);
-            currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
-            currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
-            */
+       
         }
         
-        
-          
+     
        }
 
        //drops the item

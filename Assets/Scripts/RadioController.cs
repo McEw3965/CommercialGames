@@ -3,20 +3,32 @@ using UnityEngine;
 using TMPro;
 public class RadioController : MonoBehaviour
 {
-    public Camera playerCamera; // The player's camera
-    public GameObject Player;
-    public AudioSource[] RadioTracks;
+
+    [SerializeField] private AudioSource[] RadioTracks;
+
+    Camera playerCamera; // The player's camera
+    GameObject Player;
+    taskTerminal TT;
+    MainUIManager UIManager;
+    TMPro.TextMeshPro textMeshPro;
+
     public int trackNum = 0;
     public bool isRadioOn = false;
-    //    public alienBehaviour AB;
-    public taskTerminal TT;
-    public TMPro.TextMeshPro textMeshPro;
-    MainUIManager UIManager;
+   
+
     Vector3 originalScale;
     private void Start()
     {
+        //Referencing
+        playerCamera = Camera.main;
+        Player = GameObject.FindWithTag("Player");
+        TT = GameObject.Find("table").GetComponent<taskTerminal>();
         UIManager = FindAnyObjectByType<MainUIManager>();
-        textMeshPro.text = ""; //turn off any text dispaly
+        textMeshPro = (TextMeshPro)GetComponentInChildren<TMP_Text>();
+
+
+        textMeshPro.text = ""; //Set text to empty
+        
     }
     
     public void TurnRadioOn() {

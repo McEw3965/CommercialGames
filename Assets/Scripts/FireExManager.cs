@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.FilePathAttribute;
+using UnityEngine.UIElements;
 
 public class FireExManager : MonoBehaviour
 {
@@ -27,7 +29,6 @@ public class FireExManager : MonoBehaviour
         fireExtinguishAction.Disable();
     }
 
-
     void Start()
     {
         particles.Stop();
@@ -35,7 +36,13 @@ public class FireExManager : MonoBehaviour
     void Update()
     {
 
-        if (pickup.itemInHand && pickup.currentItem.CompareTag("CanPickUp")) {
+        if(pickup.itemInHand)
+        {
+            pickup.SetPosition(new Vector3(0.5f, -1, 1));
+            pickup.SetRotaion(new Vector3 (-90,0,0));
+        }
+
+        if (pickup.itemInHand && pickup.currentItem.CompareTag("CanPickUp") && pickup.currentItem.GetComponent<FireExManager>()) { 
             if (fireExtinguishAction.ReadValue<float>() > 0)
             {
                 if (!particles.isPlaying)
@@ -54,15 +61,5 @@ public class FireExManager : MonoBehaviour
             }
         }
     }
-
-    /*
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("Hit Particle");
-
-        ventBehaviour[TT.ventNumber].repairVent();
-    }
-   
-    */
 }
 

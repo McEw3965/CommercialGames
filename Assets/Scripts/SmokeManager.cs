@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class SmokeManager : MonoBehaviour
 {
-    public taskTerminal TT;
+    private taskTerminal TT;
     public ventBehaviour[] ventBehaviour;
-
-
+    private void Start()
+    {
+        TT = GameObject.Find("table").GetComponent<taskTerminal>();
+    }
     private void OnParticleCollision(GameObject other)
     {
      //   Debug.Log("Collided with: " + other.name); 

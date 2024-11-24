@@ -5,12 +5,27 @@ using UnityEngine;
 public class PlayerDamage : MonoBehaviour
 {
     public ventBehaviour[] ventBehaviour;
-    public taskTerminal TT;
-    public Animator animator;
-    public AudioSource hurt;
-    float time = 0;
+
+    private Animator animator;
+    private AudioSource audioHurt;
+    private taskTerminal TT;
+    
     bool isHurt = false;
     bool isInFire = false;
+    float time = 0;
+
+
+    private void Start()
+    {
+        TT = GameObject.Find("table").GetComponent<taskTerminal>();
+        animator = GameObject.Find("Post Processing Hurt Effect").GetComponent<Animator>();
+        audioHurt = GetComponent<AudioSource>();
+
+        if (audioHurt == null)
+        {
+            Debug.LogError("No AudioSource component found!");
+        }
+    }
     private void Update()
     {
 
@@ -21,7 +36,7 @@ public class PlayerDamage : MonoBehaviour
             if (!isHurt)
             {
                 animator.SetBool("IsHurt", true);
-                hurt.Play();
+                audioHurt.Play();
                 isHurt = true;                  
                 time = 0f;                    
             }
