@@ -35,14 +35,12 @@ public class FireExManager : MonoBehaviour
     }
     void Update()
     {
-
-        if(pickup.itemInHand)
-        {
+        if (pickup.itemInHand && pickup.currentItem.CompareTag("CanPickUp") && pickup.currentItem.name == "Fire_Ex") {
+     
             pickup.SetPosition(new Vector3(0.5f, -1, 1));
-            pickup.SetRotaion(new Vector3 (-90,0,0));
-        }
+            pickup.SetRotaion(new Vector3(-90, 0, 0));
 
-        if (pickup.itemInHand && pickup.currentItem.CompareTag("CanPickUp") && pickup.currentItem.GetComponent<FireExManager>()) { 
+
             if (fireExtinguishAction.ReadValue<float>() > 0)
             {
                 if (!particles.isPlaying)

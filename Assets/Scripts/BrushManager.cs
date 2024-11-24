@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 public class BrushManager : MonoBehaviour
 {
 
-    PickUpItem pickup;
+    PickUpItem pickup; //reference to the pickup script
 
     [Header("Debugging Brush Position:")]
     [SerializeField] private Vector3 position;
@@ -17,15 +17,18 @@ public class BrushManager : MonoBehaviour
     {
         pickup = GameObject.FindWithTag("Player").GetComponent<PickUpItem>();
 
-        position = new Vector3(0, -1.38f, 2.15f);
-        rotation = new Vector3(52, -180, -4.1f);
+       
 
     }
     // Update is called once per frame
     void Update()
     {
-        if (pickup.itemInHand)
+        if (pickup.itemInHand && pickup.currentItem.name == "brush")
         {
+
+            position = new Vector3(0, -3, 1f);
+            rotation = new Vector3(52, -180, -4.1f);
+
             pickup.SetPosition(position);
             pickup.SetRotaion(rotation);
         }

@@ -17,7 +17,6 @@ public class PickUpItem : MonoBehaviour
 
     Vector3 originalScale;
 
-
     private void Awake()
     {
         interaction = new PlayerControls();
@@ -74,13 +73,11 @@ public class PickUpItem : MonoBehaviour
     public void SetPosition(Vector3 position) 
     {
         currentItem.transform.localPosition = position;
-
     }
 
     public void SetRotaion(Vector3 rotation)
     {
         currentItem.transform.localRotation = Quaternion.Euler(rotation);
-
     }
 
 
@@ -106,8 +103,6 @@ public class PickUpItem : MonoBehaviour
 
             originalScale = currentItem.transform.localScale;
             currentItem.transform.SetParent(playerCamera.transform);
-           // currentItem.transform.localPosition = new Vector3(0.5f, -1, 1);
-           // currentItem.transform.localRotation = Quaternion.Euler(-90, 0, 0);
             currentItem.transform.localScale = originalScale; // Restore original scale
 
        
@@ -119,12 +114,6 @@ public class PickUpItem : MonoBehaviour
        //drops the item
     void dropItem()
     {
-        /*
-            Debug.Log("Dropitem running");
-            currentItem.isKinematic = false;
-            currentItem.velocity = Vector3.zero;
-            currentItem.transform.SetParent(null);
-        */
         if (currentItem != null)
         {
             Rigidbody itemRigidbody = currentItem.GetComponent<Rigidbody>();
@@ -138,7 +127,7 @@ public class PickUpItem : MonoBehaviour
             Collider itemCollider = currentItem.GetComponent<Collider>();
             if (itemCollider != null)
             {
-                itemCollider.enabled = true; // Disable collisions
+                itemCollider.enabled = true;
             }
 
             // Unparent the item
