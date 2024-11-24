@@ -20,25 +20,17 @@ public class RadioController : MonoBehaviour
     }
     
     public void TurnRadioOn() {
-        /* if (AB.isFollowing == true)
-         {
-             AB.radioChanged = true;
-             print(AB.radioChanged);
-         }*/
 
-
-
-
+        /*
         GameObject radio = this.gameObject;
         originalScale = this.transform.localScale;
         this.transform.SetParent(playerCamera.transform);
         radio.transform.localPosition = new Vector3(0,-2.5f, 2);
         radio.transform.localScale = originalScale; // Restore original scale
+        */
 
-
-        Player.GetComponent<FirstPersonController>().playerCanMove = false;
-        Player.GetComponent<FirstPersonController>().cameraCanMove = false;
-        //Player.GetComponent<FirstPersonController>().
+  //      Player.GetComponent<FirstPersonController>().playerCanMove = false;
+//        Player.GetComponent<FirstPersonController>().cameraCanMove = false;
 
 
         if (!isRadioOn) //if the radio is off
