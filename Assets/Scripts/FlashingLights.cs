@@ -57,7 +57,7 @@ public class FlashingLights : MonoBehaviour
             if (TT.lightTaskActive)
             {
                 TT.lightTaskActive = false;
-                TT.eraseTaskList();
+                TT.removeFromList("TaskLights");
             }
 
             bool lever = animator.GetBool("leverDown");

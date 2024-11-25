@@ -8,6 +8,10 @@ TagManager:
   - CanPickUp
   - Fire
   - Vent
+  - TaskAlien
+  - TaskVent
+  - TaskLights
+  - TaskRadio
   layers:
   - Default
   - TransparentFX

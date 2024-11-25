@@ -54,7 +54,7 @@ public class alienBehaviour : MonoBehaviour
             TT.WaveAlienTaskActive = false;
             UIManager.AdjustScore(10);
 
-            TT.eraseTaskList();
+            TT.removeFromList("TaskAlien");
         }
     }
     private IEnumerator ResetWave(float delay)

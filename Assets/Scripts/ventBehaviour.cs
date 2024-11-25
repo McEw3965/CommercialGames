@@ -38,7 +38,7 @@ public class ventBehaviour : MonoBehaviour
             alarm.Pause();
             print("Vent Repaired");
             TT.ventTaskActive = false;
-            TT.eraseTaskList();
+            TT.removeFromList("TaskVent");
             mainLight.color = Color.white;
             UIManager.AdjustScore(50);
 

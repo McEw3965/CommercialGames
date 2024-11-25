@@ -80,7 +80,7 @@ public class RadioController : MonoBehaviour
         {
             TT.radioTaskActive = false;
             UIManager.AdjustScore(10);
-            TT.eraseTaskList();
+            TT.removeFromList("TaskRadio");
         }
 
        // Player.GetComponent<FirstPersonController>().playerCanMove = true;
