@@ -9,13 +9,13 @@ public class alienBehaviour : MonoBehaviour
     public AINavigations AiNav;
     private float radioTimer = 20f;
     public bool radioChanged;
-    public taskTerminal TT; 
+    private taskTerminal TT; 
     MainUIManager UIManager;
     // Start is called before the first frame update
     void Start()
     {
         alienAnimator = GetComponent<Animator>();
-
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
         UIManager = FindAnyObjectByType<MainUIManager>();
 
     }

@@ -7,12 +7,16 @@ public class ventBehaviour : MonoBehaviour
 {
     public GameObject fireEffects;
     public bool isOnFire = false;
-    public taskTerminal TT;
+    private taskTerminal TT;
     public AudioSource alarm;
     public Light mainLight;
     public MainUIManager UIManager;
 
+    private void Start()
+    {
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
 
+    }
     public void igniteVent()
     {
         if (!isOnFire)

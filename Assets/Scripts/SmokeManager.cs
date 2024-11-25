@@ -8,7 +8,7 @@ public class SmokeManager : MonoBehaviour
     public ventBehaviour[] ventBehaviour;
     private void Start()
     {
-        TT = GameObject.Find("table").GetComponent<taskTerminal>();
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
     }
     private void OnParticleCollision(GameObject other)
     {

@@ -12,7 +12,7 @@ public class FireExManager : MonoBehaviour
     public PlayerControls interaction;
     private InputAction fireExtinguishAction;
     public PickUpItem pickup;
-    public taskTerminal TT;
+    private taskTerminal TT;
     public AudioSource fireExSound;
     private void Awake()
     {
@@ -32,6 +32,8 @@ public class FireExManager : MonoBehaviour
     void Start()
     {
         particles.Stop();
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
+
     }
     void Update()
     {

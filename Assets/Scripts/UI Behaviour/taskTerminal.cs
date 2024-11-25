@@ -17,8 +17,11 @@ public class taskTerminal : MonoBehaviour
     public int ventNumber;
     public TextMeshProUGUI currentTask;
     public RadioController rc;
-  
 
+    private void Update()
+    {
+        selectTask();
+    }
     public void selectTask()
     {
           if (!ventTaskActive && !lightTaskActive && !radioTaskActive && !WaveAlienTaskActive)
@@ -30,7 +33,7 @@ public class taskTerminal : MonoBehaviour
         WaveAlienTaskActive = false;
         eraseTaskList();*/
 
-            chosenTask = Random.Range(0, 1);
+            chosenTask = Random.Range(0, 4);
 
             switch (chosenTask)
             {

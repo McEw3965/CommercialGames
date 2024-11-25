@@ -22,7 +22,7 @@ public class RadioController : MonoBehaviour
         //Referencing
         playerCamera = Camera.main;
         Player = GameObject.FindWithTag("Player");
-        TT = GameObject.Find("table").GetComponent<taskTerminal>();
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
         UIManager = FindAnyObjectByType<MainUIManager>();
         textMeshPro = (TextMeshPro)GetComponentInChildren<TMP_Text>();
 

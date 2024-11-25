@@ -17,7 +17,7 @@ public class PlayerDamage : MonoBehaviour
 
     private void Start()
     {
-        TT = GameObject.Find("table").GetComponent<taskTerminal>();
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
         animator = GameObject.Find("Post Processing Hurt Effect").GetComponent<Animator>();
         audioHurt = GetComponent<AudioSource>();
 

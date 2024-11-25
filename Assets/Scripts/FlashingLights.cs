@@ -13,12 +13,14 @@ public class FlashingLights : MonoBehaviour
     float timer = 1.5f;
     public bool alarmOn = false;
     
-    public taskTerminal TT;
+    private taskTerminal TT;
     MainUIManager UIManager;
 
     private void Start()
     {
         UIManager = FindAnyObjectByType<MainUIManager>();
+        TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
+
     }
 
 
