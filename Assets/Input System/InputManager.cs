@@ -10,8 +10,8 @@ public class InputManager : MonoBehaviour
 
     private PlayerMotor motor;
     private PlayerLook look;
-
     public FireExManager FireExManager;
+    public PlayerInteraction PlayerInteraction;
     // Start is called before the first frame update
     void Awake()
     {
@@ -22,10 +22,10 @@ public class InputManager : MonoBehaviour
         look = GetComponent<PlayerLook>();
 
         OnFoot.Jump.performed += ctx => motor.Jump();
-
         OnFoot.Crouch.performed += ctx => motor.Crouch();
         OnFoot.Sprint.performed += ctx => motor.Sprint();
         OnFoot.FireExtinguisher.performed += ctx => FireExManager.fireExtinguishActions();
+        OnFoot.Interact.performed += ctx => PlayerInteraction.currentInteractable.Interact();
     }
 
     // Update is called once per frame
@@ -33,6 +33,7 @@ public class InputManager : MonoBehaviour
     {
         //tell the playermotor to move using the value from our movement action.
         motor.ProcessMove(OnFoot.Movement.ReadValue<Vector2>());
+        
     }
     private void LateUpdate()
     {

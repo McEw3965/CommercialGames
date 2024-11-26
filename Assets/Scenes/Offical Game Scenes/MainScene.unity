@@ -259,6 +259,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18379310}
   m_CullTransparentMesh: 1
+--- !u!114 &81061877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7040340426391393015, guid: 3f3327fa555b23a4ebcd0add211e9182,
+    type: 3}
+  m_PrefabInstance: {fileID: 8264720506244218983}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5563c8e1e8f5a40baccbaf1548911a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &112656368 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
@@ -278,6 +290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReach: 5
+  currentInteractable: {fileID: 0}
 --- !u!114 &112656385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8376cf554d3f0934f8037220060523a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FireExManager: {fileID: 81061877}
+  PlayerInteraction: {fileID: 112656378}
 --- !u!114 &112656407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8364,6 +8379,7 @@ GameObject:
   - component: {fileID: 857079310}
   - component: {fileID: 857079312}
   - component: {fileID: 857079311}
+  - component: {fileID: 857079313}
   m_Layer: 0
   m_Name: Task TItle
   m_TagString: Untagged
@@ -8488,6 +8504,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 857079309}
   m_CullTransparentMesh: 1
+--- !u!114 &857079313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 857079309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typewriterStartsAutomatically: 0
+  animationLoop: 0
+  timeScale: 0
+  _text: 
+  useDynamicScaling: 1
+  referenceFontSize: 10
+  isResettingTimeOnNewText: 1
+  useDefaultDatabases: 1
+  databaseBehaviors: {fileID: 0}
+  databaseAppearances: {fileID: 0}
+  useDefaultStyleSheet: 1
+  styleSheet: {fileID: 0}
+  databaseActions: {fileID: 0}
+  defaultAppearancesTags:
+  - size
+  defaultDisappearancesTags:
+  - fade
+  defaultBehaviorsTags: []
+  defaultTagsMode: 0
 --- !u!1 &879026016
 GameObject:
   m_ObjectHideFlags: 0
@@ -20473,32 +20520,32 @@ PrefabInstance:
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.33
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.33
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.33
+      value: 2.66
       objectReference: {fileID: 0}
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.26
+      value: -10.88
       objectReference: {fileID: 0}
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.289
+      value: -3.04
       objectReference: {fileID: 0}
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.12
+      value: -5.72
       objectReference: {fileID: 0}
     - target: {fileID: 2557585333956571141, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
@@ -20549,6 +20596,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113242231183264544, guid: f972930d1164f39408a92a49106eabe2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -4.483
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113242231183264544, guid: f972930d1164f39408a92a49106eabe2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9113242231183264544, guid: f972930d1164f39408a92a49106eabe2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

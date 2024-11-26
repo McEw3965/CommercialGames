@@ -7,38 +7,12 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
-    Interactable currentInteractable;
-
-    public PlayerControls interaction;
-    private InputAction interact;
-
-
-    private void Awake()
-    {
-        interaction = new PlayerControls();
-    }
-
-
-    private void OnEnable()
-    {
-        interact = interaction.onFoot.Interact;
-        interact.Enable();
-    }
-
-    private void OnDisable()
-    {
-        interact.Disable();
-    }
-
+    public Interactable currentInteractable;
 
     // Update is called once per frame
     void Update()
     {
         CheckInteraction();
-        if (interact.triggered && currentInteractable != null)
-        {
-            currentInteractable.Interact();
-        }
     }
 
     void CheckInteraction()
