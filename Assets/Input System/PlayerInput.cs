@@ -46,15 +46,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""DropItem"",
-                    ""type"": ""Button"",
-                    ""id"": ""e786538f-b530-4cab-8450-b2a34aa63fe9"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""01ba94a4-f248-43ee-8d91-ba64afc90169"",
@@ -98,6 +89,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DisplayMap"",
+                    ""type"": ""Button"",
+                    ""id"": ""6c7b33ea-73e5-447f-bd03-00e0b65cc4fb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -120,17 +120,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Interact"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""e2954200-e12f-47ce-86c4-aaee6c75ab50"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""DropItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -329,6 +318,28 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Crouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b4f1140d-b34b-4783-a324-053a235a06d4"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DisplayMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f476f760-b31d-4e2e-ba8e-4520ed284d93"",
+                    ""path"": ""<Gamepad>/{Back}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DisplayMap"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -918,12 +929,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_onFoot = asset.FindActionMap("onFoot", throwIfNotFound: true);
         m_onFoot_FireExtinguisher = m_onFoot.FindAction("FireExtinguisher", throwIfNotFound: true);
         m_onFoot_Interact = m_onFoot.FindAction("Interact", throwIfNotFound: true);
-        m_onFoot_DropItem = m_onFoot.FindAction("DropItem", throwIfNotFound: true);
         m_onFoot_Movement = m_onFoot.FindAction("Movement", throwIfNotFound: true);
         m_onFoot_Look = m_onFoot.FindAction("Look", throwIfNotFound: true);
         m_onFoot_Jump = m_onFoot.FindAction("Jump", throwIfNotFound: true);
         m_onFoot_Sprint = m_onFoot.FindAction("Sprint", throwIfNotFound: true);
         m_onFoot_Crouch = m_onFoot.FindAction("Crouch", throwIfNotFound: true);
+        m_onFoot_DisplayMap = m_onFoot.FindAction("DisplayMap", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -999,24 +1010,24 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
     private readonly InputAction m_onFoot_FireExtinguisher;
     private readonly InputAction m_onFoot_Interact;
-    private readonly InputAction m_onFoot_DropItem;
     private readonly InputAction m_onFoot_Movement;
     private readonly InputAction m_onFoot_Look;
     private readonly InputAction m_onFoot_Jump;
     private readonly InputAction m_onFoot_Sprint;
     private readonly InputAction m_onFoot_Crouch;
+    private readonly InputAction m_onFoot_DisplayMap;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
         public OnFootActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @FireExtinguisher => m_Wrapper.m_onFoot_FireExtinguisher;
         public InputAction @Interact => m_Wrapper.m_onFoot_Interact;
-        public InputAction @DropItem => m_Wrapper.m_onFoot_DropItem;
         public InputAction @Movement => m_Wrapper.m_onFoot_Movement;
         public InputAction @Look => m_Wrapper.m_onFoot_Look;
         public InputAction @Jump => m_Wrapper.m_onFoot_Jump;
         public InputAction @Sprint => m_Wrapper.m_onFoot_Sprint;
         public InputAction @Crouch => m_Wrapper.m_onFoot_Crouch;
+        public InputAction @DisplayMap => m_Wrapper.m_onFoot_DisplayMap;
         public InputActionMap Get() { return m_Wrapper.m_onFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1032,9 +1043,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @DropItem.started += instance.OnDropItem;
-            @DropItem.performed += instance.OnDropItem;
-            @DropItem.canceled += instance.OnDropItem;
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
@@ -1050,6 +1058,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Crouch.started += instance.OnCrouch;
             @Crouch.performed += instance.OnCrouch;
             @Crouch.canceled += instance.OnCrouch;
+            @DisplayMap.started += instance.OnDisplayMap;
+            @DisplayMap.performed += instance.OnDisplayMap;
+            @DisplayMap.canceled += instance.OnDisplayMap;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -1060,9 +1071,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @DropItem.started -= instance.OnDropItem;
-            @DropItem.performed -= instance.OnDropItem;
-            @DropItem.canceled -= instance.OnDropItem;
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
             @Movement.canceled -= instance.OnMovement;
@@ -1078,6 +1086,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Crouch.started -= instance.OnCrouch;
             @Crouch.performed -= instance.OnCrouch;
             @Crouch.canceled -= instance.OnCrouch;
+            @DisplayMap.started -= instance.OnDisplayMap;
+            @DisplayMap.performed -= instance.OnDisplayMap;
+            @DisplayMap.canceled -= instance.OnDisplayMap;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1262,12 +1273,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnFireExtinguisher(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
-        void OnDropItem(InputAction.CallbackContext context);
         void OnMovement(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
+        void OnDisplayMap(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

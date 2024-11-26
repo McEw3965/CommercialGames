@@ -10,6 +10,8 @@ public class InputManager : MonoBehaviour
 
     private PlayerMotor motor;
     private PlayerLook look;
+
+    public FireExManager FireExManager;
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,6 +25,7 @@ public class InputManager : MonoBehaviour
 
         OnFoot.Crouch.performed += ctx => motor.Crouch();
         OnFoot.Sprint.performed += ctx => motor.Sprint();
+        OnFoot.FireExtinguisher.performed += ctx => FireExManager.fireExtinguishActions();
     }
 
     // Update is called once per frame

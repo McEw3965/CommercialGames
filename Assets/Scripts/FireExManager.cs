@@ -43,7 +43,7 @@ public class FireExManager : MonoBehaviour
             pickup.SetRotaion(new Vector3(-90, 0, 0));
 
 
-            if (fireExtinguishAction.ReadValue<float>() > 0)
+         /*   if (fireExtinguishAction.ReadValue<float>() > 0)
             {
                 if (!particles.isPlaying)
                 {
@@ -59,6 +59,21 @@ public class FireExManager : MonoBehaviour
                     fireExSound.Stop();
                 }
             }
+        }*/
+    }
+
+
+  public void fireExtinguishActions()
+    {
+        if (!particles.isPlaying)
+        {
+            particles.Play();
+            fireExSound.Play();
+        }
+        else
+        {
+            particles.Stop();
+            fireExSound.Stop();
         }
     }
 }
