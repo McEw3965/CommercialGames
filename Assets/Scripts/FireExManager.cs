@@ -20,7 +20,7 @@ public class FireExManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        fireExtinguishAction = interaction.Player.FireExtinguisher;
+        fireExtinguishAction = interaction.onFoot.FireExtinguisher;
         fireExtinguishAction.Enable();
     }
 

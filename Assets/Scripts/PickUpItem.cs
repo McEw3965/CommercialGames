@@ -23,7 +23,7 @@ public class PickUpItem : MonoBehaviour
     }
     private void OnEnable()
     {
-        dropItemBtn = interaction.Player.Interact;
+        dropItemBtn = interaction.onFoot.Interact;
         dropItemBtn.Enable();
     }
 

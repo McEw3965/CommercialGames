@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.PostProcessing;
 
 public class PlayerDamage : MonoBehaviour
 {
     public ventBehaviour[] ventBehaviour;
 
-    private Animator animator;
+    [SerializeField] private GameObject hurtEffect;
     private AudioSource audioHurt;
     private taskTerminal TT;
-    
+
     bool isHurt = false;
     bool isInFire = false;
     float time = 0;
@@ -18,8 +20,9 @@ public class PlayerDamage : MonoBehaviour
     private void Start()
     {
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
-        animator = GameObject.Find("Post Processing Hurt Effect").GetComponent<Animator>();
-        audioHurt = GetComponent<AudioSource>();
+        hurtEffect.SetActive(false);
+            audioHurt = GetComponent<AudioSource>();
+
 
         if (audioHurt == null)
         {
@@ -35,36 +38,24 @@ public class PlayerDamage : MonoBehaviour
 
             if (!isHurt)
             {
-                animator.SetBool("IsHurt", true);
+
+
+                //post processing stuff
+                hurtEffect.SetActive(true);
                 audioHurt.Play();
                 isHurt = true;                  
                 time = 0f;                    
             }
-            else
-            {
-                turnoffhurtanimation();
-            }
+          
         }
     }
 
-    void turnoffhurtanimation()
-    {
-        time = 0;
-        time += Time.deltaTime;
-        if (time >= 0.5f)
-        {
-            animator.SetBool("IsHurt", false);
-            isHurt = false;
-        }
-
-    }
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Collided with: " + collision.gameObject.name);
 
         if (collision.gameObject.CompareTag("Vent") && ventBehaviour[TT.ventNumber].isOnFire)
         {
-
             isInFire = true;
         }
 
@@ -74,11 +65,15 @@ public class PlayerDamage : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Vent"))
         {
-                isInFire = false;
-            turnoffhurtanimation();
+            isInFire = false;
+            isHurt = false;
+
+            Debug.Log("turn off effect");
+            hurtEffect.SetActive(false);
+
 
 
         }
-       
+
     }
 }

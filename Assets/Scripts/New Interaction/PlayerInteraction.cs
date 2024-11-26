@@ -21,7 +21,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnEnable()
     {
-        interact = interaction.Player.Interact;
+        interact = interaction.onFoot.Interact;
         interact.Enable();
     }
 
