@@ -32,7 +32,7 @@ public class FireExManager : MonoBehaviour
 
   public void fireExtinguishActions() //function called on left mouse click 
     {
-        if (!particles.isPlaying)
+        if (!particles.isEmitting)
         {
             Debug.Log("Playing particles and sound...");
 
