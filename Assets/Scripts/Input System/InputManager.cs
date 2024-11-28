@@ -14,8 +14,8 @@ public class InputManager : MonoBehaviour
     private PlayerInteraction interaction;
     private PickUpItem pickUpItem;
 
-
     public FireExManager FireExManager;
+    public MapManager map;
 
     private bool hasFireEx = false;
    
@@ -33,7 +33,7 @@ public class InputManager : MonoBehaviour
         OnFoot.Jump.performed += ctx => motor.Jump();
         OnFoot.Crouch.performed += ctx => motor.Crouch();
         OnFoot.Sprint.performed += ctx => motor.Sprint();
-        
+
         OnFoot.Interact.performed += ctx =>
         {
             if (interaction.currentInteractable == null)
@@ -47,7 +47,7 @@ public class InputManager : MonoBehaviour
         };
 
 
-        OnFoot.FireExtinguisher.performed += ctx =>
+        OnFoot.FireExtinguisher.performed += ctx => map.ToggleMap();
         {
             if (hasFireEx) //if the user is holding the fire extinguisher
             {
@@ -60,6 +60,8 @@ public class InputManager : MonoBehaviour
             }
         };
 
+
+        OnFoot.DisplayMap.performed += ctx => map.ToggleMap(); //toggles the map on and off
     }
 
 

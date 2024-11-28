@@ -21,7 +21,7 @@ public class PlayerDamage : MonoBehaviour
     {
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
         hurtEffect.SetActive(false);
-            audioHurt = GetComponent<AudioSource>();
+        audioHurt = GetComponent<AudioSource>();
 
 
         if (audioHurt == null)
