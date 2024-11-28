@@ -22,37 +22,33 @@ public class taskTerminal : MonoBehaviour
     private int chosenTask;
 
     [Header("Time between each task:")]
-    [SerializeField] private float time = 15f; //give 10 seconds between each task  
+    [SerializeField] private float time = 5f; 
     [SerializeField] private GameObject listTasks; 
     [SerializeField] private Transform listParent;
     private float timer = 0f;
-    private float itemHeight = 80f; // Spacing between items
+    [Header("Space between each task in UI")]
+    [SerializeField] private float itemHeight = 100f; // Spacing between items
 
     private void Start()
     {
         lightFlash = GameObject.Find("Directional Light").GetComponent<FlashingLights>();
         currentTask = GameObject.Find("Current Task").GetComponent<TextMeshProUGUI>();
-
         listParent = GameObject.Find("Main Task Panel").transform;
         listTasks = GameObject.Find("ListTasks");
     }
     private void Update()
     {
 
-        timer += Time.deltaTime; // Accumulate elapsed time
+        timer += Time.deltaTime; 
 
-        if (timer >= 2f)
+        if (timer >= time)
         {
             selectTask();
-            timer = 0f; // Reset the timer
+            timer = 0f; 
         }
 
 
         ReorganizeList();
-
-
-        //     selectTask(); //always make sure there is a task
-
     }
 
 
@@ -65,7 +61,14 @@ public class taskTerminal : MonoBehaviour
 
         RectTransform rectTransform = newTask.GetComponent<RectTransform>();
         int itemCount = listParent.childCount;
+
+        
+
         rectTransform.anchoredPosition = new Vector2(0, -itemHeight * (itemCount - 1));
+
+        rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y); // Set left offset to 0
+        rectTransform.offsetMax = new Vector2(0, rectTransform.offsetMax.y); // Right offset remains the same
+
     }
 
     public void removeFromList(string tag) 
@@ -90,22 +93,20 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-         // if (!ventTaskActive && !lightTaskActive && !radioTaskActive && !WaveAlienTaskActive ) 
-          //{
+       
  
             chosenTask = Random.Range(0, 4);
 
             switch (chosenTask)
             {
                 case 0:
-                    if (!ventTaskActive) //vent task
+                    if (!ventTaskActive) 
                     {
                         ventNumber = Random.Range(0, 3);
                         ventBehaviour[ventNumber].igniteVent();
 
 
                         ventTaskActive = true;
-                        // currentTask.text = "Extinguish Vents";
                         addToList("Extinguish Vent", "TaskVent");
                         print("Task Chosen: Vent Ignition" + ventNumber);
                     }
@@ -116,7 +117,6 @@ public class taskTerminal : MonoBehaviour
                     {
                         lightFlash.alarmOn = true;
                         lightTaskActive = true;
-                        //currentTask.text = "Fix Lights";
                         addToList("Fix Lights", "TaskLights");
 
                         print("Task Chosen: Fix Lights");
@@ -127,7 +127,6 @@ public class taskTerminal : MonoBehaviour
                     {
                         radioTaskActive = true;
 
-                      //  currentTask.text = "Press Radio";
                         addToList("Press Radio", "TaskRadio");
                         print("Task radio active");
  
@@ -138,20 +137,11 @@ public class taskTerminal : MonoBehaviour
                     if(!WaveAlienTaskActive)
                     {
                         WaveAlienTaskActive = true;
-                   // currentTask.text = "Wave to Alien";
                         addToList("Wave to Alien", "TaskAlien");
                         print("Task: Wave");
                     }
                     break;
-
-      //      }
        }
     }
 
-    /*
-    public void eraseTaskList()
-    {
-       // currentTask.text = string.Empty; //makes task text empty
-    }
-    */
 }

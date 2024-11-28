@@ -47,7 +47,7 @@ public class InputManager : MonoBehaviour
         };
 
 
-        OnFoot.FireExtinguisher.performed += ctx => map.ToggleMap();
+        OnFoot.FireExtinguisher.performed += ctx =>
         {
             if (hasFireEx) //if the user is holding the fire extinguisher
             {
