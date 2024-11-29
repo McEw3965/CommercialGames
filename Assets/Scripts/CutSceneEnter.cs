@@ -8,27 +8,26 @@ public class CutSceneEnter : MonoBehaviour
     public GameObject cutsceneCam;
     public GameObject UI;
     public Animator alienAnimation;
+    public int CutsceneTimeLength = 10;
   
     private void OnTriggerEnter(Collider other)
     {
         this.gameObject.GetComponent<BoxCollider>().enabled = false;
         cutsceneCam.SetActive(true); //turn on cutscene camera
         player.SetActive(false);
-        alienAnimation.SetBool("happyIdle", true);
 
         UI.SetActive(false);
+        
         StartCoroutine(FinishCut());
 
     }
 
     IEnumerator FinishCut()
     {
-        yield return new WaitForSeconds(10); //wait ten seconds
         player.SetActive(true);
         UI.SetActive(true);
-    
-        alienAnimation.SetBool("happyIdle", false);
-
         cutsceneCam.SetActive(false);
+        yield return new WaitForSeconds(CutsceneTimeLength); //wait ten seconds
+
     }
 }

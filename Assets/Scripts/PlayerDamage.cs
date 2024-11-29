@@ -14,7 +14,7 @@ public class PlayerDamage : MonoBehaviour
 
     bool isHurt = false;
     bool isInFire = false;
-    float time = 0;
+
 
 
     private void Start()
@@ -44,7 +44,7 @@ public class PlayerDamage : MonoBehaviour
                 hurtEffect.SetActive(true);
                 audioHurt.Play();
                 isHurt = true;                  
-                time = 0f;                    
+                          
             }
           
         }

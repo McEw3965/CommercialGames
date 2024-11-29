@@ -8,7 +8,8 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput; //reference to c# script
     public PlayerInput.OnFootActions OnFoot; //reference to onfootaction map;
-    
+    public PlayerInput.UIActions onUI;
+
     private PlayerMotor motor;
     private PlayerLook look;
     private PlayerInteraction interaction;
@@ -16,6 +17,7 @@ public class InputManager : MonoBehaviour
 
     public FireExManager FireExManager;
     public MapManager map;
+    public Dialogue dialogue;
 
     private bool hasFireEx = false;
    
@@ -62,6 +64,8 @@ public class InputManager : MonoBehaviour
 
 
         OnFoot.DisplayMap.performed += ctx => map.ToggleMap(); //toggles the map on and off
+
+        onUI.Click.performed += ctx => dialogue.displayText();
     }
 
 
