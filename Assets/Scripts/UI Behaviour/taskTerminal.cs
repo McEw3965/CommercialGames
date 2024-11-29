@@ -10,13 +10,13 @@ using static System.Net.Mime.MediaTypeNames;
 public class taskTerminal : MonoBehaviour
 {
     public ventBehaviour[] ventBehaviour;
+    public CutSceneEnter cutscene;
     public bool ventTaskActive;
     public bool lightTaskActive;
     public bool radioTaskActive;
     public bool WaveAlienTaskActive;
     public int ventNumber;
     
-    private TextMeshProUGUI currentTask;
     private FlashingLights lightFlash;
 
     private int chosenTask;
@@ -32,23 +32,23 @@ public class taskTerminal : MonoBehaviour
     private void Start()
     {
         lightFlash = GameObject.Find("Directional Light").GetComponent<FlashingLights>();
-        currentTask = GameObject.Find("Current Task").GetComponent<TextMeshProUGUI>();
         listParent = GameObject.Find("Main Task Panel").transform;
         listTasks = GameObject.Find("ListTasks");
     }
     private void Update()
     {
+       
+            timer += Time.deltaTime;
 
-        timer += Time.deltaTime; 
-
-        if (timer >= time)
-        {
-            selectTask();
-            timer = 0f; 
-        }
+            if (timer >= time)
+            {
+                selectTask();
+                timer = 0f;
+            }
 
 
-        ReorganizeList();
+            ReorganizeList();
+        
     }
 
 
