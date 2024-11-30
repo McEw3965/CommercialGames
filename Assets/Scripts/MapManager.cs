@@ -63,6 +63,12 @@ public class MapManager : MonoBehaviour
     public void ToggleMap()
     {
 
+        if (map == null)
+        {
+            Debug.LogError("Map is null! Ensure it is assigned in the Inspector or code.");
+            return;
+        }
+
         if (map.gameObject.activeSelf)
         {
             map.gameObject.SetActive(false); // If currently active, deactivate it
