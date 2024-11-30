@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
     {
         playerInput = new PlayerInput();
         OnFoot = playerInput.onFoot;
+        onUI = playerInput.UI;
 
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
@@ -101,9 +102,12 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         OnFoot.Enable();
+        onUI.Enable();
     }
     private void OnDisable()
     {
         OnFoot.Disable();
+        onUI.Disable();
+
     }
 }

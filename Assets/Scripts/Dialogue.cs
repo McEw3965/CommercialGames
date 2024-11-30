@@ -19,40 +19,26 @@ public class Dialogue : MonoBehaviour
 
     public void displayText()
     {
-        if (index >= lines.Length)
-        {
-            Debug.LogWarning("No more lines to display.");
-            return; // Exit if we are beyond the last line
-        }
-
-        if (textComponent.text == lines[index]) // If the current line is fully displayed
-        {
-            NextLine(); // Proceed to the next line
-        }
-        else
-        {
-            Debug.Log("Skipping to current line: " + lines[index]);
-            textComponent.text = lines[index]; // Ensure the line is displayed immediately
-        }
+        NextLine(); //next line 
     }
 
     void StartDialogue()
     {
         index = 0;
-        DisplayLine(); // Display the first line
+        DisplayLine(); //first line displayed
+
     }
 
     void DisplayLine()
     {
-        Debug.Log("Displaying line: " + lines[index]);
-        textComponent.text = lines[index]; // Set the current line directly
+        textComponent.text = lines[index]; 
     }
 
     void NextLine()
     {
-        if (index < lines.Length - 1) // Check if there are more lines
+        if (index < lines.Length - 1) //if index is less than length of array
         {
-            index++;
+            index++; //increase index by one for next sentence
             DisplayLine(); // Display the next line
         }
         else
