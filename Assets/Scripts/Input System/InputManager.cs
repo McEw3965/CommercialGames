@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -20,7 +21,7 @@ public class InputManager : MonoBehaviour
     public Dialogue dialogue;
 
     private bool hasFireEx = false;
-   
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -37,16 +38,38 @@ public class InputManager : MonoBehaviour
         OnFoot.Crouch.performed += ctx => motor.Crouch();
         OnFoot.Sprint.performed += ctx => motor.Sprint();
 
-        OnFoot.Interact.performed += ctx =>
+        OnFoot.Interact.performed += ctx => //if E is pressed (for example)
         {
-            if (interaction.currentInteractable == null)
+
+            if(interaction.currentInteractable == null && !pickUpItem.itemInHand) //return if there is no interactable object when E is pressed (stops crashes)
             {
-                Debug.Log("Current Interactable is null"); //this is to stop console warnings because when you drop an item, the currentInteractable is null
+                Debug.Log("There is no item to interact or pick up");
                 return;
             }
 
-            interaction.currentInteractable.Interact();
-   
+            if(interaction.currentInteractable != null)
+            {
+                interaction.currentInteractable.Interact(); 
+            }
+
+
+            if (!pickUpItem.itemInHand) //if there is no item in hand
+            {
+                if (interaction.currentInteractable.CompareTag("CanPickUp")) //and the item the user is looking at has the tag can pick up
+                {
+                    Debug.Log("Picked up item");
+                    pickUpItem.grabItem(); //pick up the item
+                }
+
+            }
+            else // if item is in hand
+            {
+                if (pickUpItem.currentItem.GetComponent<Rigidbody>()) //if item is hand and the item has a rigidbody (needed for dropItem func)
+                {
+                    Debug.Log("Dropping Item");
+                    pickUpItem.dropItem(); //drop the item
+                }
+            }
         };
 
 
@@ -54,9 +77,10 @@ public class InputManager : MonoBehaviour
         {
             if (hasFireEx) //if the user is holding the fire extinguisher
             {
-               
+
                 FireExManager.fireExtinguishActions(); //then this works
-            } else
+            }
+            else
             {
                 //doesnt have the fire extinguisher picked up
                 Debug.Log("Cannot spray particles as fire extinguisher is not picked up");
@@ -74,14 +98,7 @@ public class InputManager : MonoBehaviour
     {
         if (pickUpItem.currentItem != null)
         {
-            if (pickUpItem.currentItem.name == "Fire_Ex")
-            {
-                hasFireEx = true;
-            }
-            else
-            {
-                hasFireEx = false; 
-            }
+            hasFireEx = pickUpItem.currentItem.name == "Fire_Ex";
         }
         else
         {
@@ -93,7 +110,7 @@ public class InputManager : MonoBehaviour
     {
         //tell the playermotor to move using the value from our movement action.
         motor.ProcessMove(OnFoot.Movement.ReadValue<Vector2>());
-        
+
     }
     private void LateUpdate()
     {

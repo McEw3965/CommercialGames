@@ -2532,7 +2532,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &354936085
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8873,7 +8873,7 @@ MonoBehaviour:
   timeScale: 0
   _text: 
   useDynamicScaling: 1
-  referenceFontSize: 10
+  referenceFontSize: 5
   isResettingTimeOnNewText: 1
   useDefaultDatabases: 1
   databaseBehaviors: {fileID: 0}
@@ -17861,7 +17861,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.16862746}
+  m_Color: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0.3529412}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -17900,9 +17900,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 746425980}
   lines:
-  - This would be page one. click to go to page 2
-  - this is page 2
-  - this is page 3
+  - This is an example
+  - Of how text would work
+  - in this scene
 --- !u!1001 &1611770498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19350,7 +19350,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 6
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -19602,7 +19602,7 @@ MonoBehaviour:
   cutsceneCam: {fileID: 1809101931}
   UI: {fileID: 1933618233}
   alienAnimation: {fileID: 324755121}
-  CutsceneTimeLength: 10
+  CutsceneTimeLength: 20
 --- !u!65 &1954612475
 BoxCollider:
   m_ObjectHideFlags: 0
