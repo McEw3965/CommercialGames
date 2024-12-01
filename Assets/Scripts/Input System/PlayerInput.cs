@@ -98,6 +98,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""PauseMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""03187dc2-ed5d-42ee-a6a2-e84550104d8e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -362,6 +371,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""DisplayMap"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b6461d99-fed2-433e-90e4-926f59cb029f"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -957,6 +977,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_onFoot_Sprint = m_onFoot.FindAction("Sprint", throwIfNotFound: true);
         m_onFoot_Crouch = m_onFoot.FindAction("Crouch", throwIfNotFound: true);
         m_onFoot_DisplayMap = m_onFoot.FindAction("DisplayMap", throwIfNotFound: true);
+        m_onFoot_PauseMenu = m_onFoot.FindAction("PauseMenu", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1038,6 +1059,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_onFoot_Sprint;
     private readonly InputAction m_onFoot_Crouch;
     private readonly InputAction m_onFoot_DisplayMap;
+    private readonly InputAction m_onFoot_PauseMenu;
     public struct OnFootActions
     {
         private @PlayerInput m_Wrapper;
@@ -1050,6 +1072,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_onFoot_Sprint;
         public InputAction @Crouch => m_Wrapper.m_onFoot_Crouch;
         public InputAction @DisplayMap => m_Wrapper.m_onFoot_DisplayMap;
+        public InputAction @PauseMenu => m_Wrapper.m_onFoot_PauseMenu;
         public InputActionMap Get() { return m_Wrapper.m_onFoot; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1083,6 +1106,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @DisplayMap.started += instance.OnDisplayMap;
             @DisplayMap.performed += instance.OnDisplayMap;
             @DisplayMap.canceled += instance.OnDisplayMap;
+            @PauseMenu.started += instance.OnPauseMenu;
+            @PauseMenu.performed += instance.OnPauseMenu;
+            @PauseMenu.canceled += instance.OnPauseMenu;
         }
 
         private void UnregisterCallbacks(IOnFootActions instance)
@@ -1111,6 +1137,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @DisplayMap.started -= instance.OnDisplayMap;
             @DisplayMap.performed -= instance.OnDisplayMap;
             @DisplayMap.canceled -= instance.OnDisplayMap;
+            @PauseMenu.started -= instance.OnPauseMenu;
+            @PauseMenu.performed -= instance.OnPauseMenu;
+            @PauseMenu.canceled -= instance.OnPauseMenu;
         }
 
         public void RemoveCallbacks(IOnFootActions instance)
@@ -1301,6 +1330,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnCrouch(InputAction.CallbackContext context);
         void OnDisplayMap(InputAction.CallbackContext context);
+        void OnPauseMenu(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

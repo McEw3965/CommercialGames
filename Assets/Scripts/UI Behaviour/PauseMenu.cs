@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
-
     public GameObject pauseMenu;
-    public static bool isPaused;//global var
+    public GameObject crosshair;
+    public  bool isPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -34,18 +34,23 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        Debug.Log("PAUSED!");
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        crosshair.SetActive(false);
     }
 
     public void ResumeGame()
     {
+        Debug.Log("RESUME!");
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
+        crosshair.SetActive(true);
+
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -53,12 +58,19 @@ public class PauseMenu : MonoBehaviour
     }
     public void BackToMenu()
     {
+        Debug.Log("BACK TO MENU!");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 
     public void QuitGame()
     {
+        Debug.Log("QUIT!");
         Application.Quit();
+
+        #if UNITY_EDITOR
+                // Stop playing the game in the Editor
+                UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }

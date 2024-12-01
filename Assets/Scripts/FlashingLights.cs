@@ -9,7 +9,7 @@ public class FlashingLights : MonoBehaviour
     public AudioSource alarm; //alarm audio
     public TextMeshProUGUI Task; //alarm task
     public Animator animator;
-
+    public PauseMenu pauseMenu;
     float timer = 1.5f;
     public bool alarmOn = false;
     
@@ -26,24 +26,27 @@ public class FlashingLights : MonoBehaviour
 
     void Update()
     {
-     
+
         timer += Time.deltaTime;
 
+        if (!pauseMenu.isPaused) {
 
+            if (alarmOn) //Lights blink if alarm is on
+            {
+                if (!alarm.isPlaying)
+                {
+                    alarm.Play();
+                }
 
-        if (alarmOn) //Lights blink if alarm is on
+                if (timer > BlinkingTime)
+                {
+                    StartCoroutine(Blink());
+                    timer = 0;
+                }
+            }
+        } else
         {
-            if (!alarm.isPlaying)
-            {
-                alarm.Play();
-            }
-
-            if (timer > BlinkingTime)
-            {
-                StartCoroutine(Blink());
-                timer = 0;
-            }
-
+            alarm.Stop();
         }
     }
 

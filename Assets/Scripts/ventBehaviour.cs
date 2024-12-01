@@ -23,7 +23,7 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = true;
             fireEffects.SetActive(true);
-            alarm.Play();
+            //alarm.Play();
             print("Vent Ignited");
             mainLight.color = Color.red;
         }
@@ -35,7 +35,7 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = false;
             fireEffects.SetActive(false);
-            alarm.Pause();
+          //  alarm.Pause();
             print("Vent Repaired");
             TT.ventTaskActive = false;
             TT.removeFromList("TaskVent");
