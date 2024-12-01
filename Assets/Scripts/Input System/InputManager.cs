@@ -5,6 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+//https://www.youtube.com/watch?si=hxdP8oWqMzjb322G&v=rJqP5EesxLk&feature=youtu.be video reference
 public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput; //reference to c# script

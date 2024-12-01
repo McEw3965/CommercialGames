@@ -73,8 +73,6 @@ public class PickUpItem : MonoBehaviour
 
 
         }
-
-
     }
 
     //drops the item
