@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject crosshair;
+    public GameObject UIElements;
     public  bool isPaused;
 
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("PAUSED!");
         pauseMenu.SetActive(true);
+        UIElements.SetActive(false );
         Time.timeScale = 0f;
         isPaused = true;
         Cursor.lockState = CursorLockMode.None;
@@ -50,6 +52,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         isPaused = false;
         crosshair.SetActive(true);
+        UIElements.SetActive(true);
+
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

@@ -17,6 +17,7 @@ public class Dialogue : MonoBehaviour
         StartDialogue();
     }
 
+  
     public void displayText()
     {
         NextLine(); //next line 

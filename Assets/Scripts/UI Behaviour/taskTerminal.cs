@@ -32,7 +32,7 @@ public class taskTerminal : MonoBehaviour
     private void Start()
     {
         lightFlash = GameObject.Find("Directional Light").GetComponent<FlashingLights>();
-        listParent = GameObject.Find("Main Task Panel").transform;
+        listParent = GameObject.Find("Main Tasks").transform;
         listTasks = GameObject.Find("ListTasks");
     }
     private void Update()
