@@ -3,11 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-
-
     public void PlayGame()
     {
-        SceneManager.LoadScene("TestScene");
+        SceneManager.LoadScene(1);
     }
 
     public void Setting()
@@ -18,5 +16,11 @@ public class MainMenu : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+
+
+        #if UNITY_EDITOR
+                // Stop playing the game in the Editor
+                UnityEditor.EditorApplication.isPlaying = false;
+        #endif
     }
 }
