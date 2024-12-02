@@ -11,7 +11,7 @@ public class codeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        generatePassword();
     }
 
     // Update is called once per frame
@@ -24,16 +24,20 @@ public class codeManager : MonoBehaviour
     {
         int randNum = Random.Range(100, 1000);
         correctPass = randNum.ToString();
+        Debug.Log("Current Code: " + correctPass);
     }
 
-    private void checkCode()
+    public void checkCode()
     {
         if (tempPass == correctPass)
         {
-
+            Debug.Log("Correct Password!");
         } else if(tempPass != correctPass)
         {
-
+            Debug.Log("Incorrect Password!");
         }
+
+        tempPass = "";
+        generatePassword();
     }
 }
