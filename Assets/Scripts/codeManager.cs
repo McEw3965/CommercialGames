@@ -29,12 +29,16 @@ public class codeManager : MonoBehaviour
 
     public void checkCode()
     {
-        if (tempPass == correctPass)
+        if (tempPass.Length == 3)
         {
-            Debug.Log("Correct Password!");
-        } else if(tempPass != correctPass)
-        {
-            Debug.Log("Incorrect Password!");
+            if (tempPass == correctPass)
+            {
+                Debug.Log("Correct Password!");
+            }
+            else if (tempPass != correctPass)
+            {
+                Debug.Log("Incorrect Password!");
+            }
         }
 
         tempPass = "";
