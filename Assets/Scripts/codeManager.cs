@@ -17,7 +17,11 @@ public class codeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (tempPass.Length > 3)
+        {
+            tempPass = "";
+            Debug.Log("Attempt Reset as password was too long");
+        }
     }
 
     private void generatePassword()
@@ -29,6 +33,7 @@ public class codeManager : MonoBehaviour
 
     public void checkCode()
     {
+        Debug.Log(tempPass.Length);
         if (tempPass.Length == 3)
         {
             if (tempPass == correctPass)
