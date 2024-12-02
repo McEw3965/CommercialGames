@@ -1,6 +1,7 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class codeManager : MonoBehaviour
@@ -8,6 +9,8 @@ public class codeManager : MonoBehaviour
     private string correctPass;
 
     public string tempPass;
+
+    public TextMeshPro codeDisplay;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,7 @@ public class codeManager : MonoBehaviour
     {
         int randNum = Random.Range(100, 1000);
         correctPass = randNum.ToString();
+        codeDisplay.text = correctPass;
         Debug.Log("Current Code: " + correctPass);
     }
 
