@@ -15,7 +15,7 @@ public class TorchManager : MonoBehaviour
 
         if (torch == null)
         {
-            Debug.LogError("Map is null! Ensure it is assigned in the Inspector or code.");
+            Debug.LogError("Torch is null! Ensure it is assigned in the Inspector or code.");
             return;
         }
 

@@ -95,7 +95,7 @@ public class taskTerminal : MonoBehaviour
     {
        
  
-            chosenTask = Random.Range(0, 4);
+            chosenTask = Random.Range(0, 3);
 
             switch (chosenTask)
             {
@@ -112,7 +112,7 @@ public class taskTerminal : MonoBehaviour
                     }
                     break;
 
-                case 1:
+              /*  case 1:
                     if (!lightTaskActive)
                     {
                         lightFlash.alarmOn = true;
@@ -121,8 +121,8 @@ public class taskTerminal : MonoBehaviour
 
                         print("Task Chosen: Fix Lights");
                     }
-                    break;
-                case 2:
+                    break;*/
+                case 1:
                     if (!radioTaskActive)
                     {
                         radioTaskActive = true;
@@ -133,7 +133,7 @@ public class taskTerminal : MonoBehaviour
                     }
 
                     break;
-                case 3: 
+                case 2: 
                     if(!WaveAlienTaskActive)
                     {
                         WaveAlienTaskActive = true;
