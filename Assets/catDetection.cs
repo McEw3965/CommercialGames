@@ -49,7 +49,7 @@ public class catDetection : MonoBehaviour
                 catDetected = true;
                 catLocation.x = objectsInRange[i].gameObject.transform.position.x;
                 catLocation.y = objectsInRange[i].gameObject.transform.position.y;
-                catLocation.z = objectsInRange[i].gameObject.transform.position.z;
+                catLocation.z = objectsInRange[i].gameObject.transform.position.z + 50;
                 cat = objectsInRange[i].gameObject;
                 break;
             } else if (objectsInRange[i].tag != "Cat")
