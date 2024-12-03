@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public class CatMovement : MonoBehaviour
+public class AlienMovement : MonoBehaviour
 {
     private NavMeshAgent agent;
     private int randomNum;
