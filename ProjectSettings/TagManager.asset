@@ -13,6 +13,7 @@ TagManager:
   - TaskLights
   - TaskRadio
   - Cat
+  - TaskAlarm
   layers:
   - Default
   - TransparentFX
