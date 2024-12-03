@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput; //reference to c# script
-    public PlayerInput.OnFootActions OnFoot; //reference to onfootaction map;
+    public PlayerInput.PlayerActions player; //reference to onfootaction map;
     public PlayerInput.UIActions onUI;
 
     private PlayerMotor motor;
@@ -19,6 +19,7 @@ public class InputManager : MonoBehaviour
 
     public FireExManager FireExManager;
     public MapManager map;
+    public TorchManager torch;
     public Dialogue dialogue;
 
     private bool hasFireEx = false;
@@ -27,7 +28,7 @@ public class InputManager : MonoBehaviour
     void Awake()
     {
         playerInput = new PlayerInput();
-        OnFoot = playerInput.onFoot;
+        player = playerInput.Player;
         onUI = playerInput.UI;
 
         motor = GetComponent<PlayerMotor>();
@@ -35,11 +36,11 @@ public class InputManager : MonoBehaviour
         interaction = GetComponent<PlayerInteraction>();
         pickUpItem = GetComponent<PickUpItem>();
 
-        OnFoot.Jump.performed += ctx => motor.Jump();
-        OnFoot.Crouch.performed += ctx => motor.Crouch();
-        OnFoot.Sprint.performed += ctx => motor.Sprint();
+        player.Jump.performed += ctx => motor.Jump();
+        player.Crouch.performed += ctx => motor.Crouch();
+        player.Sprint.performed += ctx => motor.Sprint();
 
-        OnFoot.Interact.performed += ctx => //if E is pressed (for example)
+        player.Interact.performed += ctx => //if E is pressed (for example)
         {
 
             if(interaction.currentInteractable == null && !pickUpItem.itemInHand) //return if there is no interactable object when E is pressed (stops crashes)
@@ -74,7 +75,7 @@ public class InputManager : MonoBehaviour
         };
 
 
-        OnFoot.FireExtinguisher.performed += ctx =>
+        player.FireExtinguisher.performed += ctx =>
         {
             if (hasFireEx) //if the user is holding the fire extinguisher
             {
@@ -89,8 +90,9 @@ public class InputManager : MonoBehaviour
         };
 
 
-        OnFoot.DisplayMap.performed += ctx => map.ToggleMap(); //toggles the map on and off
+        player.DisplayMap.performed += ctx => map.ToggleMap(); //toggles the map on and off
 
+        player.DisplayTorch.performed += ctx => torch.ToggleTorch();
         onUI.Click.performed += ctx => dialogue.displayText();
     }
 
@@ -110,21 +112,21 @@ public class InputManager : MonoBehaviour
     void FixedUpdate()
     {
         //tell the playermotor to move using the value from our movement action.
-        motor.ProcessMove(OnFoot.Movement.ReadValue<Vector2>());
+        motor.ProcessMove(player.Movement.ReadValue<Vector2>());
 
     }
     private void LateUpdate()
     {
-        look.ProcessLook(OnFoot.Look.ReadValue<Vector2>());
+        look.ProcessLook(player.Look.ReadValue<Vector2>());
     }
     private void OnEnable()
     {
-        OnFoot.Enable();
+        player.Enable();
         onUI.Enable();
     }
     private void OnDisable()
     {
-        OnFoot.Disable();
+        player.Disable();
         onUI.Disable();
 
     }
