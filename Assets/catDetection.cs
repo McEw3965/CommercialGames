@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class catDetection : MonoBehaviour
 {
@@ -64,6 +65,10 @@ public class catDetection : MonoBehaviour
 
     public void pickUpCat()
     {
-        cat.transform.position = this.gameObject.transform.position;
+        cat.transform.position = this.gameObject.transform.position + new Vector3 (0, 3f, 0);
+        cat.GetComponent<CatMovement>().enabled = false;
+        cat.GetComponent<NavMeshAgent>().enabled = false;
+        cat.GetComponent<Collider>().enabled = false;
+        
     }
 }

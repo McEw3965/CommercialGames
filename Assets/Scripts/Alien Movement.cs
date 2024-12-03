@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,6 +11,7 @@ public class AlienMovement : MonoBehaviour
     private int randomNum;
     public Transform[] destinations;
     public catDetection CD;
+    private GameObject hole;
 
 
     //cat movement
@@ -18,6 +20,7 @@ public class AlienMovement : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
+        hole = GameObject.Find("Hole Destination");
     }
 
 
@@ -28,6 +31,9 @@ public class AlienMovement : MonoBehaviour
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && CD.catDetected == false)
         {
             StartCoroutine(GenerateRandomNum());
+        } else if (CD.catPickedUp)
+        {
+            agent.destination = hole.transform.position;
         }
     }
 
