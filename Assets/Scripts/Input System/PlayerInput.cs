@@ -24,7 +24,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     ""name"": ""PlayerInput"",
     ""maps"": [
         {
-            ""name"": ""onFoot"",
+            ""name"": ""Player"",
             ""id"": ""60e0b78b-2084-4c42-9683-afbaba3acb2d"",
             ""actions"": [
                 {
@@ -103,6 +103,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""name"": ""PauseMenu"",
                     ""type"": ""Button"",
                     ""id"": ""03187dc2-ed5d-42ee-a6a2-e84550104d8e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DisplayTorch"",
+                    ""type"": ""Button"",
+                    ""id"": ""3f68d2ca-1417-448b-aab2-296a17c9589b"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -382,6 +391,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PauseMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""74bc0d0c-8216-4840-a968-8735af940b64"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DisplayTorch"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -967,17 +987,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // onFoot
-        m_onFoot = asset.FindActionMap("onFoot", throwIfNotFound: true);
-        m_onFoot_FireExtinguisher = m_onFoot.FindAction("FireExtinguisher", throwIfNotFound: true);
-        m_onFoot_Interact = m_onFoot.FindAction("Interact", throwIfNotFound: true);
-        m_onFoot_Movement = m_onFoot.FindAction("Movement", throwIfNotFound: true);
-        m_onFoot_Look = m_onFoot.FindAction("Look", throwIfNotFound: true);
-        m_onFoot_Jump = m_onFoot.FindAction("Jump", throwIfNotFound: true);
-        m_onFoot_Sprint = m_onFoot.FindAction("Sprint", throwIfNotFound: true);
-        m_onFoot_Crouch = m_onFoot.FindAction("Crouch", throwIfNotFound: true);
-        m_onFoot_DisplayMap = m_onFoot.FindAction("DisplayMap", throwIfNotFound: true);
-        m_onFoot_PauseMenu = m_onFoot.FindAction("PauseMenu", throwIfNotFound: true);
+        // Player
+        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
+        m_Player_FireExtinguisher = m_Player.FindAction("FireExtinguisher", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_Movement = m_Player.FindAction("Movement", throwIfNotFound: true);
+        m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Crouch = m_Player.FindAction("Crouch", throwIfNotFound: true);
+        m_Player_DisplayMap = m_Player.FindAction("DisplayMap", throwIfNotFound: true);
+        m_Player_PauseMenu = m_Player.FindAction("PauseMenu", throwIfNotFound: true);
+        m_Player_DisplayTorch = m_Player.FindAction("DisplayTorch", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1048,40 +1069,42 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // onFoot
-    private readonly InputActionMap m_onFoot;
-    private List<IOnFootActions> m_OnFootActionsCallbackInterfaces = new List<IOnFootActions>();
-    private readonly InputAction m_onFoot_FireExtinguisher;
-    private readonly InputAction m_onFoot_Interact;
-    private readonly InputAction m_onFoot_Movement;
-    private readonly InputAction m_onFoot_Look;
-    private readonly InputAction m_onFoot_Jump;
-    private readonly InputAction m_onFoot_Sprint;
-    private readonly InputAction m_onFoot_Crouch;
-    private readonly InputAction m_onFoot_DisplayMap;
-    private readonly InputAction m_onFoot_PauseMenu;
-    public struct OnFootActions
+    // Player
+    private readonly InputActionMap m_Player;
+    private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
+    private readonly InputAction m_Player_FireExtinguisher;
+    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_Movement;
+    private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Crouch;
+    private readonly InputAction m_Player_DisplayMap;
+    private readonly InputAction m_Player_PauseMenu;
+    private readonly InputAction m_Player_DisplayTorch;
+    public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
-        public OnFootActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @FireExtinguisher => m_Wrapper.m_onFoot_FireExtinguisher;
-        public InputAction @Interact => m_Wrapper.m_onFoot_Interact;
-        public InputAction @Movement => m_Wrapper.m_onFoot_Movement;
-        public InputAction @Look => m_Wrapper.m_onFoot_Look;
-        public InputAction @Jump => m_Wrapper.m_onFoot_Jump;
-        public InputAction @Sprint => m_Wrapper.m_onFoot_Sprint;
-        public InputAction @Crouch => m_Wrapper.m_onFoot_Crouch;
-        public InputAction @DisplayMap => m_Wrapper.m_onFoot_DisplayMap;
-        public InputAction @PauseMenu => m_Wrapper.m_onFoot_PauseMenu;
-        public InputActionMap Get() { return m_Wrapper.m_onFoot; }
+        public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @FireExtinguisher => m_Wrapper.m_Player_FireExtinguisher;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @Movement => m_Wrapper.m_Player_Movement;
+        public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Crouch => m_Wrapper.m_Player_Crouch;
+        public InputAction @DisplayMap => m_Wrapper.m_Player_DisplayMap;
+        public InputAction @PauseMenu => m_Wrapper.m_Player_PauseMenu;
+        public InputAction @DisplayTorch => m_Wrapper.m_Player_DisplayTorch;
+        public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(OnFootActions set) { return set.Get(); }
-        public void AddCallbacks(IOnFootActions instance)
+        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
+        public void AddCallbacks(IPlayerActions instance)
         {
-            if (instance == null || m_Wrapper.m_OnFootActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_OnFootActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_PlayerActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Add(instance);
             @FireExtinguisher.started += instance.OnFireExtinguisher;
             @FireExtinguisher.performed += instance.OnFireExtinguisher;
             @FireExtinguisher.canceled += instance.OnFireExtinguisher;
@@ -1109,9 +1132,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PauseMenu.started += instance.OnPauseMenu;
             @PauseMenu.performed += instance.OnPauseMenu;
             @PauseMenu.canceled += instance.OnPauseMenu;
+            @DisplayTorch.started += instance.OnDisplayTorch;
+            @DisplayTorch.performed += instance.OnDisplayTorch;
+            @DisplayTorch.canceled += instance.OnDisplayTorch;
         }
 
-        private void UnregisterCallbacks(IOnFootActions instance)
+        private void UnregisterCallbacks(IPlayerActions instance)
         {
             @FireExtinguisher.started -= instance.OnFireExtinguisher;
             @FireExtinguisher.performed -= instance.OnFireExtinguisher;
@@ -1140,23 +1166,26 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @PauseMenu.started -= instance.OnPauseMenu;
             @PauseMenu.performed -= instance.OnPauseMenu;
             @PauseMenu.canceled -= instance.OnPauseMenu;
+            @DisplayTorch.started -= instance.OnDisplayTorch;
+            @DisplayTorch.performed -= instance.OnDisplayTorch;
+            @DisplayTorch.canceled -= instance.OnDisplayTorch;
         }
 
-        public void RemoveCallbacks(IOnFootActions instance)
+        public void RemoveCallbacks(IPlayerActions instance)
         {
-            if (m_Wrapper.m_OnFootActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_PlayerActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
-        public void SetCallbacks(IOnFootActions instance)
+        public void SetCallbacks(IPlayerActions instance)
         {
-            foreach (var item in m_Wrapper.m_OnFootActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_PlayerActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_OnFootActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_PlayerActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
-    public OnFootActions @onFoot => new OnFootActions(this);
+    public PlayerActions @Player => new PlayerActions(this);
 
     // UI
     private readonly InputActionMap m_UI;
@@ -1320,7 +1349,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    public interface IOnFootActions
+    public interface IPlayerActions
     {
         void OnFireExtinguisher(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
@@ -1331,6 +1360,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnCrouch(InputAction.CallbackContext context);
         void OnDisplayMap(InputAction.CallbackContext context);
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnDisplayTorch(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

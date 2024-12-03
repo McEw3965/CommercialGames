@@ -2,7 +2,7 @@
     "name": "PlayerInput",
     "maps": [
         {
-            "name": "onFoot",
+            "name": "Player",
             "id": "60e0b78b-2084-4c42-9683-afbaba3acb2d",
             "actions": [
                 {
@@ -81,6 +81,15 @@
                     "name": "PauseMenu",
                     "type": "Button",
                     "id": "03187dc2-ed5d-42ee-a6a2-e84550104d8e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DisplayTorch",
+                    "type": "Button",
+                    "id": "3f68d2ca-1417-448b-aab2-296a17c9589b",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -360,6 +369,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "PauseMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74bc0d0c-8216-4840-a968-8735af940b64",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DisplayTorch",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
