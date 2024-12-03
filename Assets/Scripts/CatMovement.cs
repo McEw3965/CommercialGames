@@ -21,7 +21,12 @@ public class CatMovement : MonoBehaviour
 
     private void Update()
     {
-        agent.destination = destinations[randomNum].position;
+       // agent.destination = destinations[randomNum].position;
+
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            StartCoroutine(GenerateRandomNum());
+        }
     }
 
     IEnumerator GenerateRandomNum()
@@ -29,7 +34,8 @@ public class CatMovement : MonoBehaviour
         randomNum = Random.Range(0, destinations.Length);
 
         Debug.Log("Generated arndom number");
-        yield return new WaitForSeconds(40f);
+        agent.destination = destinations[randomNum].position;
+        yield return new WaitForSeconds(10f);
     }
 
 }
