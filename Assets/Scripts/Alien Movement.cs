@@ -17,23 +17,25 @@ public class AlienMovement : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        //StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
+        StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
     }
 
 
     private void Update()
     {
-       // agent.destination = destinations[randomNum].position;
+        //agent.destination = destinations[randomNum].position;
 
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && CD.catDetected == false)
         {
-            //StartCoroutine(GenerateRandomNum());
+            StartCoroutine(GenerateRandomNum());
         }
     }
 
     IEnumerator GenerateRandomNum()
     {
+  
         randomNum = Random.Range(0, destinations.Length);
+        
 
         Debug.Log("Generated arndom number");
         agent.destination = destinations[randomNum].position;

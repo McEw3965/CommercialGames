@@ -32,8 +32,6 @@ public class catDetection : MonoBehaviour
             pickUpCat();
         }
         
-        
-
     }
 
     private void detectCat()

@@ -9,12 +9,16 @@ public class CatMovement : MonoBehaviour
     private NavMeshAgent agent;
     private int randomNum;
     public Transform[] destinations;
+    private catDetection CD;
+    private GameObject alien;
 
     //cat movement
 
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        alien = GameObject.Find("Waving Alien");
+        CD = alien.GetComponent<catDetection>();
         StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
     }
 
@@ -23,9 +27,12 @@ public class CatMovement : MonoBehaviour
     {
         // agent.destination = destinations[randomNum].position;
 
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && !CD.catPickedUp)
         {
             StartCoroutine(GenerateRandomNum());
+        } else if (CD.catPickedUp)
+        {
+            agent.destination = alien.transform.position;
         }
 
         FaceTarget();

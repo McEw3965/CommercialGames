@@ -23,7 +23,7 @@ public class alienBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        radioTimer -= Time.deltaTime;
+       /* radioTimer -= Time.deltaTime;
 
         if (radioTimer <= 0 && isFollowing != true)
         {
@@ -40,7 +40,7 @@ public class alienBehaviour : MonoBehaviour
             AiNav.canFollowPlayer = false;
             isFollowing = false;
 
-        }
+        } */
     }
 
     public void AlienWave()
