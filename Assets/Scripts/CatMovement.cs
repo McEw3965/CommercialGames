@@ -9,7 +9,7 @@ public class AlienMovement : MonoBehaviour
     private NavMeshAgent agent;
     private int randomNum;
     public Transform[] destinations;
-    
+
     //cat movement
 
     private void Start()
@@ -21,12 +21,15 @@ public class AlienMovement : MonoBehaviour
 
     private void Update()
     {
-       // agent.destination = destinations[randomNum].position;
+        // agent.destination = destinations[randomNum].position;
 
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
         {
             StartCoroutine(GenerateRandomNum());
         }
+
+        FaceTarget();
+
     }
 
     IEnumerator GenerateRandomNum()
@@ -38,6 +41,20 @@ public class AlienMovement : MonoBehaviour
         yield return new WaitForSeconds(10f);
     }
 
-   
 
-}
+    private void FaceTarget()
+    {
+        Vector3 targetPosition = agent.steeringTarget;
+        Vector3 direction = (targetPosition - transform.position).normalized;
+        direction.y = 0;
+
+        if (direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+        }
+
+        agent.velocity = direction * agent.speed;
+    }
+   }
+
