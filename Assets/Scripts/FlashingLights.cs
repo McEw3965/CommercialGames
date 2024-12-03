@@ -20,6 +20,7 @@ public class FlashingLights : MonoBehaviour
     {
         UIManager = FindAnyObjectByType<MainUIManager>();
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
+        lights.gameObject.SetActive(false);
 
     }
 
@@ -52,15 +53,15 @@ public class FlashingLights : MonoBehaviour
 
     public void StopAlarm()
     {
-        if (TT.lightTaskActive)
+        if (TT.alarmTaskActive)
         {
             Debug.Log("Stopping Alarm");
             alarm.Stop();
             alarmOn = false;
-            if (TT.lightTaskActive)
+            if (TT.alarmTaskActive)
             {
-                TT.lightTaskActive = false;
-                TT.removeFromList("TaskLights");
+                TT.alarmTaskActive = false;
+                TT.removeFromList("TaskAlarm");
             }
 
             bool lever = animator.GetBool("leverDown");
@@ -80,9 +81,11 @@ public class FlashingLights : MonoBehaviour
     IEnumerator Blink()
     {
         Debug.Log("Blink");
-        lights.color = Color.red; //changes light to yellow color
+        
+        lights.gameObject.SetActive(true);
         yield return new WaitForSeconds(.4f); //Wait 0.4 seconds
-        lights.color = Color.white; //change color to white
+
+        lights.gameObject.SetActive(false);
 
     }
 
