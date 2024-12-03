@@ -12,9 +12,10 @@ public class taskTerminal : MonoBehaviour
     public ventBehaviour[] ventBehaviour;
     public CutSceneEnter cutscene;
     public bool ventTaskActive;
-    public bool lightTaskActive;
+    public bool alarmTaskActive;
     public bool radioTaskActive;
     public bool WaveAlienTaskActive;
+    public bool lightTaskActive;
     public int ventNumber;
     
     private FlashingLights lightFlash;
@@ -95,7 +96,7 @@ public class taskTerminal : MonoBehaviour
     {
        
  
-            chosenTask = Random.Range(0, 3);
+            chosenTask = Random.Range(2, 5);
 
             switch (chosenTask)
             {
@@ -112,17 +113,17 @@ public class taskTerminal : MonoBehaviour
                     }
                     break;
 
-              /*  case 1:
-                    if (!lightTaskActive)
+                case 1:
+                    if (!alarmTaskActive)
                     {
                         lightFlash.alarmOn = true;
-                        lightTaskActive = true;
-                        addToList("Fix Lights", "TaskLights");
+                        alarmTaskActive = true;
+                        addToList("Fix alarm", "TaskAlarm");
 
-                        print("Task Chosen: Fix Lights");
+                        print("Task Chosen: Fix alarm");
                     }
-                    break;*/
-                case 1:
+                    break;
+                case 2:
                     if (!radioTaskActive)
                     {
                         radioTaskActive = true;
@@ -133,7 +134,7 @@ public class taskTerminal : MonoBehaviour
                     }
 
                     break;
-                case 2: 
+                case 3: 
                     if(!WaveAlienTaskActive)
                     {
                         WaveAlienTaskActive = true;
@@ -141,7 +142,14 @@ public class taskTerminal : MonoBehaviour
                         print("Task: Wave");
                     }
                     break;
-       }
+            case 4:
+                if (!lightTaskActive)
+                {
+                    lightTaskActive = true;
+                    addToList("Turn the lights on", "TaskLights");
+                }
+                break;
+        }
     }
 
 }

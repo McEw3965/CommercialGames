@@ -6,6 +6,7 @@ public class TorchManager : MonoBehaviour
 {
    public GameObject torch;
 
+
     private void Start()
     {
         torch.SetActive(false);
