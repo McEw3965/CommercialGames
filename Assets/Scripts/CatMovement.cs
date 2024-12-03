@@ -44,6 +44,7 @@ public class CatMovement : MonoBehaviour
 
     private void FaceTarget()
     {
+        /*
         Vector3 targetPosition = agent.steeringTarget;
         Vector3 direction = (targetPosition - transform.position).normalized;
         direction.y = 0;
@@ -55,6 +56,7 @@ public class CatMovement : MonoBehaviour
         }
 
         agent.velocity = direction * agent.speed;
+        */
     }
    }
 
