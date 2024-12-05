@@ -10,15 +10,17 @@ using static System.Net.Mime.MediaTypeNames;
 public class taskTerminal : MonoBehaviour
 {
     public ventBehaviour[] ventBehaviour;
-    public CutSceneEnter cutscene;
+    public int ventNumber;
+
+    //public CutSceneEnter cutscene;
+    [Header("Tasks Active:")]
     public bool ventTaskActive;
     public bool alarmTaskActive;
     public bool radioTaskActive;
     public bool WaveAlienTaskActive;
     public bool lightTaskActive;
-    public int ventNumber;
     
-    private FlashingLights lightFlash;
+    public FlashingLights lightFlash;
 
     private int chosenTask;
 
@@ -32,7 +34,6 @@ public class taskTerminal : MonoBehaviour
 
     private void Start()
     {
-        lightFlash = GameObject.Find("Directional Light").GetComponent<FlashingLights>();
         listParent = GameObject.Find("Main Tasks").transform;
         listTasks = GameObject.Find("ListTasks");
     }
@@ -94,9 +95,7 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-       
- 
-            chosenTask = Random.Range(2, 5);
+            chosenTask = Random.Range(0, 5);
 
             switch (chosenTask)
             {
@@ -105,11 +104,8 @@ public class taskTerminal : MonoBehaviour
                     {
                         ventNumber = Random.Range(0, 3);
                         ventBehaviour[ventNumber].igniteVent();
-
-
                         ventTaskActive = true;
                         addToList("Extinguish Vent", "TaskVent");
-                        print("Task Chosen: Vent Ignition" + ventNumber);
                     }
                     break;
 
@@ -119,18 +115,13 @@ public class taskTerminal : MonoBehaviour
                         lightFlash.alarmOn = true;
                         alarmTaskActive = true;
                         addToList("Fix alarm", "TaskAlarm");
-
-                        print("Task Chosen: Fix alarm");
                     }
                     break;
                 case 2:
                     if (!radioTaskActive)
                     {
                         radioTaskActive = true;
-
                         addToList("Press Radio", "TaskRadio");
-                        print("Task radio active");
- 
                     }
 
                     break;
@@ -139,16 +130,15 @@ public class taskTerminal : MonoBehaviour
                     {
                         WaveAlienTaskActive = true;
                         addToList("Wave to Alien", "TaskAlien");
-                        print("Task: Wave");
                     }
                     break;
-            case 4:
-                if (!lightTaskActive)
-                {
+               case 4:
+                    if (!lightTaskActive)
+                    {
                     lightTaskActive = true;
-                    addToList("Turn the lights on", "TaskLights");
-                }
-                break;
+                        addToList("Turn the lights on", "TaskLights");
+                    }
+                    break;
         }
     }
 

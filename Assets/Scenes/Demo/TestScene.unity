@@ -591,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerReach: 3
+  currentInteractable: {fileID: 0}
 --- !u!1 &119731928
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +818,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1777536682}
+  crosshair: {fileID: 0}
+  UIElements: {fileID: 0}
+  isPaused: 0
 --- !u!4 &161814471
 Transform:
   m_ObjectHideFlags: 0
@@ -2120,7 +2124,6 @@ MonoBehaviour:
   isFollowing: 0
   AiNav: {fileID: 324755125}
   radioChanged: 0
-  TT: {fileID: 2010230149}
 --- !u!95 &324755121
 Animator:
   serializedVersion: 5
@@ -2640,10 +2643,10 @@ MonoBehaviour:
   lights: {fileID: 383728817}
   BlinkingTime: 2
   alarm: {fileID: 1200253813}
-  Task: {fileID: 661305604}
+  Task: {fileID: 0}
   animator: {fileID: 1071692850}
+  pauseMenu: {fileID: 0}
   alarmOn: 0
-  TT: {fileID: 2010230149}
 --- !u!1001 &407738580
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7943,18 +7946,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &661305604 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2265557702814289385, guid: 0f6888e8b8c26bf419c8e9040586ca77,
-    type: 3}
-  m_PrefabInstance: {fileID: 5366330656366554653}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &675733513
 GameObject:
   m_ObjectHideFlags: 0
@@ -14163,12 +14154,6 @@ MonoBehaviour:
   jumpForce: 18
   jumpTime: 0.85
   gravity: 9.8
---- !u!4 &957187887 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4952467050408558629, guid: 268bbd229edfdba45a4d45903e472716,
-    type: 3}
-  m_PrefabInstance: {fileID: 1632796135}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1000936672
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14491,7 +14476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffects: {fileID: 489632963}
-  TT: {fileID: 2010230149}
+  isOnFire: 0
   alarm: {fileID: 1200253813}
   mainLight: {fileID: 383728817}
   UIManager: {fileID: 361056453}
@@ -14679,6 +14664,57 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!20 &1136843991
+Camera:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1136843986}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1001 &1160112395
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25089,8 +25125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61162e2102c11b84eb0c12462d3f6910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cat: {fileID: 1335229785}
-  player: {fileID: 957187887}
+  destinations: []
 --- !u!195 &1335229785
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -25464,7 +25499,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
-      insertIndex: 5
+      insertIndex: -1
       addedObject: {fileID: 112656378}
     - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36,
         type: 3}
@@ -25760,7 +25795,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffects: {fileID: 1889149832}
-  TT: {fileID: 2010230149}
+  isOnFire: 0
   alarm: {fileID: 1200253813}
   mainLight: {fileID: 383728817}
   UIManager: {fileID: 361056453}
@@ -25871,8 +25906,6 @@ MonoBehaviour:
   - {fileID: 1976705707}
   trackNum: 0
   isRadioOn: 0
-  AB: {fileID: 324755119}
-  TT: {fileID: 2010230149}
 --- !u!23 &1563308413
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28645,13 +28678,17 @@ MonoBehaviour:
   - {fileID: 1555272243}
   - {fileID: 2070228827}
   - {fileID: 1123276649}
-  lightFlash: {fileID: 383728820}
+  cutscene: {fileID: 0}
   ventTaskActive: 0
-  lightTaskActive: 0
+  alarmTaskActive: 0
   radioTaskActive: 0
   WaveAlienTaskActive: 0
-  currentTask: {fileID: 661305604}
-  rc: {fileID: 0}
+  lightTaskActive: 0
+  ventNumber: 0
+  time: 5
+  listTasks: {fileID: 0}
+  listParent: {fileID: 0}
+  itemHeight: 100
 --- !u!114 &2010230150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28847,7 +28884,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireEffects: {fileID: 261539636}
-  TT: {fileID: 2010230149}
+  isOnFire: 0
   alarm: {fileID: 1200253813}
   mainLight: {fileID: 383728817}
   UIManager: {fileID: 361056453}
@@ -29502,7 +29539,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6594658250700556118, guid: 0f6888e8b8c26bf419c8e9040586ca77,
         type: 3}
-      insertIndex: 2
+      insertIndex: -1
       addedObject: {fileID: 857079310}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0f6888e8b8c26bf419c8e9040586ca77, type: 3}

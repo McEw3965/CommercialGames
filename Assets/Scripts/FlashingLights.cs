@@ -7,10 +7,10 @@ public class FlashingLights : MonoBehaviour
     public Light lights; //the light its changing
     public float BlinkingTime; //time per blink
     public AudioSource alarm; //alarm audio
-    public TextMeshProUGUI Task; //alarm task
     public Animator animator;
     public PauseMenu pauseMenu;
     float timer = 1.5f;
+    
     public bool alarmOn = false;
     
     private taskTerminal TT;
@@ -84,8 +84,6 @@ public class FlashingLights : MonoBehaviour
         
         lights.gameObject.SetActive(true);
         yield return new WaitForSeconds(.4f); //Wait 0.4 seconds
-
-        lights.gameObject.SetActive(false);
 
     }
 
