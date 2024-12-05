@@ -16,7 +16,7 @@ public class catDetection : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("CD Running");
+        //Debug.Log("CD Running");
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class catDetection : MonoBehaviour
 
     private void detectCat()
     {
-        Debug.Log("DetectCat Running");
+        //Debug.Log("DetectCat Running");
         
         Collider[] objectsInRange = Physics.OverlapSphere(centre, radius);
         for (int i = 0; i < objectsInRange.Length; i++)
@@ -69,6 +69,7 @@ public class catDetection : MonoBehaviour
         cat.GetComponent<CatMovement>().enabled = false;
         cat.GetComponent<NavMeshAgent>().enabled = false;
         cat.GetComponent<Collider>().enabled = false;
+        catPickedUp = true;
         
     }
 }

@@ -43,8 +43,9 @@ public class AlienMovement : MonoBehaviour
         randomNum = Random.Range(0, destinations.Length);
         
 
-        Debug.Log("Generated arndom number");
         agent.destination = destinations[randomNum].position;
+        Debug.Log("destination changed to:" + agent.destination);
+
         yield return new WaitForSeconds(10f);
     }
 
