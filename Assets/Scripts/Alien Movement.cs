@@ -12,6 +12,7 @@ public class AlienMovement : MonoBehaviour
     public Transform[] destinations;
     public catDetection CD;
     private GameObject hole;
+    private GameObject holeCentre;
 
 
     //cat movement
@@ -21,6 +22,7 @@ public class AlienMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
         hole = GameObject.Find("Hole Destination");
+        holeCentre = GameObject.Find("Hole Marker");
     }
 
 
@@ -34,6 +36,12 @@ public class AlienMovement : MonoBehaviour
         } else if (CD.catPickedUp)
         {
             agent.destination = hole.transform.position;
+        }
+
+        if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
+        {
+            Debug.Log("Cat at Hole");
+            this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
         }
     }
 

@@ -9698,6 +9698,37 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1657651996}
   m_SourcePrefab: {fileID: 100100000, guid: 133d46ef321a26545a75daf04506c200, type: 3}
+--- !u!1 &1010695518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1010695519}
+  m_Layer: 0
+  m_Name: Hole Marker
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1010695519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1010695518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.34, y: 0.58, z: 0.03}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1015700147 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7873287186346980778, guid: 133d46ef321a26545a75daf04506c200,
@@ -24832,3 +24863,4 @@ SceneRoots:
   - {fileID: 1040107722}
   - {fileID: 485171041}
   - {fileID: 32220019}
+  - {fileID: 1010695519}
