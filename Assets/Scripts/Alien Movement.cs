@@ -42,7 +42,8 @@ public class AlienMovement : MonoBehaviour
         {
             //this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
             this.gameObject.transform.LookAt(holeCentre.transform.position);
-            CD.throwCat();
+            CD.holdCatOverHole();
+            //CD.throwCat();
         }
     }
 

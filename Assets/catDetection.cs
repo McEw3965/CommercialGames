@@ -79,14 +79,24 @@ public class catDetection : MonoBehaviour
         
     }
 
+    public void holdCatOverHole()
+    {
+        catPickedUp = false;
+        catDetected = false;
+        cat.GetComponent<Rigidbody>().useGravity = false;
+        cat.GetComponent<Rigidbody>().isKinematic = true;
+
+        cat.transform.position = holeCentre.gameObject.transform.position + new Vector3(0, 0f, 0);
+        Invoke("throwCat", 30f);
+    }
+
     public void throwCat()
     {
         Debug.Log("Throw Cat");
-        catPickedUp = false;
-        catDetected = false;
-        cat.transform.position = holeCentre.gameObject.transform.position + new Vector3(0, 3f, 0);
-        cat.GetComponent<Collider>().enabled = false;
+        cat.GetComponent<Collider>().enabled = true;
         cat.GetComponent<Rigidbody>().useGravity = true;
+        cat.GetComponent<Rigidbody>().isKinematic = false;
+
         //cat.GetComponent<Rigidbody>().AddForce(throwForce, ForceMode.Impulse);
 
     }
