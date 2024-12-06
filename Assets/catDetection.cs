@@ -7,16 +7,20 @@ using UnityEngine.AI;
 public class catDetection : MonoBehaviour
 {
     private Vector3 centre;
-    public float radius = 5;
+    public float radius = 10f;
     public bool catDetected = false;
     private Vector3 catLocation;
     private GameObject cat;
     public bool catPickedUp = false;
+    private Vector3 throwForce = new (1f, 0f, 1f);
+    private GameObject holeCentre;
 
     // Start is called before the first frame update
     void Start()
     {
         //Debug.Log("CD Running");
+        holeCentre = GameObject.Find("Hole Marker");
+
     }
 
     // Update is called once per frame
@@ -37,7 +41,6 @@ public class catDetection : MonoBehaviour
 
     private void detectCat()
     {
-        //Debug.Log("DetectCat Running");
         
         Collider[] objectsInRange = Physics.OverlapSphere(centre, radius);
         for (int i = 0; i < objectsInRange.Length; i++)
@@ -69,7 +72,23 @@ public class catDetection : MonoBehaviour
         cat.GetComponent<CatMovement>().enabled = false;
         cat.GetComponent<NavMeshAgent>().enabled = false;
         cat.GetComponent<Collider>().enabled = false;
+        cat.GetComponent<Rigidbody>().useGravity = false;
+        cat.transform.rotation = this.transform.rotation;
+        cat.GetComponent<Rigidbody>().freezeRotation = true;
         catPickedUp = true;
         
     }
+
+    public void throwCat()
+    {
+        Debug.Log("Throw Cat");
+        catPickedUp = false;
+        catDetected = false;
+        cat.transform.position = holeCentre.gameObject.transform.position + new Vector3(0, 3f, 0);
+        cat.GetComponent<Collider>().enabled = false;
+        cat.GetComponent<Rigidbody>().useGravity = true;
+        //cat.GetComponent<Rigidbody>().AddForce(throwForce, ForceMode.Impulse);
+
+    }
+
 }

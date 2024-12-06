@@ -40,9 +40,9 @@ public class AlienMovement : MonoBehaviour
 
         if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
         {
-            Debug.Log("Cat at Hole");
             //this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
             this.gameObject.transform.LookAt(holeCentre.transform.position);
+            CD.throwCat();
         }
     }
 
