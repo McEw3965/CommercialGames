@@ -95,7 +95,7 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-            chosenTask = Random.Range(1, 2);
+            chosenTask = Random.Range(0, 5);
 
             switch (chosenTask)
             {
@@ -106,16 +106,20 @@ public class taskTerminal : MonoBehaviour
                         ventBehaviour[ventNumber].igniteVent();
                         ventTaskActive = true;
                         addToList("Extinguish Vent", "TaskVent");
-                    }
+                        lightFlash.alarmOn = true;
+                        alarmTaskActive = true;
+
+                }
                     break;
 
                 case 1:
-                    if (!alarmTaskActive)
-                    {
-                        lightFlash.alarmOn = true;
-                        alarmTaskActive = true;
-                        addToList("Fix alarm", "TaskAlarm");
-                    }
+                Debug.Log("Case 1");
+                   // if (!alarmTaskActive)
+                  //  {
+                       // lightFlash.alarmOn = true;
+                       // alarmTaskActive = true;
+                     //   addToList("Fix alarm", "TaskAlarm");
+                   // }
                     break;
                 case 2:
                     if (!radioTaskActive)

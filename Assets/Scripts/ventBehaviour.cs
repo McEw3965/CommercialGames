@@ -9,9 +9,8 @@ public class ventBehaviour : MonoBehaviour
     public bool isOnFire = false;
     private taskTerminal TT;
     public AudioSource alarm;
-    public Light mainLight;
     public MainUIManager UIManager;
-
+    public FlashingLights flashinglights;
     private void Start()
     {
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
@@ -23,9 +22,8 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = true;
             fireEffects.SetActive(true);
-            //alarm.Play();
+           // alarm.Play();
             print("Vent Ignited");
-            mainLight.color = Color.red;
         }
     }
 
@@ -35,11 +33,12 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = false;
             fireEffects.SetActive(false);
-          //  alarm.Pause();
+            alarm.Stop();
             print("Vent Repaired");
             TT.ventTaskActive = false;
+            TT.alarmTaskActive = false;
+            flashinglights.alarmOn = false;
             TT.removeFromList("TaskVent");
-            mainLight.color = Color.white;
             UIManager.AdjustScore(50);
 
         }

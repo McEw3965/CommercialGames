@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlashingLights : MonoBehaviour
 {
-    public Light flashingLight;
+    public GameObject flashingLights;
 
     [SerializeField] private GameObject directionalLighting;
     
@@ -25,7 +25,7 @@ public class FlashingLights : MonoBehaviour
     {
         UIManager = FindAnyObjectByType<MainUIManager>();
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
-        flashingLight.gameObject.SetActive(false);
+        flashingLights.SetActive(false);
         alarmOn = false;
     }
 
@@ -89,11 +89,11 @@ public class FlashingLights : MonoBehaviour
     {
         Debug.Log("Blink");
 
-        flashingLight.gameObject.SetActive(true);
+        flashingLights.SetActive(true);
         directionalLighting.gameObject.SetActive(false);
-        yield return new WaitForSeconds(.4f); //Wait 0.4 seconds
+        yield return new WaitForSeconds(.8f);
 
-        flashingLight.gameObject.SetActive(false);
+        flashingLights.SetActive(false);
         directionalLighting.gameObject.SetActive(true);
 
     }
