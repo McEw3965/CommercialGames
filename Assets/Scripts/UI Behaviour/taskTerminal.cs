@@ -95,7 +95,7 @@ public class taskTerminal : MonoBehaviour
 
     public void selectTask()
     {
-            chosenTask = Random.Range(0, 5);
+            chosenTask = Random.Range(1, 2);
 
             switch (chosenTask)
             {

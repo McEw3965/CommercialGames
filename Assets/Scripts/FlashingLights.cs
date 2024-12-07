@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class FlashingLights : MonoBehaviour
 {
-    public Light lights; //the light its changing
-    public float BlinkingTime; //time per blink
-    public AudioSource alarm; //alarm audio
+    public Light flashingLight;
+
+    [SerializeField] private GameObject directionalLighting;
+    
+    public float BlinkingTime; 
+    public AudioSource alarm; 
     public Animator animator;
     public PauseMenu pauseMenu;
+
+
     float timer = 1.5f;
-    
-    public bool alarmOn = false;
+
+    public bool alarmOn;
     
     private taskTerminal TT;
     MainUIManager UIManager;
@@ -20,8 +25,8 @@ public class FlashingLights : MonoBehaviour
     {
         UIManager = FindAnyObjectByType<MainUIManager>();
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
-        lights.gameObject.SetActive(false);
-
+        flashingLight.gameObject.SetActive(false);
+        alarmOn = false;
     }
 
 
@@ -32,7 +37,7 @@ public class FlashingLights : MonoBehaviour
 
         if (!pauseMenu.isPaused) {
 
-            if (alarmOn) //Lights blink if alarm is on
+            if (alarmOn) 
             {
                 if (!alarm.isPlaying)
                 {
@@ -58,19 +63,21 @@ public class FlashingLights : MonoBehaviour
             Debug.Log("Stopping Alarm");
             alarm.Stop();
             alarmOn = false;
-            if (TT.alarmTaskActive)
-            {
-                TT.alarmTaskActive = false;
-                TT.removeFromList("TaskAlarm");
-            }
+          
+             TT.alarmTaskActive = false;
+             TT.removeFromList("TaskAlarm");
+            
 
             bool lever = animator.GetBool("leverDown");
 
+            /*
             print("AT 1; " + lever);
             animator.SetBool("leverDown", !lever);
             print("AT 2; " + lever);
             animator.SetBool("leverDown", !lever);
-            print("AT 3; " + lever);
+            print("AT 3; " + lever);*/
+            animator.SetBool("leverDown", !lever);
+
             UIManager.AdjustScore(20);
         }
 
@@ -81,9 +88,13 @@ public class FlashingLights : MonoBehaviour
     IEnumerator Blink()
     {
         Debug.Log("Blink");
-        
-        lights.gameObject.SetActive(true);
+
+        flashingLight.gameObject.SetActive(true);
+        directionalLighting.gameObject.SetActive(false);
         yield return new WaitForSeconds(.4f); //Wait 0.4 seconds
+
+        flashingLight.gameObject.SetActive(false);
+        directionalLighting.gameObject.SetActive(true);
 
     }
 

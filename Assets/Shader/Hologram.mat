@@ -105,8 +105,8 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Fresnel_Color: {r: 1.0850497, g: 0.9298793, b: 3.3412611, a: 0.5176471}
-    - _Tint: {r: 0.5377358, g: 0.24603951, b: 0.45529997, a: 1}
+    - _Fresnel_Color: {r: 1.0308632, g: 0.94464964, b: 3.3412611, a: 0.5176471}
+    - _Tint: {r: 0.1782218, g: 0.542421, b: 0.8396226, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &546855560488640352
 MonoBehaviour:
