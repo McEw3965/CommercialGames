@@ -1618,6 +1618,152 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1200253813}
   m_SourcePrefab: {fileID: 100100000, guid: 4506f87d60da7444a9a29c1a033d37e4, type: 3}
+--- !u!1 &247948584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 416238081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &247948588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247948584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab802527c9104842b98d77c3466c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Turn off lights
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 295712817}
+        m_TargetAssemblyTypeName: LightsOff, Assembly-CSharp
+        m_MethodName: turnOffLights
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &247948589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247948584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!65 &247948590
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 247948584}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.010000001}
+  m_Center: {x: 0.00000011920929, y: 0, z: 0}
+--- !u!1 &254212873 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 416238081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &254212877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254212873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &254212878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254212873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab802527c9104842b98d77c3466c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Turn on lights
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 295712817}
+        m_TargetAssemblyTypeName: LightsOff, Assembly-CSharp
+        m_MethodName: turnOnLights
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!65 &254212879
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254212873}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.01, z: 0.010000001}
+  m_Center: {x: 0.000000059604645, y: 0.0000000013969839, z: 0}
 --- !u!1001 &260284556
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2003,6 +2149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TT: {fileID: 639017881}
   lights: {fileID: 295712815}
+  lightSwitchAnimation: {fileID: 1029035794}
 --- !u!1 &302623130
 GameObject:
   m_ObjectHideFlags: 0
@@ -5185,21 +5332,86 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8513424388201257645, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_Name
+      value: Bottom
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: -6067185528594298527, guid: 892c58269c319d04ca10a75891ce50e1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4c7e8033e61fe564585815202465e49b, type: 2}
+    - target: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_Name
+      value: Top
+      objectReference: {fileID: 0}
+    - target: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Interactable
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 892c58269c319d04ca10a75891ce50e1,
         type: 3}
       propertyPath: m_Name
       value: Light switch
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 1170970068873931921, guid: 892c58269c319d04ca10a75891ce50e1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4c7e8033e61fe564585815202465e49b, type: 2}
+    - target: {fileID: 2902008074560218088, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2902008074560218088, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.2523343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898855749840620490, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.02097582
+      objectReference: {fileID: 0}
+    - target: {fileID: 5898855749840620490, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.1380106
+      objectReference: {fileID: 0}
     - target: {fileID: 5901893356585517859, guid: 892c58269c319d04ca10a75891ce50e1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5208,7 +5420,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1029035794}
+    - targetCorrespondingSourceObject: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 254212878}
+    - targetCorrespondingSourceObject: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 254212877}
+    - targetCorrespondingSourceObject: {fileID: -3957782524123411102, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 254212879}
+    - targetCorrespondingSourceObject: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 247948589}
+    - targetCorrespondingSourceObject: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 247948588}
+    - targetCorrespondingSourceObject: {fileID: -7609145667655734672, guid: 892c58269c319d04ca10a75891ce50e1,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 247948590}
   m_SourcePrefab: {fileID: 100100000, guid: 892c58269c319d04ca10a75891ce50e1, type: 3}
 --- !u!1 &470003954 stripped
 GameObject:
@@ -10700,6 +10940,7 @@ MonoBehaviour:
   WaveAlienTaskActive: 0
   lightTaskActive: 0
   lightFlash: {fileID: 306317073}
+  chosenTask: 0
   time: 3
   listTasks: {fileID: 18379310}
   listParent: {fileID: 1544097047}
@@ -13111,6 +13352,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027256159}
   m_CullTransparentMesh: 1
+--- !u!1 &1029035792 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 892c58269c319d04ca10a75891ce50e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 416238081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1029035794
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029035792}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8c565109da614d429fb2e5725d3dd88, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1035946478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24269,6 +24537,7 @@ MonoBehaviour:
   WaveAlienTaskActive: 0
   lightTaskActive: 0
   lightFlash: {fileID: 0}
+  chosenTask: 0
   time: 15
   listTasks: {fileID: 0}
   listParent: {fileID: 0}

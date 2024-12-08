@@ -34,6 +34,5 @@ public class LightsOff : MonoBehaviour
     {
         lights.SetActive(false);
         lightSwitchAnimation.SetBool("BottomPressed", true);
-
     }
 }
