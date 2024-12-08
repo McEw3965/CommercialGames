@@ -22,7 +22,7 @@ public class taskTerminal : MonoBehaviour
     
     public FlashingLights lightFlash;
 
-    private int chosenTask;
+    [SerializeField] private int chosenTask;
 
     [Header("Time between each task:")]
     [SerializeField] private float time = 5f; 
@@ -112,16 +112,8 @@ public class taskTerminal : MonoBehaviour
                 }
                     break;
 
+              
                 case 1:
-                Debug.Log("Case 1");
-                   // if (!alarmTaskActive)
-                  //  {
-                       // lightFlash.alarmOn = true;
-                       // alarmTaskActive = true;
-                     //   addToList("Fix alarm", "TaskAlarm");
-                   // }
-                    break;
-                case 2:
                     if (!radioTaskActive)
                     {
                         radioTaskActive = true;
@@ -129,14 +121,14 @@ public class taskTerminal : MonoBehaviour
                     }
 
                     break;
-                case 3: 
+                case 2: 
                     if(!WaveAlienTaskActive)
                     {
                         WaveAlienTaskActive = true;
                         addToList("Wave to Alien", "TaskAlien");
                     }
                     break;
-               case 4:
+               case 3:
                     if (!lightTaskActive)
                     {
                     lightTaskActive = true;

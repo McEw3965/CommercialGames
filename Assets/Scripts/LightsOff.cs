@@ -6,6 +6,7 @@ public class LightsOff : MonoBehaviour
 {
     public taskTerminal TT;
     public GameObject lights;
+    public Animator lightSwitchAnimation;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class LightsOff : MonoBehaviour
     {
         if(TT.lightTaskActive)
         {
-            lights.SetActive(false);
+            turnOffLights();
         }
     }
 
@@ -25,5 +26,14 @@ public class LightsOff : MonoBehaviour
     {
         TT.lightTaskActive = false;
         lights.SetActive(true);
+        lightSwitchAnimation.SetBool("TopPressed", true);
+
+    }
+
+    public void turnOffLights()
+    {
+        lights.SetActive(false);
+        lightSwitchAnimation.SetBool("BottomPressed", true);
+
     }
 }
