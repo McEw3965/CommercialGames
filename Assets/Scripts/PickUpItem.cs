@@ -85,7 +85,7 @@ public class PickUpItem : MonoBehaviour
             if (itemRigidbody != null)
             {
                 itemRigidbody.isKinematic = false;
-                itemRigidbody.velocity = Vector3.zero;
+                itemRigidbody.linearVelocity = Vector3.zero;
             }
 
             Collider itemCollider = currentItem.GetComponent<Collider>();
