@@ -12,6 +12,8 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private Transform lightSwitchlocation;
     [SerializeField] private TutorialTrigger trigger;
 
+    private bool playonce = false;
+    private bool playtaskonce = false;
 
     private void Start()
     {
@@ -23,14 +25,16 @@ public class StartGameScript : MonoBehaviour
     {
         if(dialogue.dialogueon)
         {
-            player.GetComponent<InputManager>().enabled = false;
-            alien.GetComponent<AlienMovement>().enabled = false;
-            alien.GetComponent<Animator>().enabled = false;
-            alien.GetComponent<NavMeshAgent>().enabled = false;
-            alien.GetComponent<Interactable>().enabled = false;
+            if (!trigger.isPlayerInside)
+            {
+                player.GetComponent<InputManager>().enabled = false;
+                alien.GetComponent<AlienMovement>().enabled = false;
+                alien.GetComponent<Animator>().enabled = false;
+                alien.GetComponent<NavMeshAgent>().enabled = false;
+                alien.GetComponent<Interactable>().enabled = false;
 
-            interactionText.SetActive(false);
-
+                interactionText.SetActive(false);
+            }
 
         }
 
@@ -50,13 +54,22 @@ public class StartGameScript : MonoBehaviour
             interactionText.SetActive(true);
 
 
-            tasks.GetComponent<taskTerminal>().selectspecifictask(3);
+            if(!playtaskonce)
+
+            {
+                tasks.GetComponent<taskTerminal>().selectspecifictask(3);
+
+                playtaskonce = true;
+            }
 
 
 
          
-            if (trigger.isPlayerInside && trigger.isAlienInside)
+            if (trigger.isPlayerInside )
             {
+
+                alien.GetComponent<Animator>().enabled = false;
+                //    alien.transform.position = lightSwitchlocation.position;
                 dialogue.gameObject.SetActive(true);
                 dialogue.lines = new string[]
                 {
@@ -65,7 +78,19 @@ public class StartGameScript : MonoBehaviour
                     "Pressing the buttons should fix the problem!",
                 };
 
-                dialogue.StartDialogues();
+                if(!playonce)
+                {
+                    dialogue.StartDialogues();
+                    playonce = true;
+                }
+
+                if(playonce && tasks.GetComponent<taskTerminal>().lightTaskActive == false)
+                {
+                 
+                    gameObject.SetActive(false);
+                    alien.GetComponent<Animator>().enabled = true;
+
+                }
             }
         }
 

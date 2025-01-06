@@ -11,7 +11,7 @@ public class TutorialTrigger : MonoBehaviour
         {
             isPlayerInside = true;
         }
-         if (other.gameObject.GetComponent<alienBehaviour>())
+         if (other.gameObject.GetComponent<alienBehaviour>() != null)
         {
             isAlienInside = true;
         }
@@ -26,7 +26,7 @@ public class TutorialTrigger : MonoBehaviour
         {
             isPlayerInside = false;
         }
-         if (other.gameObject.GetComponent<alienBehaviour>())
+         if (other.gameObject.GetComponent<alienBehaviour>() != null)
         {
             isAlienInside = false;
         }
