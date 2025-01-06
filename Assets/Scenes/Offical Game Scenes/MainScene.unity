@@ -6168,7 +6168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerOn: 0
-  timeleft: 60
+  timeleft: 180
   m_TextMeshProUGUI: {fileID: 454720995}
 --- !u!222 &454720997
 CanvasRenderer:
