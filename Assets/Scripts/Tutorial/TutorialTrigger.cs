@@ -20,17 +20,6 @@ public class TutorialTrigger : MonoBehaviour
        
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player"))
-        {
-            isPlayerInside = false;
-        }
-         if (other.gameObject.GetComponent<alienBehaviour>() != null)
-        {
-            isAlienInside = false;
-        }
-    }
 
  
 }
