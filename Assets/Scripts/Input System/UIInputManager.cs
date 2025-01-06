@@ -4,7 +4,7 @@ public class UIInputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
     public PlayerInput.UIActions onUI;
-    public Dialogue dialogue;
+    public StartDialogue dialogue;
 
 
     private void Awake()

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 
 //https://www.youtube.com/watch?v=8oTYabhj248&ab_channel=BMo
-public class Dialogue : MonoBehaviour
+public class StartDialogue : MonoBehaviour
 {
 
     public TextMeshProUGUI textComponent;
@@ -14,8 +14,8 @@ public class Dialogue : MonoBehaviour
     void Start()
     {
         textComponent.text = string.Empty;
-        
-        StartDialogue();
+
+        StartDialogues();
     }
 
   
@@ -24,7 +24,7 @@ public class Dialogue : MonoBehaviour
         NextLine(); //next line 
     }
 
-    void StartDialogue()
+    public void StartDialogues()
     {
         index = 0;
         dialogueon = true;

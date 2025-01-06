@@ -32,6 +32,8 @@ public class taskTerminal : MonoBehaviour
     [Header("Space between each task in UI")]
     [SerializeField] private float itemHeight = 100f; // Spacing between items
 
+
+    [SerializeField] private StartGameScript StartGameScript;
     private void Start()
     {
         listParent = GameObject.Find("Main Tasks").transform;
@@ -39,18 +41,27 @@ public class taskTerminal : MonoBehaviour
     }
     private void Update()
     {
-       
+
+        if (StartGameScript.tutorialOn)
+        {
+
+         
+        }
+        else
+        {
+
+
             timer += Time.deltaTime;
 
             if (timer >= time)
             {
-                selectTask();
+                randomselectTask();
                 timer = 0f;
             }
 
 
             ReorganizeList();
-        
+        }
     }
 
 
@@ -91,9 +102,50 @@ public class taskTerminal : MonoBehaviour
     }
 
 
+    public void selectspecifictask(int task)
+    {
+        switch (task)
+        {
+            case 0:
+                if (!ventTaskActive)
+                {
+                    ventNumber = Random.Range(0, 3);
+                    ventBehaviour[ventNumber].igniteVent();
+                    ventTaskActive = true;
+                    addToList("Extinguish Vent", "TaskVent");
+                    lightFlash.alarmOn = true;
+                    alarmTaskActive = true;
+
+                }
+                break;
 
 
-    public void selectTask()
+            case 1:
+                if (!radioTaskActive)
+                {
+                    radioTaskActive = true;
+                    addToList("Press Radio", "TaskRadio");
+                }
+
+                break;
+            case 2:
+                if (!WaveAlienTaskActive)
+                {
+                    WaveAlienTaskActive = true;
+                    addToList("Wave to Alien", "TaskAlien");
+                }
+                break;
+            case 3:
+                if (!lightTaskActive)
+                {
+                    lightTaskActive = true;
+                    addToList("Turn the lights on", "TaskLights");
+                }
+                break;
+        }
+    }
+
+    public void randomselectTask()
     {
             chosenTask = Random.Range(0, 4);
 

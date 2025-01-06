@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class AlienMovement : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     private int randomNum;
     public Transform[] destinations;
     public catDetection CD;
