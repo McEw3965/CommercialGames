@@ -10,7 +10,7 @@ public class InputManager : MonoBehaviour
 {
     private PlayerInput playerInput; //reference to c# script
     public PlayerInput.PlayerActions player; //reference to onfootaction map;
-    public PlayerInput.UIActions onUI;
+   // public PlayerInput.UIActions onUI;
 
     private PlayerMotor motor;
     private PlayerLook look;
@@ -20,7 +20,8 @@ public class InputManager : MonoBehaviour
     public FireExManager FireExManager;
     public MapManager map;
     public TorchManager torch;
-    public Dialogue dialogue;
+    //
+    //public Dialogue dialogue;
 
     private bool hasFireEx = false;
 
@@ -29,7 +30,7 @@ public class InputManager : MonoBehaviour
     {
         playerInput = new PlayerInput();
         player = playerInput.Player;
-        onUI = playerInput.UI;
+       // onUI = playerInput.UI;
 
         motor = GetComponent<PlayerMotor>();
         look = GetComponent<PlayerLook>();
@@ -93,7 +94,7 @@ public class InputManager : MonoBehaviour
         player.DisplayMap.performed += ctx => map.ToggleMap(); //toggles the map on and off
 
         player.DisplayTorch.performed += ctx => torch.ToggleTorch();
-        onUI.Click.performed += ctx => dialogue.displayText();
+       // onUI.Click.performed += ctx => dialogue.displayText();
     }
 
 
@@ -122,12 +123,12 @@ public class InputManager : MonoBehaviour
     private void OnEnable()
     {
         player.Enable();
-        onUI.Enable();
+     //   onUI.Enable();
     }
     private void OnDisable()
     {
         player.Disable();
-        onUI.Disable();
+      //  onUI.Disable();
 
     }
 }

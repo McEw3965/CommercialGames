@@ -10,10 +10,11 @@ public class Dialogue : MonoBehaviour
     public TextMeshProUGUI textComponent;
     public string[] lines;
     private int index;
-
+    public bool dialogueon;
     void Start()
     {
         textComponent.text = string.Empty;
+        
         StartDialogue();
     }
 
@@ -26,13 +27,15 @@ public class Dialogue : MonoBehaviour
     void StartDialogue()
     {
         index = 0;
+        dialogueon = true;
         DisplayLine(); //first line displayed
 
     }
 
     void DisplayLine()
     {
-        textComponent.text = lines[index]; 
+        textComponent.text = lines[index];
+        dialogueon = true;
     }
 
     void NextLine()
@@ -45,7 +48,9 @@ public class Dialogue : MonoBehaviour
         else
         {
             Debug.Log("End of dialogue.");
+            dialogueon = false;
             gameObject.SetActive(false); // Disable the dialogue object when finished
+            
         }
     }
 }

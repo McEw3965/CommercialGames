@@ -28,23 +28,27 @@ public class AlienMovement : MonoBehaviour
 
     private void Update()
     {
-        //agent.destination = destinations[randomNum].position;
 
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && CD.catDetected == false)
-        {
-            StartCoroutine(GenerateRandomNum());
-        } else if (CD.catPickedUp)
-        {
-            agent.destination = hole.transform.position;
-        }
+      
+            //agent.destination = destinations[randomNum].position;
 
-        if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
-        {
-            //this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
-            this.gameObject.transform.LookAt(holeCentre.transform.position);
-            CD.holdCatOverHole();
-            //CD.throwCat();
-        }
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && CD.catDetected == false)
+            {
+                StartCoroutine(GenerateRandomNum());
+            }
+            else if (CD.catPickedUp)
+            {
+                agent.destination = hole.transform.position;
+            }
+
+            if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
+            {
+                //this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
+                this.gameObject.transform.LookAt(holeCentre.transform.position);
+                CD.holdCatOverHole();
+                //CD.throwCat();
+            }
+        
     }
 
     IEnumerator GenerateRandomNum()
