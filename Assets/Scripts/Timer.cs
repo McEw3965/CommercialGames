@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
     public bool timerOn = false;
     public float timeleft = 60;
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
+    [SerializeField] private GameObject Explosions;
     private void Start()
     {
         timerOn = true;
@@ -22,9 +23,10 @@ public class Timer : MonoBehaviour
             }
             else
             {
-                Debug.Log("Times up");
+                Debug.Log("Times up - Game Over");
                 timeleft = 0;
                 timerOn = false;
+                activateExplosion();
             }
         }
     }
@@ -37,5 +39,10 @@ public class Timer : MonoBehaviour
         float sec = Mathf.FloorToInt(currentTime % 60);
 
         m_TextMeshProUGUI.text = string.Format("{0:00} : {1:00}", min, sec);
+    }
+
+    void activateExplosion()
+    {
+        Explosions.SetActive(true);
     }
 }
