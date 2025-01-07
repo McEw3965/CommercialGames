@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb481e2b9afa6cd40847fb4b7b5ae660
+guid: 52fd60572dca31046ab5953a2dce5d03
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,93 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Close
-    second: {fileID: 2100000, guid: 6e293dce29e91ec4eb4a0cda7b9de62f, type: 2}
+      name: CatBowl
+    second: {fileID: 2100000, guid: 8e659c57281ca114b95bee2b5f6b628c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Close1
-    second: {fileID: 2100000, guid: 6e69c0be0a89f56458439e33ce3ddfcb, type: 2}
+      name: CatBowlInnerPrint
+    second: {fileID: 2100000, guid: 0880b985d67794d489d41c3749acc141, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Emergency_stop
-    second: {fileID: 2100000, guid: ef75506f643f6774db8f966d7a4e8f69, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Emergency_stop1
-    second: {fileID: 2100000, guid: 6344a92df9f27924d990c8caee526020, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Fire
-    second: {fileID: 2100000, guid: 658045e48c1001f48b846d54a44b3ce5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Fire1
-    second: {fileID: 2100000, guid: 781b4ed716a01304d8d7dfb190588822, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: incinerator
-    second: {fileID: 2100000, guid: 0d55bc90ef1ecea4fa25192b04ad6e06, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: metal_mesh
-    second: {fileID: 2100000, guid: 2ce91d494f6708d44b271fd383f14e17, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: open
-    second: {fileID: 2100000, guid: fa39fffae9e966d4e86d38605a69eb23, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: open1
-    second: {fileID: 2100000, guid: 53428fd2d2ac308418b025e13169c446, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: warning
-    second: {fileID: 2100000, guid: 234f3e7424d99e34a85b3418414d0aa3, type: 2}
+      name: CatBowlPattern
+    second: {fileID: 2100000, guid: b3bad0f9a981e4f4297093243cf4be70, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Chef Door Kick plate
-    second: {fileID: 2800000, guid: 6f0b714babaeb4b4cb91c24509970705, type: 3}
+      name: Screenshot 2025-01-07 120745
+    second: {fileID: 2800000, guid: 0e770b7fb648c4c4295aa7192702b941, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
-      name: Emergency stop
-    second: {fileID: 2800000, guid: 2400ee77d9fe0f04990e5dd3a3128db3, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Fire button
-    second: {fileID: 2800000, guid: d9fd73843a03c6943a2a208feae94ed3, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: OPEN
-    second: {fileID: 2800000, guid: 24c7c98ab602e08408f8e71b9bbc6167, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: close
-    second: {fileID: 2800000, guid: 4d4fc23ae16e8d241beec5f394135abf, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: rough-metallic-surface-texture
-    second: {fileID: 2800000, guid: 51fee1887e7bed2468307fc99243f466, type: 3}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: warning
-    second: {fileID: 2800000, guid: 59ef0f5403c03a04b848c83f0fd5a808, type: 3}
+      name: Screenshot 2025-01-07 121155
+    second: {fileID: 2800000, guid: dae15e757dbac7e4b9d2ff40d8682e60, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -120,7 +55,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 1
+    isReadable: 0
   meshes:
     lODScreenPercentages: []
     globalScale: 1

@@ -1,0 +1,72 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &4934832154362087875
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -17.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -22.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.85509294
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5184748
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -62.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 7419941288172302564, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7904729826424253022, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e,
+        type: 3}
+      propertyPath: m_Name
+      value: Crop bed Variant 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 2582113745050000743, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e, type: 3}
+    - {fileID: 4499832250678337079, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1cf57ee7e4f2c6e40b4ae64e0dbe1f2e, type: 3}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9dc3ac8c4ca650c44b8bdb5e3b089c00
+guid: 5d4443e264882f8498c75f7872fa59ff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Base
-    second: {fileID: 2100000, guid: ba1c168cdba487949b8a264aa79f8207, type: 2}
+      name: CatFountainFilter
+    second: {fileID: 2100000, guid: 9b5fe68a52a75354faa3495c65178d25, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Luminous
-    second: {fileID: 2100000, guid: d6bc04a6db8dc1d47a05780ef1c53a44, type: 2}
+      name: CatFountainMainBody
+    second: {fileID: 2100000, guid: af0a2d20fa999ea4aa4acf894689f6f6, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Screenshot 2025-01-07 130923
+    second: {fileID: 2800000, guid: 33db16958eef56442b565800498cfc0b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
