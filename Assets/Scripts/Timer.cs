@@ -9,9 +9,11 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private GameObject Explosions;
     [SerializeField] private GameObject gameOverMenu;
+    [SerializeField] private MainUIManager score;
     private void Start()
     {
         timerOn = true;
+  
     }
     void Update()
     {
@@ -51,6 +53,8 @@ public class Timer : MonoBehaviour
     void displayGameOverMenu()
     {
         gameOverMenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        score.overallScore();
 
     }
 }
