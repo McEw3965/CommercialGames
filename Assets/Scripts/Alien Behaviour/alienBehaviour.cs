@@ -8,6 +8,7 @@ public class alienBehaviour : MonoBehaviour
     private MainUIManager UIManager;
     private taskTerminal TT;
     public AINavigations AiNav;
+    [SerializeField] private Timer timer;
 
     public bool isFollowing;
 
@@ -57,7 +58,7 @@ public class alienBehaviour : MonoBehaviour
         {
             TT.WaveAlienTaskActive = false;
             UIManager.AdjustScore(10);
-
+            timer.timeleft += 5;
             TT.removeFromList("TaskAlien");
         }
     }

@@ -11,6 +11,7 @@ public class ventBehaviour : MonoBehaviour
     public AudioSource alarm;
     public MainUIManager UIManager;
     public FlashingLights flashinglights;
+    [SerializeField] private Timer timer;
     private void Start()
     {
         TT = GameObject.Find("Tasks").GetComponent<taskTerminal>();
@@ -40,6 +41,7 @@ public class ventBehaviour : MonoBehaviour
             flashinglights.alarmOn = false;
             TT.removeFromList("TaskVent");
             UIManager.AdjustScore(50);
+            timer.timeleft += 9;
 
         }
     }

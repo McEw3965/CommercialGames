@@ -14,7 +14,7 @@ public class RadioController : MonoBehaviour
 
     public int trackNum = 0;
     public bool isRadioOn = false;
-   
+    [SerializeField] private Timer timer;
 
     Vector3 originalScale;
     private void Start()
@@ -33,17 +33,7 @@ public class RadioController : MonoBehaviour
     
     public void TurnRadioOn() {
 
-        /*
-        GameObject radio = this.gameObject;
-        originalScale = this.transform.localScale;
-        this.transform.SetParent(playerCamera.transform);
-        radio.transform.localPosition = new Vector3(0,-2.5f, 2);
-        radio.transform.localScale = originalScale; // Restore original scale
-        */
-
-  //      Player.GetComponent<FirstPersonController>().playerCanMove = false;
-//        Player.GetComponent<FirstPersonController>().cameraCanMove = false;
-
+        
 
         if (!isRadioOn) //if the radio is off
             {
@@ -80,11 +70,11 @@ public class RadioController : MonoBehaviour
         {
             TT.radioTaskActive = false;
             UIManager.AdjustScore(10);
+            timer.timeleft += 5;
             TT.removeFromList("TaskRadio");
         }
 
-       // Player.GetComponent<FirstPersonController>().playerCanMove = true;
-       // Player.GetComponent<FirstPersonController>().cameraCanMove = true;
+
 
     }
 

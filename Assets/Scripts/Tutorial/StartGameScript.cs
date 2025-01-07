@@ -11,6 +11,7 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private GameObject interactionText;
     [SerializeField] private Transform lightSwitchlocation;
     [SerializeField] private TutorialTrigger trigger;
+    [SerializeField] private Transform[] position;
 
     private bool playonce = false;
     private bool playtaskonce = false;
@@ -18,7 +19,7 @@ public class StartGameScript : MonoBehaviour
     private void Start()
     {
         tutorialOn = true;
-       
+
     }
 
     private void Update()
@@ -77,7 +78,7 @@ public class StartGameScript : MonoBehaviour
                     {
                     "This is the light switch",
                     "To be able to see better, press R to bring up your torch",
-                    "Pressing the buttons should fix the problem!",
+                    "Pressing the button on the wall should fix the problem!",
                     };
 
                     if (!playonce)
@@ -89,16 +90,24 @@ public class StartGameScript : MonoBehaviour
                     if (playonce && tasks.GetComponent<taskTerminal>().lightTaskActive == false)
                     {
 
-                       dialogue.gameObject.SetActive(false);
+                        dialogue.gameObject.SetActive(false);
                         alien.GetComponent<Animator>().enabled = true;
+                        alien.GetComponent<AlienMovement>().destinations = new Transform[]
+                        {
+                              position[0], position[1], position[2],position[3]
+                        };
+
+
+
+
                         trigger.gameObject.SetActive(false);
-                       tutorialOn = false;
+                        tutorialOn = false;
 
                     }
                 }
             }
         }
-      
+
 
     }
 }

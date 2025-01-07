@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class LightsOff : MonoBehaviour
 {
+
+    [SerializeField] private Timer timer;
     public taskTerminal TT;
     public GameObject lights;
     public Animator lightSwitchAnimation;
@@ -24,9 +26,12 @@ public class LightsOff : MonoBehaviour
 
     public void turnOnLights()
     {
+        timer.timeleft += 5;
+       
         TT.lightTaskActive = false;
         lights.SetActive(true);
         lightSwitchAnimation.SetBool("TopPressed", true);
+        TT.removeFromList("TaskLights");
 
     }
 
