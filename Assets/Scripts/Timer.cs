@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public float timeleft = 60;
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private GameObject Explosions;
+    [SerializeField] private GameObject gameOverMenu;
     private void Start()
     {
         timerOn = true;
@@ -27,6 +28,7 @@ public class Timer : MonoBehaviour
                 timeleft = 0;
                 timerOn = false;
                 activateExplosion();
+                displayGameOverMenu();
             }
         }
     }
@@ -44,5 +46,11 @@ public class Timer : MonoBehaviour
     void activateExplosion()
     {
         Explosions.SetActive(true);
+    }
+
+    void displayGameOverMenu()
+    {
+        gameOverMenu.SetActive(true);
+
     }
 }
