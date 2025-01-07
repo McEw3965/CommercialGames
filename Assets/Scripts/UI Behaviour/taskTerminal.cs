@@ -65,12 +65,16 @@ public class taskTerminal : MonoBehaviour
     }
 
 
-    void addToList(string task, string tag)
+    void addToList(string task, string tag, Color color)
     {
         GameObject newTask = Instantiate(listTasks, listParent);
         TextMeshProUGUI textComponent = newTask.GetComponent<TextMeshProUGUI>();
         newTask.tag = tag;
-        textComponent.text = task;
+        if (textComponent != null)
+        {
+            textComponent.text = task;
+            textComponent.color = color;
+        }
 
         RectTransform rectTransform = newTask.GetComponent<RectTransform>();
         int itemCount = listParent.childCount;
@@ -104,7 +108,19 @@ public class taskTerminal : MonoBehaviour
 
     public void selectspecifictask(int task)
     {
-        switch (task)
+        selectTask(task);  
+    }
+
+    public void randomselectTask()
+    {
+        chosenTask = Random.Range(0, 4);
+
+        selectTask(chosenTask);
+    }
+
+    void selectTask(int tasks)
+    {
+        switch (tasks)
         {
             case 0:
                 if (!ventTaskActive)
@@ -112,7 +128,7 @@ public class taskTerminal : MonoBehaviour
                     ventNumber = Random.Range(0, 3);
                     ventBehaviour[ventNumber].igniteVent();
                     ventTaskActive = true;
-                    addToList("Extinguish Vent", "TaskVent");
+                    addToList("Extinguish Vent +9s", "TaskVent", Color.red);
                     lightFlash.alarmOn = true;
                     alarmTaskActive = true;
 
@@ -124,7 +140,7 @@ public class taskTerminal : MonoBehaviour
                 if (!radioTaskActive)
                 {
                     radioTaskActive = true;
-                    addToList("Press Radio", "TaskRadio");
+                    addToList("Press Radio +5s", "TaskRadio", Color.green);
                 }
 
                 break;
@@ -132,62 +148,19 @@ public class taskTerminal : MonoBehaviour
                 if (!WaveAlienTaskActive)
                 {
                     WaveAlienTaskActive = true;
-                    addToList("Wave to Alien", "TaskAlien");
+                    addToList("Wave to Alien +5s", "TaskAlien", Color.green);
                 }
                 break;
             case 3:
                 if (!lightTaskActive)
                 {
                     lightTaskActive = true;
-                    addToList("Turn the lights on", "TaskLights");
+                    addToList("Turn the lights on +5s", "TaskLights", Color.green);
                 }
                 break;
         }
     }
 
-    public void randomselectTask()
-    {
-            chosenTask = Random.Range(0, 4);
 
-            switch (chosenTask)
-            {
-                case 0:
-                    if (!ventTaskActive) 
-                    {
-                        ventNumber = Random.Range(0, 3);
-                        ventBehaviour[ventNumber].igniteVent();
-                        ventTaskActive = true;
-                        addToList("Extinguish Vent", "TaskVent");
-                        lightFlash.alarmOn = true;
-                        alarmTaskActive = true;
-
-                }
-                    break;
-
-              
-                case 1:
-                    if (!radioTaskActive)
-                    {
-                        radioTaskActive = true;
-                        addToList("Press Radio", "TaskRadio");
-                    }
-
-                    break;
-                case 2: 
-                    if(!WaveAlienTaskActive)
-                    {
-                        WaveAlienTaskActive = true;
-                        addToList("Wave to Alien", "TaskAlien");
-                    }
-                    break;
-               case 3:
-                    if (!lightTaskActive)
-                    {
-                    lightTaskActive = true;
-                        addToList("Turn the lights on", "TaskLights");
-                    }
-                    break;
-        }
-    }
 
 }
