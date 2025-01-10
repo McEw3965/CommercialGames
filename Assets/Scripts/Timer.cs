@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.AI;
 
 //https://www.youtube.com/watch?v=hxpUk0qiRGs&ab_channel=TheGameGuy
 public class Timer : MonoBehaviour
@@ -8,8 +9,8 @@ public class Timer : MonoBehaviour
     public float timeleft = 60;
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private GameObject Explosions;
-    [SerializeField] private GameObject gameOverMenu;
-    [SerializeField] private MainUIManager score;
+    [SerializeField] private GameOver gameOver;
+  
     private void Start()
     {
         timerOn = true;
@@ -30,7 +31,7 @@ public class Timer : MonoBehaviour
                 timeleft = 0;
                 timerOn = false;
                 activateExplosion();
-                displayGameOverMenu();
+                gameOver.displayGameOverMenu();
             }
         }
     }
@@ -50,11 +51,5 @@ public class Timer : MonoBehaviour
         Explosions.SetActive(true);
     }
 
-    void displayGameOverMenu()
-    {
-        gameOverMenu.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        score.overallScore();
-
-    }
+    
 }
