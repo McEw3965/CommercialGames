@@ -9,6 +9,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] private GameObject alien;
     [SerializeField] private GameObject TaskTerminal;
     [SerializeField] private GameObject UI;
+    [SerializeField] private GameObject map;
     public void displayGameOverMenu()
     {
         gameOverMenu.SetActive(true);
@@ -29,6 +30,8 @@ public class GameOver : MonoBehaviour
         alien.GetComponent<Interactable>().enabled = false;
         UI.SetActive(false);
         TaskTerminal.GetComponent<taskTerminal>().enabled = false;
-
+       
     }
+
+
 }

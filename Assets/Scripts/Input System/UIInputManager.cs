@@ -5,7 +5,7 @@ public class UIInputManager : MonoBehaviour
     private PlayerInput playerInput;
     public PlayerInput.UIActions onUI;
     public StartDialogue dialogue;
-
+    public PauseMenu pauseMenu;
 
     private void Awake()
     {
@@ -13,6 +13,7 @@ public class UIInputManager : MonoBehaviour
         onUI = playerInput.UI;
 
         onUI.Click.performed += ctx => dialogue.displayText();
+        onUI.Escape.performed += ctx => pauseMenu.PauseGame();
     }
 
 

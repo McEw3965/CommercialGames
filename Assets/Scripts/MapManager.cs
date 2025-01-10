@@ -7,6 +7,7 @@ public class MapManager : MonoBehaviour
     [SerializeField] private GameObject interactionText;
     [SerializeField] private GameObject DialogueBoxAlien;
     [SerializeField] private GameObject DialogueBoxCaptain;
+    [SerializeField] private GameObject Crosshair;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class MapManager : MonoBehaviour
             DialogueBoxAlien.SetActive(true);
             DialogueBoxCaptain.SetActive(true);
             interactionText.SetActive(true);
+            Crosshair.SetActive(true);
 
         }
         else
@@ -30,8 +32,7 @@ public class MapManager : MonoBehaviour
             DialogueBoxAlien.SetActive(false);
             DialogueBoxCaptain.SetActive(false);
             interactionText.SetActive(false);
-
-
+            Crosshair.SetActive(false);
         }
     }
 

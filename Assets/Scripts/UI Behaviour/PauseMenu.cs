@@ -14,35 +14,27 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);   
+        isPaused = false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            if(!isPaused)
-            {
-                PauseGame();
-            } else
-            {
-                ResumeGame();
-            }
-          
-        }
-    }
+      
 
     public void PauseGame()
     {
-        Debug.Log("PAUSED!");
-        pauseMenu.SetActive(true);
-        UIElements.SetActive(false );
-        Time.timeScale = 0f;
-        isPaused = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        crosshair.SetActive(false);
+        if(isPaused)
+        {
+            ResumeGame();
+        } else
+        {
+            Debug.Log("PAUSED!");
+            pauseMenu.SetActive(true);
+            UIElements.SetActive(false);
+            Time.timeScale = 0f;
+            isPaused = true;
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            crosshair.SetActive(false);
+        }
+
     }
 
     public void ResumeGame()
@@ -73,7 +65,7 @@ public class PauseMenu : MonoBehaviour
         Application.Quit();
 
         #if UNITY_EDITOR
-                // Stop playing the game in the Editor
+           
                 UnityEditor.EditorApplication.isPlaying = false;
         #endif
     }
