@@ -31,10 +31,6 @@ public class StartGameScript : MonoBehaviour
         if (tutorialOn)
         {
 
-            if(captaindialogue.isCaptainTalking)
-            {
-                captain.SetActive(false);   
-            }
             if (dialogue.dialogueon)
             {
                 if (!trigger.isPlayerInside)
