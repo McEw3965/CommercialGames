@@ -12,6 +12,9 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private Transform lightSwitchlocation;
     [SerializeField] private TutorialTrigger trigger;
     [SerializeField] private Transform[] position;
+    [SerializeField] private CaptainDialogue captaindialogue;
+    [SerializeField] private GameObject captain;
+
 
     private bool playonce = false;
     private bool playtaskonce = false;
@@ -24,8 +27,10 @@ public class StartGameScript : MonoBehaviour
 
     private void Update()
     {
+
         if (tutorialOn)
         {
+
             if (dialogue.dialogueon)
             {
                 if (!trigger.isPlayerInside)
@@ -43,7 +48,6 @@ public class StartGameScript : MonoBehaviour
 
             if (!dialogue.dialogueon)
             {
-                //   tutorialOn=false;
                 player.GetComponent<InputManager>().enabled = true;
                 alien.GetComponent<AlienMovement>().enabled = true;
 

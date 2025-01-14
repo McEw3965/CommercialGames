@@ -11,6 +11,7 @@ public class CaptainDialogue : MonoBehaviour
             Debug.Log("ITS BEEN 15 SECONDS");
             gameObject.SetActive(true);
             gameObject.GetComponent<StartDialogue>().StartDialogues();
+          
         }
     }
 

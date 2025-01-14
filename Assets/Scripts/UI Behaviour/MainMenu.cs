@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public StartGameScript start;
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -12,6 +13,14 @@ public class MainMenu : MonoBehaviour
     {
         //doesnt exist yet
     }
+
+
+    public void ResetGame()
+    {
+        PlayGame();
+      //  start.tutorialOn = false;
+    }
+
 
     public void QuitGame()
     {
