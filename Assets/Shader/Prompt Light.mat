@@ -61,11 +61,13 @@ Material:
     - _Line_Rotation: 80.5
     - _Line_Strength: 0.55
     - _Line_Thickness: 0.33
+    - _Position: 3
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ScrollSpeed: -1
+    - _Tiling: 10
     m_Colors:
-    - _Fresnel_Color: {r: 0.7271271, g: 1.887395, b: 3.584906, a: 0.5176471}
-    - _Tint: {r: 0, g: 0.8793845, b: 1, a: 0.6235294}
+    - _Fresnel_Color: {r: 0, g: 1.6706306, b: 0.007140492, a: 0.5176471}
+    - _Tint: {r: 0, g: 0.5660378, b: 0.032495555, a: 0.6235294}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
