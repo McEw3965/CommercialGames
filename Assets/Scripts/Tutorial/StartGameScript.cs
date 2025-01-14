@@ -80,6 +80,7 @@ public class StartGameScript : MonoBehaviour
                 {
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
                     alien.GetComponent<Rigidbody>().isKinematic = true;
+                    alien.GetComponent<Transform>().LookAt(player.GetComponent<Transform>());
                     alien.GetComponent<Animator>().enabled = false;
                     //    alien.transform.position = lightSwitchlocation.position;
                     dialogue.gameObject.SetActive(true);
