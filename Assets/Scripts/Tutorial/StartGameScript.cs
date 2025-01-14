@@ -12,8 +12,7 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private Transform lightSwitchlocation;
     [SerializeField] private TutorialTrigger trigger;
     [SerializeField] private Transform[] position;
-    [SerializeField] private CaptainDialogue captaindialogue;
-    [SerializeField] private GameObject captain;
+  
 
 
     private bool playonce = false;

@@ -51,7 +51,6 @@ public class StartDialogue : MonoBehaviour
             dialogueon = false;
             gameObject.SetActive(false); // Disable the dialogue object when finished
 
-            captain.isCaptainTalking = false;
         }
     }
 }

@@ -18,7 +18,6 @@ public class MainMenu : MonoBehaviour
     public void ResetGame()
     {
         PlayGame();
-      //  start.tutorialOn = false;
     }
 
 
