@@ -12,9 +12,20 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private Transform lightSwitchlocation;
     [SerializeField] private TutorialTrigger trigger;
     [SerializeField] private Transform[] position;
+<<<<<<< Updated upstream
     [SerializeField] private NavMeshAgent agent;
 
 
+=======
+<<<<<<< HEAD
+    [SerializeField] private GameObject timer;
+  
+=======
+    [SerializeField] private NavMeshAgent agent;
+
+
+>>>>>>> 55b41a9480d3f9ebab38ad8b8774c02aa202988e
+>>>>>>> Stashed changes
 
 
     private bool playonce = false;
@@ -106,17 +117,20 @@ public class StartGameScript : MonoBehaviour
                         dialogue.gameObject.SetActive(false);
                         alien.GetComponent<NavMeshAgent>().isStopped = false;
                         alien.GetComponent<Animator>().enabled = true;
+                        player.GetComponent<InputManager>().enabled = true;
+                        alien.GetComponent<NavMeshAgent>().enabled = true;
+                        alien.GetComponent<Interactable>().enabled = true;
                         alien.GetComponent<AlienMovement>().destinations = new Transform[]
                         {
                               position[0], position[1], position[2],position[3]
                         };
 
 
-
-
                         trigger.gameObject.SetActive(false);
                         tutorialOn = false;
-
+                        timer.GetComponent<Timer>().timerOn = true;
+                        timer.SetActive(true);
+                      
                     }
                 }
             }

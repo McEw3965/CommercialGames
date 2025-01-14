@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.AI;
 
 //https://www.youtube.com/watch?v=hxpUk0qiRGs&ab_channel=TheGameGuy
 public class Timer : MonoBehaviour
@@ -10,11 +9,10 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private GameObject Explosions;
     [SerializeField] private GameOver gameOver;
-  
+
     private void Start()
     {
-        timerOn = true;
-  
+        gameObject.SetActive(false);    
     }
     void Update()
     {
