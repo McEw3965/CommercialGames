@@ -80,15 +80,15 @@ public class StartGameScript : MonoBehaviour
                     playtaskonce = true;
                 }
 
-                if (alien.GetComponent<NavMeshAgent>().remainingDistance <= alien.GetComponent<NavMeshAgent>().stoppingDistance)
+                /*if (playonce && alien.GetComponent<NavMeshAgent>().remainingDistance <= alien.GetComponent<NavMeshAgent>().stoppingDistance)
                 {
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
-                }
+                }*/
 
 
                 if (trigger.isPlayerInside)
                 {
-
+                    alien.GetComponent<NavMeshAgent>().isStopped = true;
                     alien.GetComponent<Animator>().enabled = false;
                     //    alien.transform.position = lightSwitchlocation.position;
                     dialogue.gameObject.SetActive(true);
@@ -103,11 +103,6 @@ public class StartGameScript : MonoBehaviour
                     {
                         dialogue.StartDialogues();
                         playonce = true;
-                    }
-
-                    if (playonce && agent.remainingDistance <= agent.stoppingDistance)
-                    {
-                        Debug.Log("Alien Stopped");
                     }
 
 
