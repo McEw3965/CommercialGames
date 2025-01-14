@@ -12,7 +12,9 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private Transform lightSwitchlocation;
     [SerializeField] private TutorialTrigger trigger;
     [SerializeField] private Transform[] position;
-  
+    [SerializeField] private NavMeshAgent agent;
+
+
 
 
     private bool playonce = false;
@@ -39,7 +41,6 @@ public class StartGameScript : MonoBehaviour
                     alien.GetComponent<Animator>().enabled = false;
                     alien.GetComponent<NavMeshAgent>().enabled = false;
                     alien.GetComponent<Interactable>().enabled = false;
-
                     interactionText.SetActive(false);
                 }
 
@@ -68,7 +69,10 @@ public class StartGameScript : MonoBehaviour
                     playtaskonce = true;
                 }
 
-
+                if (alien.GetComponent<NavMeshAgent>().remainingDistance <= alien.GetComponent<NavMeshAgent>().stoppingDistance)
+                {
+                    alien.GetComponent<NavMeshAgent>().isStopped = true;
+                }
 
 
                 if (trigger.isPlayerInside)
@@ -90,10 +94,17 @@ public class StartGameScript : MonoBehaviour
                         playonce = true;
                     }
 
-                    if (playonce && tasks.GetComponent<taskTerminal>().lightTaskActive == false)
+                    if (playonce && agent.remainingDistance <= agent.stoppingDistance)
+                    {
+                        Debug.Log("Alien Stopped");
+                    }
+
+
+                        if (playonce && tasks.GetComponent<taskTerminal>().lightTaskActive == false)
                     {
 
                         dialogue.gameObject.SetActive(false);
+                        alien.GetComponent<NavMeshAgent>().isStopped = false;
                         alien.GetComponent<Animator>().enabled = true;
                         alien.GetComponent<AlienMovement>().destinations = new Transform[]
                         {
