@@ -6,7 +6,7 @@ using TMPro;
 //https://www.youtube.com/watch?v=8oTYabhj248&ab_channel=BMo
 public class StartDialogue : MonoBehaviour
 {
-
+    [SerializeField] private CaptainDialogue captain;
     public TextMeshProUGUI textComponent;
     public string[] lines;
     private int index;
@@ -50,7 +50,8 @@ public class StartDialogue : MonoBehaviour
             Debug.Log("End of dialogue.");
             dialogueon = false;
             gameObject.SetActive(false); // Disable the dialogue object when finished
-            
+
+            captain.isCaptainTalking = false;
         }
     }
 }
