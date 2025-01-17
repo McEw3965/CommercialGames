@@ -14549,7 +14549,7 @@ Transform:
   m_GameObject: {fileID: 628255394}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.050154313, z: -0, w: 0.99874145}
-  m_LocalPosition: {x: -0.45399997, y: -1.28, z: 0.04400005}
+  m_LocalPosition: {x: -0.45399997, y: -0.82, z: 0.04400005}
   m_LocalScale: {x: 0.47285146, y: -1.3255948, z: 0.6833102}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14712,7 +14712,7 @@ MonoBehaviour:
   lightTaskActive: 0
   lightFlash: {fileID: 306317073}
   chosenTask: 0
-  time: 3
+  time: 6
   listTasks: {fileID: 18379310}
   listParent: {fileID: 1544097047}
   itemHeight: 70
