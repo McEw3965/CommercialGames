@@ -2002,7 +2002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1596289372}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 765247019}
 --- !u!1 &119731928
 GameObject:
   m_ObjectHideFlags: 0
