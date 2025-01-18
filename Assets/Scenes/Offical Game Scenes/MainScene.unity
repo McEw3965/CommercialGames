@@ -2571,12 +2571,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialOn: 0
   player: {fileID: 112656368}
+  playerModel: {fileID: 1222204873}
   alien: {fileID: 324755118}
   tasks: {fileID: 639017879}
   dialogue: {fileID: 1596289372}
   interactionText: {fileID: 1027256159}
   lightSwitchlocation: {fileID: 1566046779}
-  trigger: {fileID: 576620779}
+  playerTrigger: {fileID: 628255399}
+  alienTrigger: {fileID: 576620779}
   position:
   - {fileID: 2060603377}
   - {fileID: 970608131}
@@ -3586,7 +3588,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 324755134}
-  - {fileID: 1040107722}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &295712815
@@ -9523,7 +9524,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1566046779}
+  - {fileID: 628255395}
   - {fileID: 576620778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9541,8 +9542,8 @@ GameObject:
   - component: {fileID: 576620780}
   - component: {fileID: 576620779}
   m_Layer: 0
-  m_Name: TutorialLightTrigger
-  m_TagString: Untagged
+  m_Name: AlienLightTutTrigger
+  m_TagString: AlienTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9556,11 +9557,11 @@ Transform:
   m_GameObject: {fileID: 576620777}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.08091872, z: -0, w: 0.99672073}
-  m_LocalPosition: {x: -1.11, y: -0.89, z: 0.04}
-  m_LocalScale: {x: 5.68, y: 0.56, z: 3.85}
+  m_LocalPosition: {x: -2.04, y: -0.90107, z: 1.18}
+  m_LocalScale: {x: 1.3121936, y: 0.1293712, z: 1.2220727}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 628255395}
+  - {fileID: 1566046779}
   m_Father: {fileID: 564296629}
   m_LocalEulerAnglesHint: {x: 0, y: -9.283, z: 0}
 --- !u!114 &576620779
@@ -9605,7 +9606,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576620777}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -14533,9 +14534,10 @@ GameObject:
   - component: {fileID: 628255398}
   - component: {fileID: 628255397}
   - component: {fileID: 628255396}
+  - component: {fileID: 628255399}
   m_Layer: 0
-  m_Name: Cylinder
-  m_TagString: Untagged
+  m_Name: PlayerLightTutTrigger
+  m_TagString: PlayerTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14548,12 +14550,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628255394}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.050154313, z: -0, w: 0.99874145}
-  m_LocalPosition: {x: -0.45399997, y: -0.82, z: 0.04400005}
-  m_LocalScale: {x: 0.47285146, y: -1.3255948, z: 0.6833102}
+  m_LocalRotation: {x: -0, y: -0.13080673, z: -0, w: 0.9914079}
+  m_LocalPosition: {x: -1.59, y: -1.072, z: -2.39}
+  m_LocalScale: {x: 1.7099808, y: -0.27864808, z: 1.7143962}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 576620778}
+  m_Father: {fileID: 564296629}
   m_LocalEulerAnglesHint: {x: 0, y: -5.75, z: 0}
 --- !u!136 &628255396
 CapsuleCollider:
@@ -14570,9 +14572,9 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Height: 2
@@ -14631,6 +14633,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628255394}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &628255399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628255394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3347adf646253849bc1ccfaf61d38ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerInside: 0
+  isAlienInside: 0
 --- !u!1 &633376032 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9057702124420211378, guid: ca4cd224a10eefa499a671a6f4204996,
@@ -17889,7 +17905,7 @@ Transform:
   m_GameObject: {fileID: 1040107721}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 29.411766, y: 4.8884163, z: -21.6552}
+  m_LocalPosition: {x: 8.255413, y: -4.803337, z: -14.385752}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17898,7 +17914,7 @@ Transform:
   - {fileID: 970608131}
   - {fileID: 1627818208}
   - {fileID: 778846718}
-  m_Father: {fileID: 294790727}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1049247933
 GameObject:
@@ -26412,7 +26428,7 @@ GameObject:
   m_Layer: 0
   m_Name: LightSwitch Destination
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -26424,13 +26440,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1566046778}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5470004, y: 1.3199999, z: 1.1200004}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.08091872, z: -0, w: 0.99672073}
+  m_LocalPosition: {x: -0.026, y: 1.01, z: -0.082}
+  m_LocalScale: {x: 0.7634469, y: 7.7296953, z: 0.8167147}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 669421276}
-  m_Father: {fileID: 564296629}
+  m_Father: {fileID: 576620778}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1573804776 stripped
 Transform:
@@ -26853,13 +26869,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627818207}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35.22, y: 0.23, z: -7.83}
+  m_LocalRotation: {x: -0, y: 0.22848825, z: -0, w: 0.9735467}
+  m_LocalPosition: {x: -34.45, y: 0.23000002, z: -5.85}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1040107722}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 26.416, z: 0}
 --- !u!1 &1631340140
 GameObject:
   m_ObjectHideFlags: 0
@@ -40798,6 +40814,7 @@ SceneRoots:
   - {fileID: 564296629}
   - {fileID: 397600755}
   - {fileID: 1945411843}
+  - {fileID: 1040107722}
   - {fileID: 294790727}
   - {fileID: 1222311529}
   - {fileID: 1410319168}

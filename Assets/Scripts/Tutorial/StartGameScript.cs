@@ -81,8 +81,9 @@ public class StartGameScript : MonoBehaviour
 
                 if (alienTrigger.isAlienInside)
                 {
-                    alien.GetComponent<AlienMovement>().destinations = new Transform[] { playerModel.GetComponent<Transform>() };
+                    //alien.GetComponent<AlienMovement>().destinations = new Transform[] { playerTrigger.GetComponent<Transform>() };
 
+                    alien.GetComponent<Transform>().LookAt(playerTrigger.GetComponent<Transform>());
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
                     alien.GetComponent<Rigidbody>().isKinematic = true;
                     alien.GetComponent<Animator>().enabled = false;
