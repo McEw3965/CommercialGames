@@ -3,7 +3,57 @@ guid: f1db10b77ff792d4fa94619b8b09f299
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_cover_2
+    second: {fileID: 2100000, guid: f4ab98ffe9d3a974c9f58209246d23f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Book_cover_3
+    second: {fileID: 2100000, guid: 9364b922b64e7d540b7ec919d903f02e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: book_cover
+    second: {fileID: 2100000, guid: ec268850fbd2fdf4f8abf68b2daedab0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: book_paper
+    second: {fileID: 2100000, guid: a48d1fb0f7a373b409dcf825be00700c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert2
+    second: {fileID: 2100000, guid: 08faab97317219b4791511b9e0c79572, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Motorcycle metal silver
+    second: {fileID: 2800000, guid: 418a6844a33941e4289e3e98f801589b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Screenshot 2025-01-17 235315
+    second: {fileID: 2800000, guid: 26752338a951b5f4cb1afab1807914f9, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: White wallpaper
+    second: {fileID: 2800000, guid: 35840ff1be56d244fbb6d861cc1f64ec, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: blue book cover
+    second: {fileID: 2800000, guid: 8c2728dd848a8a94689f93d8c6d0510a, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: weathered-old-leather-texture-free-835
+    second: {fileID: 2800000, guid: 7fe4dd231dd3ea345abc63fbeac23b50, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
