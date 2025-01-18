@@ -1,5 +1,7 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Rendering;
 
 public class StartGameScript : MonoBehaviour
 {
@@ -80,7 +82,10 @@ public class StartGameScript : MonoBehaviour
                 {
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
                     alien.GetComponent<Rigidbody>().isKinematic = true;
-                    alien.GetComponent<Transform>().LookAt(player.GetComponent<Transform>());
+                    //alien.GetComponent<Transform>().LookAt(player.GetComponent<Transform>().position);
+                    //alien.GetComponent<Transform>().rotation = Quaternion.Euler(0f, alien.GetComponent<Transform>().rotation.y, 0f);
+                    alien.GetComponent<AlienMovement>().destinations = new Transform[] { player.GetComponent<Transform>() };
+
                     alien.GetComponent<Animator>().enabled = false;
                     //    alien.transform.position = lightSwitchlocation.position;
                     dialogue.gameObject.SetActive(true);
