@@ -7,12 +7,14 @@ public class StartGameScript : MonoBehaviour
 {
     public bool tutorialOn;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject playerModel;
     [SerializeField] private GameObject alien;
     [SerializeField] private GameObject tasks;
     [SerializeField] private StartDialogue dialogue;
     [SerializeField] private GameObject interactionText;
     [SerializeField] private Transform lightSwitchlocation;
-    [SerializeField] private TutorialTrigger trigger;
+    [SerializeField] private TutorialTrigger playerTrigger;
+    [SerializeField] private TutorialTrigger alienTrigger;
     [SerializeField] private Transform[] position;
     [SerializeField] private NavMeshAgent agent;
 
@@ -37,7 +39,7 @@ public class StartGameScript : MonoBehaviour
 
             if (dialogue.dialogueon)
             {
-                if (!trigger.isPlayerInside)
+                if (!playerTrigger.isPlayerInside)
                 {
                     player.GetComponent<InputManager>().enabled = false;
                     alien.GetComponent<AlienMovement>().enabled = false;
@@ -77,16 +79,25 @@ public class StartGameScript : MonoBehaviour
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
                 }*/
 
-
-                if (trigger.isPlayerInside && trigger.isAlienInside)
+                if (alienTrigger.isAlienInside)
                 {
+                    alien.GetComponent<AlienMovement>().destinations = new Transform[] { playerModel.GetComponent<Transform>() };
+
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
                     alien.GetComponent<Rigidbody>().isKinematic = true;
+                    alien.GetComponent<Animator>().enabled = false;
+                    Debug.Log("Alien Inside");
+                }
+
+                if (playerTrigger.isPlayerInside && alienTrigger.isAlienInside)
+                {
+                    //alien.GetComponent<NavMeshAgent>().isStopped = true;
+                    //alien.GetComponent<Rigidbody>().isKinematic = true;
                     //alien.GetComponent<Transform>().LookAt(player.GetComponent<Transform>().position);
                     //alien.GetComponent<Transform>().rotation = Quaternion.Euler(0f, alien.GetComponent<Transform>().rotation.y, 0f);
-                    alien.GetComponent<AlienMovement>().destinations = new Transform[] { player.GetComponent<Transform>() };
+                    //alien.GetComponent<AlienMovement>().destinations = new Transform[] { playerModel.GetComponent<Transform>() };
 
-                    alien.GetComponent<Animator>().enabled = false;
+                    //alien.GetComponent<Animator>().enabled = false;
                     //    alien.transform.position = lightSwitchlocation.position;
                     dialogue.gameObject.SetActive(true);
                     dialogue.lines = new string[]
@@ -119,7 +130,8 @@ public class StartGameScript : MonoBehaviour
                         };
 
 
-                        trigger.gameObject.SetActive(false);
+                        playerTrigger.gameObject.SetActive(false);
+                        alienTrigger.gameObject.SetActive(false);
                         tutorialOn = false;
                         timer.GetComponent<Timer>().timerOn = true;
                         timer.SetActive(true);
