@@ -21,7 +21,6 @@ public class CatMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>();
-        if(agent )
         agent = GetComponent<NavMeshAgent>();
         alien = GameObject.Find("Waving Alien");
         CD = alien.GetComponent<catDetection>();

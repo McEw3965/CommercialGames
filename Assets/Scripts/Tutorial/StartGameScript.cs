@@ -88,7 +88,7 @@ public class StartGameScript : MonoBehaviour
                     alien.GetComponent<NavMeshAgent>().isStopped = true;
                     alien.GetComponent<Rigidbody>().isKinematic = true;
                     alien.GetComponent<Animator>().enabled = false;
-                    Debug.Log("Alien Inside");
+                    //Debug.Log("Alien Inside");
                 }
 
                 if (playerTrigger.isPlayerInside && alienTrigger.isAlienInside)

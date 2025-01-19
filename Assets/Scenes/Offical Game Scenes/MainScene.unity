@@ -1025,6 +1025,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8537829035475299579, guid: c2eeaa590f5b9fb43a6108630bb70413,
+        type: 3}
+      propertyPath: m_Name
+      value: Incinerator Door Left
+      objectReference: {fileID: 0}
     - target: {fileID: -7332108088257924255, guid: c2eeaa590f5b9fb43a6108630bb70413,
         type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
@@ -1136,6 +1141,11 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: fc6ad61d4ff07934fae905dcd77a84c8, type: 2}
+    - target: {fileID: 4351811728248896751, guid: c2eeaa590f5b9fb43a6108630bb70413,
+        type: 3}
+      propertyPath: m_Name
+      value: Incinerator Door Right
+      objectReference: {fileID: 0}
     - target: {fileID: 4421030025494602382, guid: c2eeaa590f5b9fb43a6108630bb70413,
         type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
@@ -24265,6 +24275,7 @@ GameObject:
   - component: {fileID: 1329770823}
   - component: {fileID: 1329770828}
   - component: {fileID: 1329770827}
+  - component: {fileID: 1329770829}
   m_Layer: 7
   m_Name: Board
   m_TagString: Interactable
@@ -24395,9 +24406,9 @@ MonoBehaviour:
   onInteraction:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: FlashingLights, Assembly-CSharp
-        m_MethodName: StopAlarm
+      - m_Target: {fileID: 1329770829}
+        m_TargetAssemblyTypeName: incineratorSwitch, Assembly-CSharp
+        m_MethodName: openDoors
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24407,6 +24418,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1329770829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1329770821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b565e0512888c8749ac8c4aee07b2870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftDoor: {fileID: 1918148968}
+  rightDoor: {fileID: 1140857263}
 --- !u!1 &1335229781 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
