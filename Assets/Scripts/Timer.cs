@@ -9,10 +9,10 @@ public class Timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private GameObject Explosions;
     [SerializeField] private GameOver gameOver;
-
     private void Start()
     {
         gameObject.SetActive(false);    
+      
     }
     void Update()
     {
@@ -46,6 +46,8 @@ public class Timer : MonoBehaviour
 
     void activateExplosion()
     {
+        Explosions.GetComponent<AudioSource>().Play(); //play explosion sound
+
         Explosions.SetActive(true);
     }
 

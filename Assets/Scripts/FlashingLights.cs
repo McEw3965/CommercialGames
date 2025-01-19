@@ -7,9 +7,8 @@ public class FlashingLights : MonoBehaviour
     public GameObject flashingLights;
 
     [SerializeField] private GameObject directionalLighting;
-    
+  
     public float BlinkingTime; 
-    public AudioSource alarm; 
     public Animator animator;
     public PauseMenu pauseMenu;
 
@@ -39,21 +38,14 @@ public class FlashingLights : MonoBehaviour
 
             if (alarmOn) 
             {
-                if (!alarm.isPlaying)
-                {
-                    alarm.Play();
-                }
-
+               
                 if (timer > BlinkingTime)
                 {
                     StartCoroutine(Blink());
                     timer = 0;
                 }
             }
-        } else
-        {
-            alarm.Stop();
-        }
+        } 
     }
 
     public void StopAlarm()
@@ -61,8 +53,10 @@ public class FlashingLights : MonoBehaviour
         if (TT.alarmTaskActive)
         {
             Debug.Log("Stopping Alarm");
-            alarm.Stop();
-            alarmOn = false;
+
+            TT.speakers[TT.ventNumber].TurnOffAlarm(); //turns off alarm
+
+          alarmOn = false;
           
              TT.alarmTaskActive = false;
              TT.removeFromList("TaskAlarm");
@@ -70,12 +64,7 @@ public class FlashingLights : MonoBehaviour
 
             bool lever = animator.GetBool("leverDown");
 
-            /*
-            print("AT 1; " + lever);
-            animator.SetBool("leverDown", !lever);
-            print("AT 2; " + lever);
-            animator.SetBool("leverDown", !lever);
-            print("AT 3; " + lever);*/
+          
             animator.SetBool("leverDown", !lever);
 
             UIManager.AdjustScore(20);

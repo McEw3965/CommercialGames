@@ -23,7 +23,7 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = true;
             fireEffects.SetActive(true);
-           // alarm.Play();
+        
             print("Vent Ignited");
         }
     }

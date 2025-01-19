@@ -6,6 +6,7 @@ using UnityEngine;
 public class taskTerminal : MonoBehaviour
 {
     public ventBehaviour[] ventBehaviour;
+    public Speakers[] speakers;
     public int ventNumber;
 
     //public CutSceneEnter cutscene;
@@ -127,6 +128,7 @@ public class taskTerminal : MonoBehaviour
                 {
                     ventNumber = Random.Range(0, 3);
                     ventBehaviour[ventNumber].igniteVent();
+                    speakers[ventNumber].TurnOnAlarm();
                     ventTaskActive = true;
                     addToList("Extinguish Vent +9s", "TaskVent", Color.red);
                     lightFlash.alarmOn = true;

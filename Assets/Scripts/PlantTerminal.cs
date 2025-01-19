@@ -9,7 +9,8 @@ public class PlantTerminal : MonoBehaviour
     [SerializeField] private taskTerminal TT;
     [SerializeField] private Timer timer;
     [SerializeField] private MainUIManager UIManager;
-
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject crosshair;
 
 
     public void enterPlantMenu()
@@ -17,12 +18,18 @@ public class PlantTerminal : MonoBehaviour
         plantDataMenu.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        player.GetComponent<InputManager>().enabled = false;
+        crosshair.SetActive(false);
     }
     public void exitMenu()
     {
         plantDataMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        player.GetComponent<InputManager>().enabled = true;
+        crosshair.SetActive(true);
     }
 
     public void fixPlants()
