@@ -13,6 +13,7 @@ public class CatMovement : MonoBehaviour
     private GameObject alien;
     private Animator animator;
     private bool isCatSitting = false;
+   
 
 
     //cat movement
@@ -24,6 +25,7 @@ public class CatMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         alien = GameObject.Find("Waving Alien");
         CD = alien.GetComponent<catDetection>();
+
         StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
         StartCoroutine(catSits());
     }
@@ -69,16 +71,19 @@ public class CatMovement : MonoBehaviour
     }
     IEnumerator GenerateRandomNum()
     {
-
-        if(!isCatSitting)
+        if (!CD.catPickedUp)
         {
-            randomNum = Random.Range(0, destinations.Length);
 
-            //Debug.Log("Generated arndom number");
-            agent.destination = destinations[randomNum].position;
-            yield return new WaitForSeconds(10f);
+
+            if (!isCatSitting)
+            {
+                randomNum = Random.Range(0, destinations.Length);
+
+                Debug.Log("Generated arndom number");
+                agent.destination = destinations[randomNum].position;
+                yield return new WaitForSeconds(10f);
+            }
         }
-        
     }
 
 
