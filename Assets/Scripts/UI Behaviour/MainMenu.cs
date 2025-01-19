@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public StartGameScript start;
+    [SerializeField] private GameObject settingsMenu;
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -11,9 +11,13 @@ public class MainMenu : MonoBehaviour
 
     public void Setting()
     {
-        //doesnt exist yet
+        settingsMenu.SetActive(true);
     }
 
+    public void ReturnToMenu()
+    {
+        settingsMenu.SetActive(false);
+    }
 
     public void ResetGame()
     {
