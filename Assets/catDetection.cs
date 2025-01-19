@@ -69,7 +69,7 @@ public class catDetection : MonoBehaviour
     public void pickUpCat()
     {
         cat.transform.position = this.gameObject.transform.position + new Vector3 (0, 3f, 0);
-        cat.GetComponent<Animator>().
+        //cat.GetComponent<Animator>().
         cat.GetComponent<CatMovement>().enabled = false;
         cat.GetComponent<NavMeshAgent>().enabled = false;
         cat.GetComponent<Collider>().enabled = false;
