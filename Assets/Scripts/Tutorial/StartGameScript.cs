@@ -17,6 +17,7 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private TutorialTrigger alienTrigger;
     [SerializeField] private Transform[] position;
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private GameObject cat;
 
 
     [SerializeField] private GameObject timer;
@@ -28,7 +29,7 @@ public class StartGameScript : MonoBehaviour
     private void Start()
     {
         tutorialOn = true;
-
+        
     }
 
     private void Update()
@@ -46,7 +47,7 @@ public class StartGameScript : MonoBehaviour
                     alien.GetComponent<Animator>().enabled = false;
                     alien.GetComponent<NavMeshAgent>().enabled = false;
                     alien.GetComponent<Interactable>().enabled = false;
-                    interactionText.SetActive(false);
+                  //  interactionText.SetActive(false);
                 }
 
             }
@@ -63,7 +64,7 @@ public class StartGameScript : MonoBehaviour
                 alien.GetComponent<Animator>().enabled = true;
                 alien.GetComponent<NavMeshAgent>().enabled = true;
                 alien.GetComponent<Interactable>().enabled = true;
-                interactionText.SetActive(true);
+              //  interactionText.SetActive(true);
 
 
                 if (!playtaskonce)
@@ -124,7 +125,7 @@ public class StartGameScript : MonoBehaviour
                         alien.GetComponent<Animator>().enabled = true;
                         player.GetComponent<InputManager>().enabled = true;
                         alien.GetComponent<NavMeshAgent>().enabled = true;
-                        alien.GetComponent<Interactable>().enabled = true;
+                       // alien.GetComponent<Interactable>().enabled = true;
                         alien.GetComponent<AlienMovement>().destinations = new Transform[]
                         {
                               position[0], position[1], position[2],position[3]
@@ -136,6 +137,7 @@ public class StartGameScript : MonoBehaviour
                         tutorialOn = false;
                         timer.GetComponent<Timer>().timerOn = true;
                         timer.SetActive(true);
+                        cat.SetActive(true);
                       
                     }
                 }

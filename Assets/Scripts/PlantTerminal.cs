@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class PlantTerminal : MonoBehaviour
 {
+   
     [SerializeField] private GameObject plantDataMenu;
     [SerializeField] private GameObject WaterDrops;
     [SerializeField] private taskTerminal TT;
     [SerializeField] private Timer timer;
     [SerializeField] private MainUIManager UIManager;
+
+
+
     public void enterPlantMenu()
     {
         plantDataMenu.SetActive(true);

@@ -11,15 +11,21 @@ public class CatMovement : MonoBehaviour
     public Transform[] destinations;
     private catDetection CD;
     private GameObject alien;
+    private Animator animator;
+    private bool isCatSitting = false;
+
 
     //cat movement
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
+        if(agent )
         agent = GetComponent<NavMeshAgent>();
         alien = GameObject.Find("Waving Alien");
         CD = alien.GetComponent<catDetection>();
         StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
+        StartCoroutine(catSits());
     }
 
 
@@ -35,17 +41,44 @@ public class CatMovement : MonoBehaviour
             agent.destination = alien.transform.position;
         }
 
-        FaceTarget();
+        // FaceTarget();
 
     }
 
+
+    IEnumerator catSits()
+    {
+        if (agent != null && agent.enabled)
+        
+            {
+            while (true)
+            {
+                yield return new WaitForSeconds(15f); //if its been 15 seconds then the cat sits
+
+                isCatSitting = true;
+                animator.SetBool("isSitting", isCatSitting);
+               agent.isStopped = true;
+
+                yield return new WaitForSeconds(10f); //the cat walks after 10 seconds
+                isCatSitting = false;
+                agent.isStopped = false;
+                animator.SetBool("isSitting", isCatSitting);
+               
+            }
+        }
+    }
     IEnumerator GenerateRandomNum()
     {
-        randomNum = Random.Range(0, destinations.Length);
 
-        //Debug.Log("Generated arndom number");
-        agent.destination = destinations[randomNum].position;
-        yield return new WaitForSeconds(10f);
+        if(!isCatSitting)
+        {
+            randomNum = Random.Range(0, destinations.Length);
+
+            //Debug.Log("Generated arndom number");
+            agent.destination = destinations[randomNum].position;
+            yield return new WaitForSeconds(10f);
+        }
+        
     }
 
 
