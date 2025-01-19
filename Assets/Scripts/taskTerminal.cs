@@ -15,13 +15,14 @@ public class taskTerminal : MonoBehaviour
     public bool radioTaskActive;
     public bool WaveAlienTaskActive;
     public bool lightTaskActive;
+    public bool plantTaskActive;
     
     public FlashingLights lightFlash;
 
     [SerializeField] private int chosenTask;
 
     [Header("Time between each task:")]
-    [SerializeField] private float time = 5f; 
+    [SerializeField] private float time = 2f; 
     [SerializeField] private GameObject listTasks; 
     [SerializeField] private Transform listParent;
     private float timer = 0f;
@@ -75,8 +76,6 @@ public class taskTerminal : MonoBehaviour
         RectTransform rectTransform = newTask.GetComponent<RectTransform>();
         int itemCount = listParent.childCount;
 
-        
-
         rectTransform.anchoredPosition = new Vector2(0, -itemHeight * (itemCount - 1));
 
         rectTransform.offsetMin = new Vector2(0, rectTransform.offsetMin.y); // Set left offset to 0
@@ -109,7 +108,7 @@ public class taskTerminal : MonoBehaviour
 
     public void randomselectTask()
     {
-        chosenTask = Random.Range(0, 4);
+        chosenTask = Random.Range(0, 5);
 
         selectTask(chosenTask);
     }
@@ -152,6 +151,13 @@ public class taskTerminal : MonoBehaviour
                 {
                     lightTaskActive = true;
                     addToList("Turn the lights on +5s", "TaskLights", Color.green);
+                }
+                break;
+            case 4:
+                if(!plantTaskActive)
+                {
+                    plantTaskActive = true;
+                    addToList("Fix the water pipes! +5s", "TaskPlants", Color.green);
                 }
                 break;
         }

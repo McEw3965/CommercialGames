@@ -12,8 +12,9 @@ TagManager:
   - TaskVent
   - TaskLights
   - TaskRadio
-  - Cat
+  - TaskPlants
   - TaskAlarm
+  - Cat
   - PlayerTrigger
   - AlienTrigger
   layers:

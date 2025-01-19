@@ -1,10 +1,13 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlantTerminal : MonoBehaviour
 {
     [SerializeField] private GameObject plantDataMenu;
     [SerializeField] private GameObject WaterDrops;
-
+    [SerializeField] private taskTerminal TT;
+    [SerializeField] private Timer timer;
+    [SerializeField] private MainUIManager UIManager;
     public void enterPlantMenu()
     {
         plantDataMenu.SetActive(true);
@@ -20,7 +23,31 @@ public class PlantTerminal : MonoBehaviour
 
     public void fixPlants()
     {
-       WaterDrops.SetActive(false);
+        if (TT.plantTaskActive)
+        {
+            //user fixes the plant then they need points
+            WaterDrops.SetActive(false);
+            TT.plantTaskActive = false;
+            TT.removeFromList("TaskPlants");
+            UIManager.AdjustScore(10);
+            timer.timeleft += 5;
+        }
+            
        
     }
+
+    private void Update()
+    {
+        if (TT.plantTaskActive)
+        {
+            WaterDrops.SetActive(true);
+        }
+    }
+
+
+
+
+
+
+
 }
