@@ -29,6 +29,7 @@ public class taskTerminal : MonoBehaviour
     [Header("Space between each task in UI")]
     [SerializeField] private float itemHeight = 100f; // Spacing between items
 
+    private bool dothisonce = false;
 
     [SerializeField] private StartGameScript StartGameScript;
     private void Start()
@@ -46,7 +47,11 @@ public class taskTerminal : MonoBehaviour
         }
         else
         {
-
+            if(!dothisonce)
+            {
+                timer = 2;
+                dothisonce = true;
+            }
 
             timer += Time.deltaTime;
 

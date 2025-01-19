@@ -6,6 +6,9 @@ using UnityEngine.AI;
 
 public class catDetection : MonoBehaviour
 {
+
+
+    public NavMeshAgent catagent;
     private Vector3 centre;
     public float radius = 10f;
     public bool catDetected = false;
@@ -69,9 +72,9 @@ public class catDetection : MonoBehaviour
     public void pickUpCat()
     {
         cat.transform.position = this.gameObject.transform.position + new Vector3 (0, 3f, 0);
-        cat.GetComponent<Animator>().
+
         cat.GetComponent<CatMovement>().enabled = false;
-        cat.GetComponent<NavMeshAgent>().enabled = false;
+        catagent.isStopped = true;
         cat.GetComponent<Collider>().enabled = false;
         cat.GetComponent<Rigidbody>().useGravity = false;
         cat.transform.rotation = this.transform.rotation;

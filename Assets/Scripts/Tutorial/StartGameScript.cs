@@ -137,7 +137,7 @@ public class StartGameScript : MonoBehaviour
                         tutorialOn = false;
                         timer.GetComponent<Timer>().timerOn = true;
                         timer.SetActive(true);
-                        cat.SetActive(true);
+                       cat.SetActive(true);// cat is currently causing bug problem
                       
                     }
                 }

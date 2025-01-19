@@ -1427,7 +1427,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0511651
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -2109,6 +2109,7 @@ MonoBehaviour:
   - {fileID: 1627818208}
   - {fileID: 778846718}
   agent: {fileID: 324755124}
+  cat: {fileID: 1335229781}
   timer: {fileID: 454720993}
 --- !u!4 &181305400 stripped
 Transform:
@@ -5396,6 +5397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2611fed7de6a1174b9402df84138e816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  catagent: {fileID: 1335229785}
   radius: 5
   catDetected: 0
   catPickedUp: 0
@@ -14386,7 +14388,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628255394}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
@@ -15190,7 +15192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &745052297
 Transform:
   m_ObjectHideFlags: 0
@@ -17212,7 +17214,7 @@ Transform:
   m_GameObject: {fileID: 1017935235}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.01, y: -0.01, z: 0.0061}
+  m_LocalPosition: {x: -0.002, y: -0.0001, z: 0.0094}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -35975,12 +35977,17 @@ PrefabInstance:
     - target: {fileID: 1192124181747001156, guid: deb4117a7c557c842a6ab9e210dfc50a,
         type: 3}
       propertyPath: m_Name
-      value: Flame Post Process Volume
+      value: Post Process Volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 1192124181747001156, guid: deb4117a7c557c842a6ab9e210dfc50a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1499949199851662346, guid: deb4117a7c557c842a6ab9e210dfc50a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.1556396
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 1499949199851662346, guid: deb4117a7c557c842a6ab9e210dfc50a,
         type: 3}
@@ -40715,6 +40722,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Global Volume (post processing)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1508045141220545548, guid: e9bd0c984f88f114a9224e8382c9f85d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2319548478771812519, guid: e9bd0c984f88f114a9224e8382c9f85d,
         type: 3}
