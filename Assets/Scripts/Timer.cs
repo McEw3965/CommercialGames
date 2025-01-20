@@ -13,10 +13,11 @@ public class Timer : MonoBehaviour
     [SerializeField] private AudioSource explosionSound;
     [SerializeField] private GameOver gameOver;
     [SerializeField] private CameraShake camerashake;
+    [SerializeField] private GameObject allobjects;
     private void Start()
     {
-        gameObject.SetActive(false);    
-      
+        gameObject.SetActive(false);
+
     }
     void Update()
     {
@@ -32,7 +33,7 @@ public class Timer : MonoBehaviour
                 Debug.Log("Times up - Game Over");
                 timeleft = 0;
                 timerOn = false;
-         
+
                 StartCoroutine(GameOverSequence());
             }
         }
@@ -49,9 +50,9 @@ public class Timer : MonoBehaviour
     }
 
 
-     IEnumerator GameOverSequence()
+    IEnumerator GameOverSequence()
     {
-      
+
         activateExplosion();
 
         // Wait for 2 seconds
@@ -62,11 +63,41 @@ public class Timer : MonoBehaviour
 
     void activateExplosion()
     {
-      
-        StartCoroutine(camerashake.Shake(.30f, .7f));
+
+        StartCoroutine(camerashake.Shake(.62f, .10f));
+        makeEverythingFly();
+
         Explosions.SetActive(true);
         explosionSound.Play();
     }
 
-    
+    void makeEverythingFly()
+    {
+        foreach (Transform child in allobjects.transform)
+        {
+            //to stop getting errors:
+            MeshCollider meshCollider = child.gameObject.GetComponent<MeshCollider>();
+
+            if (meshCollider != null)
+            {
+                Debug.Log($"Skipping MeshCollider on: {child.gameObject.name}");
+                continue;
+            }
+
+         
+            //to add rigidbody to all the objects inside the ship
+            Rigidbody rb = child.gameObject.GetComponent<Rigidbody>();
+
+            if (rb == null)
+            {
+                rb = child.gameObject.AddComponent<Rigidbody>();
+                Debug.Log($"Added Rigidbody to: {child.gameObject.name}");
+            }
+            rb.useGravity = false;
+            rb.isKinematic = false;
+            rb.constraints = RigidbodyConstraints.None;
+
+            rb.AddForce(Vector3.up * 5f, ForceMode.Impulse);
+        }
+    }
 }
