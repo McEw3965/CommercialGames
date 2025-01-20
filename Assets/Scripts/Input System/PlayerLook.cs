@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLook : MonoBehaviour
 {
+ 
     public Camera cam;
+    
     private float xRotation = 0f;
 
     public float xSensitivity = 30f;
@@ -15,6 +18,7 @@ public class PlayerLook : MonoBehaviour
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
     }
     public void ProcessLook(Vector2 input)
     {
