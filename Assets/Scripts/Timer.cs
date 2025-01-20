@@ -64,7 +64,7 @@ public class Timer : MonoBehaviour
     void activateExplosion()
     {
 
-        StartCoroutine(camerashake.Shake(.62f, .10f));
+        StartCoroutine(camerashake.Shake(1f, 1f));
         makeEverythingFly();
 
         Explosions.SetActive(true);
