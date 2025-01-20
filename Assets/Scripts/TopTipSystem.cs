@@ -36,9 +36,9 @@ public class TopTipSystem : MonoBehaviour
 
     private IEnumerator DisplaySprintTip()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(25f);
 
-        if (!torchTipDisplayed)
+        if (!sprintTipDisplayed)
         {
             sprintTipDisplayed = true;
             SprintTip.SetActive(true);

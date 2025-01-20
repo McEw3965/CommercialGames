@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterStartsAutomatically: 0
+  typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
   _text: 
@@ -7010,7 +7010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &408698104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8495,7 +8495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterStartsAutomatically: 0
+  typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
   _text: 
@@ -16953,7 +16953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterStartsAutomatically: 0
+  typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
   _text: 
@@ -17816,6 +17816,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 881195333}
+  - component: {fileID: 881195337}
   - component: {fileID: 881195336}
   - component: {fileID: 881195335}
   - component: {fileID: 881195334}
@@ -17910,6 +17911,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 144
   m_TargetDisplay: 0
+--- !u!114 &881195337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881195332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa337abe6ffde844c838ae23b4e094e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torchTip: {fileID: 326382663}
+  SprintTip: {fileID: 408698103}
 --- !u!1 &884352252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3230314695140227999, guid: e60ae8035e907e74f84e49a7eb244508,
@@ -31031,7 +31046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ace8ced0e81c847968cdca0aeda757, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typewriterStartsAutomatically: 0
+  typewriterStartsAutomatically: 1
   animationLoop: 0
   timeScale: 0
   _text: 
