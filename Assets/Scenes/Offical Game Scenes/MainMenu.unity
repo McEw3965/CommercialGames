@@ -884,13 +884,14 @@ GameObject:
   - component: {fileID: 321973797}
   - component: {fileID: 321973796}
   - component: {fileID: 321973795}
+  - component: {fileID: 321973798}
   m_Layer: 0
   m_Name: mouseSensitivity
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &321973795
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +936,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &321973798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321973794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b746964cd4995d7459e69c445133bb68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &331123441
 GameObject:
   m_ObjectHideFlags: 0

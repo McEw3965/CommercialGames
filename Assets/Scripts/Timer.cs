@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -6,9 +7,12 @@ public class Timer : MonoBehaviour
 {
     public bool timerOn = false;
     public float timeleft = 60;
+
     [SerializeField] TextMeshProUGUI m_TextMeshProUGUI;
     [SerializeField] private GameObject Explosions;
+    [SerializeField] private AudioSource explosionSound;
     [SerializeField] private GameOver gameOver;
+    [SerializeField] private CameraShake camerashake;
     private void Start()
     {
         gameObject.SetActive(false);    
@@ -28,8 +32,8 @@ public class Timer : MonoBehaviour
                 Debug.Log("Times up - Game Over");
                 timeleft = 0;
                 timerOn = false;
-                activateExplosion();
-                gameOver.displayGameOverMenu();
+         
+                StartCoroutine(GameOverSequence());
             }
         }
     }
@@ -44,11 +48,24 @@ public class Timer : MonoBehaviour
         m_TextMeshProUGUI.text = string.Format("{0:00} : {1:00}", min, sec);
     }
 
+
+     IEnumerator GameOverSequence()
+    {
+      
+        activateExplosion();
+
+        // Wait for 2 seconds
+        yield return new WaitForSeconds(1f);
+
+        gameOver.displayGameOverMenu();
+    }
+
     void activateExplosion()
     {
-        Explosions.GetComponent<AudioSource>().Play(); //play explosion sound
-
+      
+        StartCoroutine(camerashake.Shake(.30f, .7f));
         Explosions.SetActive(true);
+        explosionSound.Play();
     }
 
     
