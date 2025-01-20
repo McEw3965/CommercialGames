@@ -55,8 +55,8 @@ public class Timer : MonoBehaviour
 
         activateExplosion();
 
-        // Wait for 2 seconds
-        yield return new WaitForSeconds(1f);
+       
+        yield return new WaitForSeconds(1.5f);
 
         gameOver.displayGameOverMenu();
     }
