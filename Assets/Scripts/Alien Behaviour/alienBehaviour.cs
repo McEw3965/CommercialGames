@@ -8,6 +8,7 @@ public class alienBehaviour : MonoBehaviour
     private MainUIManager UIManager;
     private taskTerminal TT;
     public AINavigations AiNav;
+    public AudioSource alienSound;
     [SerializeField] private Timer timer;
 
     public bool isFollowing;
@@ -45,6 +46,7 @@ public class alienBehaviour : MonoBehaviour
                 AlienDance();
                 break;
         }
+        alienSound.Play();
     }
     public void AlienWave()
     {
