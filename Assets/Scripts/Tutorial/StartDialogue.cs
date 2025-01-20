@@ -11,8 +11,35 @@ public class StartDialogue : MonoBehaviour
     public string[] lines;
     private int index;
     public bool dialogueon;
+
+    public AudioSource[] sound;
+
+
+
+
+    void randomSoundPicker()
+    {
+        int num = Random.Range(0, sound.Length);
+
+        switch (num)
+        {
+
+            case 0:
+                sound[0].Play(); break;
+            case 1:
+                sound[1].Play(); break;
+            case 2:
+                sound[2].Play(); break;
+            case 3:
+                sound[3].Play(); break;
+
+        }
+    }
+
     void Start()
     {
+      
+
         textComponent.text = string.Empty;
 
         StartDialogues();
@@ -21,6 +48,7 @@ public class StartDialogue : MonoBehaviour
   
     public void displayText()
     {
+        randomSoundPicker();
         NextLine(); //next line 
     }
 
@@ -29,11 +57,12 @@ public class StartDialogue : MonoBehaviour
         index = 0;
         dialogueon = true;
         DisplayLine(); //first line displayed
-
+       
     }
 
     void DisplayLine()
     {
+        
         textComponent.text = lines[index];
         dialogueon = true;
     }
@@ -51,6 +80,13 @@ public class StartDialogue : MonoBehaviour
             dialogueon = false;
             gameObject.SetActive(false); // Disable the dialogue object when finished
 
+
+            for (int i = 0; i < sound.Length; i++)
+            {
+
+                sound[i].Stop();
+            }
+           
         }
     }
 }
