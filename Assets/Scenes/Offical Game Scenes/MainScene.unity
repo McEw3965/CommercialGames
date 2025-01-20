@@ -7407,12 +7407,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerOn: 0
-  timeleft: 1
+  timeleft: 35
   m_TextMeshProUGUI: {fileID: 454720995}
   Explosions: {fileID: 1222311528}
   explosionSound: {fileID: 1222311530}
   gameOver: {fileID: 4835679322727810037}
   camerashake: {fileID: 1839739098}
+  allobjects: {fileID: 397600754}
 --- !u!222 &454720997
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37891,7 +37892,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1120246828641932555
 Transform:
   m_ObjectHideFlags: 0
@@ -40312,7 +40313,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3619767456667642821
 Transform:
   m_ObjectHideFlags: 0
@@ -42707,7 +42708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &5725821258689050759
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43103,7 +43104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6322103689502256452
 Transform:
   m_ObjectHideFlags: 0
@@ -44085,6 +44086,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 397600755}
     m_Modifications:
+    - target: {fileID: 643598900343765552, guid: 3f3327fa555b23a4ebcd0add211e9182,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1109534151474488136, guid: 3f3327fa555b23a4ebcd0add211e9182,
         type: 3}
       propertyPath: Loop
@@ -44242,7 +44248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &8577702485940694797
 MeshRenderer:
   m_ObjectHideFlags: 0
