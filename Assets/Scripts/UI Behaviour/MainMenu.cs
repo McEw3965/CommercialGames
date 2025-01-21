@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject settingsMenu;
+    [SerializeField] private GameObject gamepadMenu;
     public void PlayGame()
     {
         SceneManager.LoadScene(1);
@@ -11,6 +12,19 @@ public class MainMenu : MonoBehaviour
 
     public void Setting()
     {
+        settingsMenu.SetActive(true);
+    }
+
+
+    public void gamepadmenusettings()
+    {
+        gamepadMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+    }
+
+    public void keyboardmenusettings()
+    {
+        gamepadMenu.SetActive(false);
         settingsMenu.SetActive(true);
     }
 
