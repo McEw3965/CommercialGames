@@ -8,14 +8,14 @@ public class TrashBagManager : MonoBehaviour
     [Header("Debugging Brush Position:")]
     [SerializeField] private Vector3 position;
     [SerializeField] private Vector3 rotation;
-    private Vector3 initialPos;
+    [SerializeField] private GameObject initialPos;
     public MeshRenderer[] children;
 
 
     private void Start()
     {
         pickup = GameObject.FindWithTag("Player").GetComponent<PickUpItem>();
-        initialPos = this.gameObject.GetComponent<Transform>().localPosition;
+        initialPos = GameObject.Find("Trash Initial Position");
         
 
     }
@@ -36,7 +36,7 @@ public class TrashBagManager : MonoBehaviour
     public void resetPositon()
     {
         this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        this.gameObject.GetComponent<Transform>().position = initialPos;
+        this.gameObject.GetComponent<Transform>().localPosition = initialPos.GetComponent<Transform>().position;   
         disableMesh();
     }
 
