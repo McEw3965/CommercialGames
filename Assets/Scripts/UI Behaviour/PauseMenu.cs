@@ -10,7 +10,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject UIElements;
     public GameObject settings;
     public  bool isPaused;
-
+    [SerializeField] private GameObject gamepadMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +42,8 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("RESUME!");
         pauseMenu.SetActive(false);
+        settings.SetActive(false);
+        gamepadMenu.SetActive(false);
         Time.timeScale = 1f;
         isPaused = false;
         crosshair.SetActive(true);
@@ -53,6 +55,20 @@ public class PauseMenu : MonoBehaviour
 
 
     }
+
+
+    public void gamepadmenusettings()
+    {
+        gamepadMenu.SetActive(true);
+        settings.SetActive(false);
+    }
+
+    public void keyboardmenusettings()
+    {
+        gamepadMenu.SetActive(false);
+        settings.SetActive(true);
+    }
+
     public void SettingsMenu()
     {
         settings.SetActive(true);
@@ -60,6 +76,8 @@ public class PauseMenu : MonoBehaviour
     public void BackToPauseMenu()
     {
         settings.SetActive(false);
+        gamepadMenu.SetActive(false);
+
     }
     public void BackToMenu()
     {
