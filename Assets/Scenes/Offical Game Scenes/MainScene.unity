@@ -16421,7 +16421,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655590175}
   m_LocalRotation: {x: -0.0003215739, y: -0.9676284, z: 0.000992193, w: 0.25237697}
-  m_LocalPosition: {x: 0, y: 0, z: -4.47}
+  m_LocalPosition: {x: 0, y: 0, z: -4.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16429,7 +16429,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0.101, y: -150.763, z: 0.064}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -26.51, y: -0.27}
+  m_AnchoredPosition: {x: -26.39, y: -0.27}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &655590177
@@ -27435,8 +27435,8 @@ MonoBehaviour:
   - {fileID: 778846718}
   - {fileID: 121459761}
   - {fileID: 2060603377}
-  meow: {fileID: 0}
-  purring: {fileID: 0}
+  meow: {fileID: 98095926}
+  purring: {fileID: 284962387}
 --- !u!195 &1335229785
 NavMeshAgent:
   m_ObjectHideFlags: 0
