@@ -39,8 +39,6 @@ public class AlienMovement : MonoBehaviour
             else if (CD.catPickedUp)
             {
                 agent.destination = hole.transform.position;
-            }
-
             if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
             {
                 //this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
@@ -48,6 +46,9 @@ public class AlienMovement : MonoBehaviour
                 CD.holdCatOverHole();
                 //CD.throwCat();
             }
+        }
+
+            
         
     }
 
@@ -62,6 +63,7 @@ public class AlienMovement : MonoBehaviour
 
         yield return new WaitForSeconds(10f);
     }
+
 
     private void grabCat()
     {

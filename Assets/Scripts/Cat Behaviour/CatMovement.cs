@@ -41,6 +41,8 @@ public class CatMovement : MonoBehaviour
             StartCoroutine(GenerateRandomNum());
         } else if (CD.catPickedUp)
         {
+            
+            
             agent.destination = alien.transform.position;
         }
 
@@ -55,23 +57,30 @@ public class CatMovement : MonoBehaviour
     }
     IEnumerator catSits()
     {
-        if (agent != null && agent.enabled)
+        if (agent != null && agent.enabled )
         
             {
             while (true)
             {
-                yield return new WaitForSeconds(15f); //if its been 15 seconds then the cat sits
-                purring.Play();
-                isCatSitting = true;
-                animator.SetBool("isSitting", isCatSitting);
-               agent.isStopped = true;
 
-                yield return new WaitForSeconds(10f); //the cat walks after 10 seconds
-                purring.Stop();
-                isCatSitting = false;
-                agent.isStopped = false;
-                animator.SetBool("isSitting", isCatSitting);
-               
+                if (!CD.catPickedUp)
+                {
+                    yield return new WaitForSeconds(15f); //if its been 15 seconds then the cat sits
+                    purring.Play();
+                    isCatSitting = true;
+                    animator.SetBool("isSitting", isCatSitting);
+                    agent.isStopped = true;
+
+                    yield return new WaitForSeconds(10f); //the cat walks after 10 seconds
+                    purring.Stop();
+                    isCatSitting = false;
+                    agent.isStopped = false;
+                    animator.SetBool("isSitting", isCatSitting);
+                }
+                else
+                {
+                    break;
+                }
             }
         }
     }

@@ -73,7 +73,9 @@ public class catDetection : MonoBehaviour
     {
         cat.transform.position = this.gameObject.transform.position + new Vector3 (0, 3f, 0);
         cat.GetComponent<CatMovement>().enabled = false;
+        
         catagent.isStopped = true;
+        cat.GetComponent<NavMeshAgent>().enabled = false;
         cat.GetComponent<Collider>().enabled = false;
         cat.GetComponent<Rigidbody>().useGravity = false;
         cat.transform.rotation = this.transform.rotation;
