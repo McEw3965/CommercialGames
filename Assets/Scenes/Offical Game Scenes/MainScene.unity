@@ -1484,14 +1484,14 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 1
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 2
-  MaxDistance: 4
+  MinDistance: 3.5381107
+  MaxDistance: 8.253356
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -3790,7 +3790,7 @@ MonoBehaviour:
   BlinkingTime: 1.5
   animator: {fileID: 1071692850}
   pauseMenu: {fileID: 765247019}
-  alarmOn: 1
+  alarmOn: 0
 --- !u!1 &317981658
 GameObject:
   m_ObjectHideFlags: 0
@@ -16041,9 +16041,9 @@ MonoBehaviour:
   - {fileID: 2070228827}
   - {fileID: 1123276649}
   speakers:
-  - {fileID: 95029799}
-  - {fileID: 12133991}
-  - {fileID: 1635004516}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   ventNumber: 0
   ventTaskActive: 0
   alarmTaskActive: 0
@@ -20811,7 +20811,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireEffects: {fileID: 489632963}
   isOnFire: 0
-  alarm: {fileID: 1200253813}
   UIManager: {fileID: 361056453}
   flashinglights: {fileID: 306317073}
   timer: {fileID: 454720996}
@@ -39347,7 +39346,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireEffects: {fileID: 261539636}
   isOnFire: 0
-  alarm: {fileID: 1200253813}
   UIManager: {fileID: 361056453}
   flashinglights: {fileID: 306317073}
   timer: {fileID: 454720996}
@@ -48121,7 +48119,7 @@ PrefabInstance:
     - target: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}

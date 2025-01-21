@@ -8,7 +8,7 @@ public class ventBehaviour : MonoBehaviour
     public GameObject fireEffects;
     public bool isOnFire = false;
     private taskTerminal TT;
-    public AudioSource alarm;
+   // public AudioSource alarm;
     public MainUIManager UIManager;
     public FlashingLights flashinglights;
     [SerializeField] private Timer timer;
@@ -34,7 +34,8 @@ public class ventBehaviour : MonoBehaviour
         {
             isOnFire = false;
             fireEffects.SetActive(false);
-            alarm.Stop();
+            //alarm.Stop();
+           // TT.speakers[TT.ventNumber].Stop();
             print("Vent Repaired");
             TT.ventTaskActive = false;
             TT.alarmTaskActive = false;

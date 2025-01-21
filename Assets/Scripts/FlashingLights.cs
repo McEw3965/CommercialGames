@@ -15,7 +15,7 @@ public class FlashingLights : MonoBehaviour
 
     float timer = 1.5f;
 
-    public bool alarmOn;
+    public bool alarmOn = false;
     
     private taskTerminal TT;
     MainUIManager UIManager;
@@ -54,7 +54,7 @@ public class FlashingLights : MonoBehaviour
         {
             Debug.Log("Stopping Alarm");
 
-            TT.speakers[TT.ventNumber].TurnOffAlarm(); //turns off alarm
+            TT.speakers[TT.ventNumber].Stop(); //turns off alarm
 
           alarmOn = false;
           

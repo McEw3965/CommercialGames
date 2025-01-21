@@ -63,8 +63,6 @@ public class CatMovement : MonoBehaviour
             while (true)
             {
 
-                if (!CD.catPickedUp)
-                {
                     yield return new WaitForSeconds(15f); //if its been 15 seconds then the cat sits
                     purring.Play();
                     isCatSitting = true;
@@ -76,11 +74,12 @@ public class CatMovement : MonoBehaviour
                     isCatSitting = false;
                     agent.isStopped = false;
                     animator.SetBool("isSitting", isCatSitting);
-                }
-                else
+                
+                if(CD.catPickedUp)
                 {
                     break;
                 }
+               
             }
         }
     }
