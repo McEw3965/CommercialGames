@@ -8,6 +8,7 @@ public class taskTerminal : MonoBehaviour
     public ventBehaviour[] ventBehaviour;
     public AudioSource[] speakers;
     public int ventNumber;
+    public TrashBagManager trashManager;
 
     //public CutSceneEnter cutscene;
     [Header("Tasks Active:")]
@@ -17,6 +18,7 @@ public class taskTerminal : MonoBehaviour
     public bool WaveAlienTaskActive;
     public bool lightTaskActive;
     public bool plantTaskActive;
+    public bool trashTaskActive;
     
     public FlashingLights lightFlash;
 
@@ -114,7 +116,7 @@ public class taskTerminal : MonoBehaviour
 
     public void randomselectTask()
     {
-        chosenTask = Random.Range(0, 5);
+        chosenTask = Random.Range(0, 6);
 
         selectTask(chosenTask);
     }
@@ -128,7 +130,7 @@ public class taskTerminal : MonoBehaviour
                 {
                     ventNumber = Random.Range(0, 3);
                     ventBehaviour[ventNumber].igniteVent();
-                    speakers[ventNumber].Play();
+                    //speakers[ventNumber].Play();
                     ventTaskActive = true;
                     addToList("Extinguish Vent +9s", "TaskVent", Color.red);
                     lightFlash.alarmOn = true;
@@ -165,6 +167,14 @@ public class taskTerminal : MonoBehaviour
                 {
                     plantTaskActive = true;
                     addToList("Fix the water pipes! +5s", "TaskPlants", Color.green);
+                }
+                break;
+            case 5:
+                if (!trashTaskActive)
+                {
+                    trashTaskActive = true;
+                    trashManager.spawnTrash();
+                    addToList("Take out the trash! + 7s", "TaskTrash", Color.yellow);
                 }
                 break;
         }

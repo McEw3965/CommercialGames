@@ -638,6 +638,37 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3829591369669178651}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &53709437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 53709438}
+  m_Layer: 0
+  m_Name: Airlock Trash
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &53709438
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53709437}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3026, z: 0.05334}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 270224173}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &56776382
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,6 +1992,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue: {fileID: 1596289372}
   pauseMenu: {fileID: 765247019}
+--- !u!1 &113775862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 113775863}
+  m_Layer: 0
+  m_Name: Food Centre Trash
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &113775863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113775862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.0116, z: -0.03478}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 270224173}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &119731928
 GameObject:
   m_ObjectHideFlags: 0
@@ -3530,6 +3592,41 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 261539635}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &270224172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 270224173}
+  m_Layer: 0
+  m_Name: Trash Spawn Points
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &270224173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270224172}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.17491236, y: 0.17491233, z: 0.6851319, w: 0.6851319}
+  m_LocalPosition: {x: -14.27, y: -5.59, z: -8.92}
+  m_LocalScale: {x: 111.430336, y: 111.43036, z: 389.2019}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1578601004}
+  - {fileID: 113775863}
+  - {fileID: 744395331}
+  - {fileID: 53709438}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &284962385
 GameObject:
   m_ObjectHideFlags: 0
@@ -16045,12 +16142,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ventNumber: 0
+  trashManager: {fileID: 0}
   ventTaskActive: 0
   alarmTaskActive: 0
   radioTaskActive: 0
   WaveAlienTaskActive: 0
   lightTaskActive: 0
   plantTaskActive: 0
+  trashTaskActive: 0
   lightFlash: {fileID: 306317073}
   chosenTask: 0
   time: 6
@@ -17159,6 +17258,37 @@ Transform:
   - {fileID: 32220019}
   - {fileID: 1010695519}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &744395330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 744395331}
+  m_Layer: 0
+  m_Name: Control Room Trash
+  m_TagString: Untagged
+  m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &744395331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744395330}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0041, y: 0.16121, z: -0.02743}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 270224173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745052296
 GameObject:
@@ -29773,12 +29903,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1578601003}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.17491236, y: 0.17491233, z: 0.6851319, w: 0.6851319}
-  m_LocalPosition: {x: -14.27, y: -5.59, z: -8.92}
-  m_LocalScale: {x: 111.430305, y: 111.43033, z: 389.2019}
+  m_LocalRotation: {x: -0, y: -0, z: -0.00000001117587, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 270224173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596250606
 GameObject:
@@ -46546,7 +46676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab802527c9104842b98d77c3466c078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: 
+  message: Pick Up Trash
   onInteraction:
     m_PersistentCalls:
       m_Calls:
@@ -46595,12 +46725,20 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
   initialPos: {fileID: 1578601003}
+  spawnPoints:
+  - {fileID: 1578601003}
+  - {fileID: 113775862}
+  - {fileID: 744395330}
+  - {fileID: 53709437}
   children:
   - {fileID: 2208436539085217189}
   - {fileID: 2103569305058415846}
   - {fileID: 6570655070180282462}
   - {fileID: 7513470824708523005}
   - {fileID: 5730414618031889220}
+  TT: {fileID: 0}
+  UIManager: {fileID: 0}
+  timer: {fileID: 0}
 --- !u!1001 &5566597490524017928
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49720,3 +49858,4 @@ SceneRoots:
   - {fileID: 1350274919}
   - {fileID: 1578601004}
   - {fileID: 2134286640}
+  - {fileID: 270224173}

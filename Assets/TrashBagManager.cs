@@ -9,7 +9,12 @@ public class TrashBagManager : MonoBehaviour
     [SerializeField] private Vector3 position;
     [SerializeField] private Vector3 rotation;
     [SerializeField] private GameObject initialPos;
+    [SerializeField] private GameObject[] spawnPoints;
     public MeshRenderer[] children;
+
+    public taskTerminal TT;
+    public MainUIManager UIManager;
+    public Timer timer;
 
 
     private void Start()
@@ -31,12 +36,20 @@ public class TrashBagManager : MonoBehaviour
             pickup.SetPosition(position);
             pickup.SetRotaion(rotation);
         }
+
     }
 
+    public void spawnTrash()
+    {
+        int chosenSpawn = Random.Range(0, spawnPoints.Length);
+        this.gameObject.GetComponent<Transform>().localPosition = spawnPoints[chosenSpawn].GetComponent<Transform>().position;
+        enableMesh();
+    }
     public void resetPositon()
     {
         this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        this.gameObject.GetComponent<Transform>().localPosition = initialPos.GetComponent<Transform>().position;   
+        this.gameObject.GetComponent<Transform>().localPosition = initialPos.GetComponent<Transform>().position;
+        deactivateTask();
         disableMesh();
     }
 
@@ -54,5 +67,12 @@ public class TrashBagManager : MonoBehaviour
         {
             children[i].enabled = false;
         }
+    }
+
+    public void deactivateTask()
+    {
+        TT.trashTaskActive = false;
+        UIManager.AdjustScore(25);
+        timer.timeleft += 7;
     }
 }
