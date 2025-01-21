@@ -31,6 +31,7 @@ public class MainMenu : MonoBehaviour
     public void ReturnToMenu()
     {
         settingsMenu.SetActive(false);
+        gamepadMenu.SetActive(false);
     }
 
     public void ResetGame()
