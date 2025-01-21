@@ -19,7 +19,6 @@ public class incineratorDestroy : MonoBehaviour
         switch (other.name) {
             case "Trash_Bag":
                 other.GetComponent<TrashBagManager>().resetPositon();
-                other.GetComponent <TrashBagManager>().enableMesh();
                 Debug.Log("Trash Destroyed");
                 break;
             case "Cat":

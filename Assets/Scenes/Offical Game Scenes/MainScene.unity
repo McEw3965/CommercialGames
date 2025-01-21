@@ -46475,7 +46475,12 @@ MonoBehaviour:
   position: {x: 0, y: 0, z: 0}
   rotation: {x: 0, y: 0, z: 0}
   initialPos: {fileID: 1578601003}
-  children: []
+  children:
+  - {fileID: 2208436539085217189}
+  - {fileID: 2103569305058415846}
+  - {fileID: 6570655070180282462}
+  - {fileID: 7513470824708523005}
+  - {fileID: 5730414618031889220}
 --- !u!1001 &5566597490524017928
 PrefabInstance:
   m_ObjectHideFlags: 0
