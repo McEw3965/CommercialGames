@@ -8,7 +8,8 @@ public class ThrowCat : MonoBehaviour
     {
         if(other.name == "Waving Alien" && CD.catDetected)
         {
-            CD.holdCatOverHole();
+         CD.inPosition = true;
+
         }
     }
 }

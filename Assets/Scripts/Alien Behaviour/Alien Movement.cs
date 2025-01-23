@@ -13,6 +13,8 @@ public class AlienMovement : MonoBehaviour
     public catDetection CD;
     private GameObject hole;
     private GameObject holeCentre;
+    private GameObject openFloor;
+    public incineratorSwitch IS;
 
     private float time = 0;
 
@@ -21,7 +23,9 @@ public class AlienMovement : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         hole = GameObject.Find("Hole Destination");
         holeCentre = GameObject.Find("Hole Marker");
+        openFloor = GameObject.Find("OpenFloor");
         GenerateRandomNum();
+
     }
 
 
@@ -36,7 +40,7 @@ public class AlienMovement : MonoBehaviour
                 time = 0;
             }
 
-            if(time > 15) //this is to try and make the alien be unstuck
+            if(time > 15) //this is to try and make the alien be unstuck so if stuck for 
             {
                 GenerateRandomNum();
                 time = 0;
@@ -46,17 +50,29 @@ public class AlienMovement : MonoBehaviour
 
         } else //cat is picked up
         {
-            agent.destination = hole.transform.position;
-
-            Debug.Log("destination changed to:" + agent.destination);
-
-
-            if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
+           
+            
+            if(!IS.doorsOpen)
             {
-                Debug.Log("Reached hole destination");
-                this.gameObject.transform.LookAt(holeCentre.transform.position);
-                // CD.holdCatOverHole();                
+                agent.destination = openFloor.transform.position;
+                IS.openDoors();
             }
+           
+
+            if(IS.doorsOpen)
+            {
+                agent.destination = hole.transform.position;
+
+
+                if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
+                {
+                    Debug.Log("Reached hole destination");
+                    this.gameObject.transform.LookAt(holeCentre.transform.position);
+                        
+                }
+            }
+         
+            
         }
         
           

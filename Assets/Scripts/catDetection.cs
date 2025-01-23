@@ -19,17 +19,39 @@ public class catDetection : MonoBehaviour
     private Vector3 throwForce = new (1f, 0f, 1f);
     private GameObject holeCentre;
 
+    private Animator animator;
+    private int ThrowLayerIndex;
+    public bool inPosition = false;
+
+    private float time = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         //Debug.Log("CD Running");
         holeCentre = GameObject.Find("Hole Marker");
+        animator = GetComponent<Animator>();
+        ThrowLayerIndex = animator.GetLayerIndex("Throw");
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (inPosition)
+        {
+            time += Time.deltaTime;
+            animator.SetLayerWeight(ThrowLayerIndex, 1f);
+
+            animator.SetTrigger("Throw");
+
+
+            if(time > 2.5f)
+            {
+                holdCatOverHole();
+            }
+        }
         if (!catDetected && !catPickedUp)
         {
             centre.x = this.gameObject.transform.position.x;
@@ -97,15 +119,15 @@ public class catDetection : MonoBehaviour
 
     public void holdCatOverHole()
     {
+  
 
         catPickedUp = false;
         catDetected = false;
         cat.GetComponent<Rigidbody>().isKinematic = true;
 
         cat.transform.position = holeCentre.gameObject.transform.position + new Vector3(0, 0f, 0);
-    
-       // Invoke("throwCat", 30f);
 
+        // Invoke("throwCat", 30f);
 
         throwCat();
     }
@@ -118,6 +140,9 @@ public class catDetection : MonoBehaviour
         cat.GetComponent<Rigidbody>().useGravity = true;
         cat.GetComponent<Rigidbody>().isKinematic = false;
         cathasbeenthrown = true;
+
+
+        inPosition = false;
     }
 
 }

@@ -7,7 +7,7 @@ public class incineratorSwitch : MonoBehaviour
     [SerializeField] private GameObject rightDoor;
     private Animator doorAnimator;
 
-    private bool doorsOpen;
+    public bool doorsOpen = false;
     public Vector3 leftInitialPos;
     public Vector3 rightInitialPos;
 
@@ -26,7 +26,7 @@ public class incineratorSwitch : MonoBehaviour
             doorsOpen = true;
 
             doorAnimator.SetBool("IsDoorOpen?", doorsOpen);
-        } else if (doorsOpen)
+        } else
         {
             doorsOpen = false;
             doorAnimator.SetBool("IsDoorOpen?", doorsOpen);
