@@ -18,6 +18,7 @@ TagManager:
   - PlayerTrigger
   - AlienTrigger
   - TaskTrash
+  - TaskCat
   layers:
   - Default
   - TransparentFX

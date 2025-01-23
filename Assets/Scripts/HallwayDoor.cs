@@ -49,7 +49,7 @@ public class HallwayDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Cat" || other.tag == "Player" || other.name == "Waving Alien")
+        if(other.name == "Cat" || other.tag == "Player" || other.name == "Waving Alien")
         {
             door.GetComponent<Animator>().SetBool("isDoorOpen?", true);
 
@@ -59,7 +59,7 @@ public class HallwayDoor : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
 
-        if (other.tag == "Cat" || other.tag == "Player" || other.name == "Waving Alien")
+        if (other.name == "Cat" || other.tag == "Player" || other.name == "Waving Alien")
         {
             door.GetComponent<Animator>().SetBool("isDoorOpen?", false);
 

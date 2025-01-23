@@ -6072,6 +6072,7 @@ MonoBehaviour:
   - {fileID: 778846718}
   CD: {fileID: 324755131}
   doorAnimator: {fileID: 1893902998}
+  IS: {fileID: 1329770829}
 --- !u!114 &324755131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49194,7 +49195,7 @@ PrefabInstance:
     - target: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       propertyPath: m_TagString
-      value: Cat
+      value: Interactable
       objectReference: {fileID: 0}
     - target: {fileID: 3761279088216153662, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
@@ -49296,6 +49297,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 7397513266956262570}
+    - targetCorrespondingSourceObject: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1335229785}
     - targetCorrespondingSourceObject: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
         type: 3}
@@ -49305,6 +49310,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1335229791}
+    - targetCorrespondingSourceObject: {fileID: 2897379041353575103, guid: f972930d1164f39408a92a49106eabe2,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7397513266956262569}
   m_SourcePrefab: {fileID: 100100000, guid: f972930d1164f39408a92a49106eabe2, type: 3}
 --- !u!4 &7397513266956262567 stripped
 Transform:
@@ -49312,6 +49321,47 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7397513266956262566}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7397513266956262569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335229781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ab802527c9104842b98d77c3466c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Save the Cat!
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7397513266956262570}
+        m_TargetAssemblyTypeName: RescueCat, Assembly-CSharp
+        m_MethodName: saveTheCat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7397513266956262570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335229781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa344c27c4679746b228bf9cc409cf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CD: {fileID: 324755131}
 --- !u!114 &7423744026367435987
 MonoBehaviour:
   m_ObjectHideFlags: 0

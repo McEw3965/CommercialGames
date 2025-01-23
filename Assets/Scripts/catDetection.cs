@@ -7,7 +7,7 @@ using UnityEngine.AI;
 public class catDetection : MonoBehaviour
 {
 
-
+    public taskTerminal TT;
     public NavMeshAgent catagent;
     private Vector3 centre;
     public float radius = 10f;
@@ -19,12 +19,16 @@ public class catDetection : MonoBehaviour
     private Vector3 throwForce = new (1f, 0f, 1f);
     private GameObject holeCentre;
 
+    public bool catCoolDown = false;
+
     private Animator animator;
     private int ThrowLayerIndex;
     private int CarryLayerIndex;
     public bool inPosition = false;
 
     private float time = 0;
+
+    public bool catTaskActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -72,12 +76,12 @@ public class catDetection : MonoBehaviour
 
     private void detectCat()
     {
-        if(!cathasbeenthrown) { 
+        if(!cathasbeenthrown && !catCoolDown) { 
            
         Collider[] objectsInRange = Physics.OverlapSphere(centre, radius);
             for (int i = 0; i < objectsInRange.Length; i++)
             {
-                if (objectsInRange[i].tag == "Cat")
+                if (objectsInRange[i].name == "Cat")
                 {
                     Debug.Log("Cat Detected");
                     catDetected = true;
@@ -85,9 +89,12 @@ public class catDetection : MonoBehaviour
                     catLocation.y = objectsInRange[i].gameObject.transform.position.y;
                     catLocation.z = objectsInRange[i].gameObject.transform.position.z;
                     cat = objectsInRange[i].gameObject;
+
+                    TT.addToList("SAVE THE CAT!!!! + 20s", "TaskCat", Color.red);
+                    catTaskActive = true;
                     break;
                 }
-                else if (objectsInRange[i].tag != "Cat")
+                else if (objectsInRange[i].name != "Cat")
                 {
                     catDetected = false;
                 }
@@ -102,12 +109,17 @@ public class catDetection : MonoBehaviour
 
     public void pickUpCat()
     {
+
+
+
+       
+
         animator.SetLayerWeight(CarryLayerIndex, 1f);
 
         
             cat.transform.position = gameObject.transform.position + new Vector3(0f, 2f, 0.2f); // cat position is the aliens position, but higher
-          
-            if(cat.gameObject.GetComponent<NavMeshAgent>().enabled)
+     
+            if (cat.gameObject.GetComponent<NavMeshAgent>().enabled)
             {
                 catagent.isStopped = true; //this stops the nav mesh agent so the cat does not move
             }
@@ -117,9 +129,13 @@ public class catDetection : MonoBehaviour
             cat.GetComponent<CatMovement>().enabled = false; //turns off the cat movement
            // cat.GetComponent<Animator>().enabled = false;
             cat.GetComponent<NavMeshAgent>().enabled = false;
-            cat.GetComponent<CapsuleCollider>().enabled = false;
+           // cat.GetComponent<CapsuleCollider>().enabled = false;
             cat.GetComponent<Rigidbody>().useGravity = false;
             cat.GetComponent<Rigidbody>().freezeRotation = true;
+
+
+        cat.GetComponent<Interactable>().enabled = true;
+        cat.GetComponent<Outline>().enabled = true;
 
         catPickedUp = true;
      

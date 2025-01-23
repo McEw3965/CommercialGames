@@ -70,7 +70,7 @@ public class taskTerminal : MonoBehaviour
     }
 
 
-    void addToList(string task, string tag, Color color)
+    public void addToList(string task, string tag, Color color)
     {
         GameObject newTask = Instantiate(listTasks, listParent);
         TextMeshProUGUI textComponent = newTask.GetComponent<TextMeshProUGUI>();
