@@ -10468,7 +10468,6 @@ GameObject:
   - component: {fileID: 578146426}
   - component: {fileID: 578146429}
   - component: {fileID: 578146428}
-  - component: {fileID: 578146427}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -10495,28 +10494,6 @@ RectTransform:
   m_AnchoredPosition: {x: 443, y: -21}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &578146427
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578146425}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: f5543c3ee704b31419f8dfba686338c2, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &578146428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41190,7 +41167,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 765247019}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -41670,7 +41647,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 765247019}
         m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
         m_MethodName: BackToMenu
         m_Mode: 1
@@ -45253,7 +45230,7 @@ PrefabInstance:
     - target: {fileID: 8481198229554275300, guid: 6816faeeb1faddf4abffab5e0269a97b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -45573,7 +45550,7 @@ PrefabInstance:
     - target: {fileID: 6475561569920863233, guid: 15877f5d802bf9d468fc0c21c921031c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7375451119813019368, guid: 15877f5d802bf9d468fc0c21c921031c,
         type: 3}
@@ -46920,7 +46897,7 @@ PrefabInstance:
     - target: {fileID: 8304721077544005550, guid: 0f6888e8b8c26bf419c8e9040586ca77,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8372197202866680800, guid: 0f6888e8b8c26bf419c8e9040586ca77,
         type: 3}

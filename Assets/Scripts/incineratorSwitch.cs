@@ -16,6 +16,8 @@ public class incineratorSwitch : MonoBehaviour
     void Start()
     {
         doorAnimator = Doors.GetComponent<Animator>();
+        doorAnimator.SetBool("IsDoorOpen?", false);
+        doorsOpen = false;
 
     }
 
