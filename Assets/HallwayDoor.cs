@@ -2,20 +2,23 @@ using UnityEngine;
 
 public class HallwayDoor : MonoBehaviour
 {
-    
+    /*
     private Animator animator;
     private bool playerAtDoor;
+
+    private Vector3 position;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        animator = this.gameObject.GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
+        position = gameObject.GetComponent<Transform>().position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Collider[] hitColliders = Physics.OverlapSphere(this.gameObject.GetComponent<Transform>().position, 5f);
+      //  Collider[] hitColliders = Physics.OverlapSphere(position, 11f);
 
         for (int i = 0; i < hitColliders.Length; i++)
         {
@@ -23,6 +26,10 @@ public class HallwayDoor : MonoBehaviour
             {
                 Debug.Log("Player At Door");
                 playerAtDoor = true;
+            }
+            else
+            {
+                playerAtDoor = false;
             }
         }
 
@@ -35,5 +42,27 @@ public class HallwayDoor : MonoBehaviour
         }
     }
 
+    */
 
+
+    [SerializeField] private GameObject door;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Cat" || other.tag == "Player" || other.name == "Waving Alien")
+        {
+            door.GetComponent<Animator>().SetBool("isDoorOpen?", true);
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (other.tag == "Cat" || other.tag == "Player" || other.name == "Waving Alien")
+        {
+            door.GetComponent<Animator>().SetBool("isDoorOpen?", false);
+
+        }
+    }
 }

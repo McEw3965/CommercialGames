@@ -10,6 +10,12 @@ public class TrashBagManager : MonoBehaviour
     [SerializeField] private Vector3 rotation;
     [SerializeField] private GameObject initialPos;
     [SerializeField] private GameObject[] spawnPoints;
+
+
+    private Vector3 binBagPosition;
+    private int chosenSpawn;
+
+
     public MeshRenderer[] children;
 
     public taskTerminal TT;
@@ -21,7 +27,7 @@ public class TrashBagManager : MonoBehaviour
     {
         pickup = GameObject.FindWithTag("Player").GetComponent<PickUpItem>();
         initialPos = GameObject.Find("Trash Initial Position");
-        
+        binBagPosition = gameObject.GetComponent<Transform>().localPosition;
 
     }
     // Update is called once per frame
@@ -41,38 +47,36 @@ public class TrashBagManager : MonoBehaviour
 
     public void spawnTrash()
     {
-        int chosenSpawn = Random.Range(0, spawnPoints.Length);
-        this.gameObject.GetComponent<Transform>().localPosition = spawnPoints[chosenSpawn].GetComponent<Transform>().position;
-        enableMesh();
+        chosenSpawn = Random.Range(0, spawnPoints.Length);
+        binBagPosition = spawnPoints[chosenSpawn].GetComponent<Transform>().position;
+        enableMesh(chosenSpawn);
     }
+
+
     public void resetPositon()
     {
-        this.gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        this.gameObject.GetComponent<Transform>().localPosition = initialPos.GetComponent<Transform>().position;
+        gameObject.GetComponent<Rigidbody>().isKinematic = false;
+        binBagPosition = initialPos.GetComponent<Transform>().position;
         deactivateTask();
-        disableMesh();
+        disableMesh(chosenSpawn);
     }
 
-    public void enableMesh()
+    public void enableMesh(int num)
     {
-        for (int i = 0; i < children.Length; i ++)
-        {
-            children[i].enabled = true;
-        }
+           children[num].enabled = true;
+        
     }
 
-    public void disableMesh()
+    public void disableMesh(int num)
     {
-        for (int i = 0; i < children.Length; i++)
-        {
-            children[i].enabled = false;
-        }
+            children[num].enabled = false;   
     }
 
     public void deactivateTask()
     {
         TT.trashTaskActive = false;
         UIManager.AdjustScore(25);
+        TT.removeFromList("TaskTrash");
         timer.timeleft += 7;
     }
 }
