@@ -116,8 +116,10 @@ public class catDetection : MonoBehaviour
 
         animator.SetLayerWeight(CarryLayerIndex, 1f);
 
-        
-            cat.transform.position = gameObject.transform.position + new Vector3(0f, 2f, 0.2f); // cat position is the aliens position, but higher
+        cat.GetComponent<Animator>().SetTrigger("isSitting");
+            cat.transform.position = gameObject.transform.position + new Vector3(0f, 3f, 0f); // cat position is the aliens position
+
+            // cat.transform.rotation = Quaternion.Euler(cat.transform.rotation.x + 90, cat.transform.rotation.y, cat.transform.rotation.z);
      
             if (cat.gameObject.GetComponent<NavMeshAgent>().enabled)
             {

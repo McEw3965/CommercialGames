@@ -60,10 +60,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Intersection_Depth: 1.05
+    - _Intersection_Depth: 20.7
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Intersection_Colour: {r: 0.11686323, g: 0.5, b: 0.096698105, a: 1}
+    - _Intersection_Colour: {r: 0.10103929, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
