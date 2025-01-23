@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+//reference to dialogue system
 //https://www.youtube.com/watch?v=8oTYabhj248&ab_channel=BMo
 public class StartDialogue : MonoBehaviour
 {
-    [SerializeField] private CaptainDialogue captain;
+
     public TextMeshProUGUI textComponent;
     public string[] lines;
     private int index;
@@ -57,7 +57,9 @@ public class StartDialogue : MonoBehaviour
         index = 0;
         dialogueon = true;
         DisplayLine(); //first line displayed
-       
+    
+
+
     }
 
     void DisplayLine()
