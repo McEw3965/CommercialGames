@@ -14,6 +14,8 @@ public class AlienMovement : MonoBehaviour
     private GameObject hole;
     private GameObject holeCentre;
 
+    private float time = 0;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -25,20 +27,29 @@ public class AlienMovement : MonoBehaviour
 
     private void Update()
     {
+        time += Time.deltaTime;
         if (!CD.catPickedUp)
         {
             if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
             {
                 GenerateRandomNum();
+                time = 0;
             }
+
+            if(time > 15) //this is to try and make the alien be unstuck
+            {
+                GenerateRandomNum();
+                time = 0;
+            }
+
+
+
         } else //cat is picked up
         {
             agent.destination = hole.transform.position;
 
-           // destinations = new Transform[] { hole.transform };
             Debug.Log("destination changed to:" + agent.destination);
 
-          //  GenerateRandomNum();
 
             if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
             {
