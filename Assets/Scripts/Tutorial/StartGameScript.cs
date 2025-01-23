@@ -18,7 +18,7 @@ public class StartGameScript : MonoBehaviour
     [SerializeField] private Transform[] position;
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private GameObject cat;
-
+    [SerializeField] private GameObject WALL;
 
     [SerializeField] private GameObject timer;
  
@@ -142,6 +142,7 @@ public class StartGameScript : MonoBehaviour
                         timer.GetComponent<Timer>().timerOn = true;
                         timer.SetActive(true);
                         cat.SetActive(true);// cat is currently causing bug problem
+                        WALL.SetActive(false);
                       
                     }
                 }

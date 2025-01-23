@@ -7,15 +7,20 @@ public class RescueCat : MonoBehaviour
     public taskTerminal TT;
     [SerializeField] private Timer timer;
     public MainUIManager UIManager;
-
+    public Animator alienanimator;
     private float time = 0;
+    
     private void Start()
     {
         gameObject.GetComponent<Interactable>().enabled = false;
         gameObject.GetComponent<Outline>().enabled = false;
+
     }
     public void saveTheCat()
     {
+
+        alienanimator.SetLayerWeight(CD.CarryLayerIndex, 0f);
+
         CD.catPickedUp = false;
         CD.catDetected = false;
         CD.catCoolDown = true;

@@ -23,7 +23,7 @@ public class catDetection : MonoBehaviour
 
     private Animator animator;
     private int ThrowLayerIndex;
-    private int CarryLayerIndex;
+    public int CarryLayerIndex;
     public bool inPosition = false;
 
     private float time = 0;
