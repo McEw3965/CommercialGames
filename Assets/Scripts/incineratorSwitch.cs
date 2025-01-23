@@ -5,6 +5,9 @@ public class incineratorSwitch : MonoBehaviour
     [SerializeField] private GameObject Doors;
     [SerializeField] private GameObject leftDoor;
     [SerializeField] private GameObject rightDoor;
+
+
+    [SerializeField] private AudioSource dooraudio;
     private Animator doorAnimator;
 
     public bool doorsOpen = false;
@@ -23,16 +26,18 @@ public class incineratorSwitch : MonoBehaviour
 
     public void openDoors()
     {
+        dooraudio.Play();
         if (!doorsOpen)
         {
             doorAnimator.SetBool("IsDoorOpen?", true);
-
+            
             doorsOpen = true;
 
         } else
         {
             doorAnimator.SetBool("IsDoorOpen?", false);
             doorsOpen = false;
+       
 
         }
 
