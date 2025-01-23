@@ -105,7 +105,6 @@ public class StartGameScript : MonoBehaviour
                     dialogue.lines = new string[]
                     {
                     "This is the light switch",
-                    "To be able to see better, press R to bring up your torch",
                     "Pressing the button on the wall should fix the problem!",
                     };
 
@@ -117,19 +116,24 @@ public class StartGameScript : MonoBehaviour
 
 
                         if (playonce && tasks.GetComponent<taskTerminal>().lightTaskActive == false)
-                    {
-
+                        {
                         dialogue.gameObject.SetActive(false);
+
+                        alien.GetComponent<NavMeshAgent>().enabled = true;
+
+                        alien.GetComponent<AlienMovement>().destinations = new Transform[]
+                            {
+                                  position[0], position[1], position[2],position[3]
+                            };
+                        alien.GetComponent<AlienMovement>().GenerateRandomNum();
+
+
                         alien.GetComponent<NavMeshAgent>().isStopped = false;
                         alien.GetComponent<Rigidbody>().isKinematic = false;
                         alien.GetComponent<Animator>().enabled = true;
                         player.GetComponent<InputManager>().enabled = true;
-                        alien.GetComponent<NavMeshAgent>().enabled = true;
                        // alien.GetComponent<Interactable>().enabled = true;
-                        alien.GetComponent<AlienMovement>().destinations = new Transform[]
-                        {
-                              position[0], position[1], position[2],position[3]
-                        };
+                        
 
 
                         playerTrigger.gameObject.SetActive(false);
@@ -137,7 +141,7 @@ public class StartGameScript : MonoBehaviour
                         tutorialOn = false;
                         timer.GetComponent<Timer>().timerOn = true;
                         timer.SetActive(true);
-                       cat.SetActive(true);// cat is currently causing bug problem
+                        cat.SetActive(true);// cat is currently causing bug problem
                       
                     }
                 }

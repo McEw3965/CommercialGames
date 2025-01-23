@@ -14,67 +14,53 @@ public class AlienMovement : MonoBehaviour
     private GameObject hole;
     private GameObject holeCentre;
 
-
-    //cat movement
-
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
         hole = GameObject.Find("Hole Destination");
         holeCentre = GameObject.Find("Hole Marker");
+        GenerateRandomNum();
     }
 
 
     private void Update()
     {
-
-      
-            //agent.destination = destinations[randomNum].position;
-
-            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && CD.catDetected == false)
+        if (!CD.catPickedUp)
+        {
+            if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
             {
-                StartCoroutine(GenerateRandomNum());
+                GenerateRandomNum();
             }
-            else if (CD.catPickedUp)
-            {
-                agent.destination = hole.transform.position;
+        } else //cat is picked up
+        {
+            agent.destination = hole.transform.position;
+
+           // destinations = new Transform[] { hole.transform };
+            Debug.Log("destination changed to:" + agent.destination);
+
+          //  GenerateRandomNum();
+
             if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
             {
-                //this.gameObject.transform.rotation = Quaternion.RotateTowards(transform.rotation, holeCentre.transform.rotation, 3f);
+                Debug.Log("Reached hole destination");
                 this.gameObject.transform.LookAt(holeCentre.transform.position);
-                CD.holdCatOverHole();
-                //CD.throwCat();
+                // CD.holdCatOverHole();                
             }
         }
-
-            
         
+          
     }
 
-    IEnumerator GenerateRandomNum()
+    public void GenerateRandomNum()
     {
-  
-        randomNum = Random.Range(0, destinations.Length);
-        
-
-        agent.destination = destinations[randomNum].position;
-        Debug.Log("destination changed to:" + agent.destination);
-
-        yield return new WaitForSeconds(10f);
-    }
-
-
-    private void grabCat()
-    {
-        Vector3 catPos = CD.passCatPos();
-
-        agent.destination = catPos;
-
-        if (this.transform.position == catPos)
+        if (!CD.catPickedUp)
         {
-            CD.catPickedUp = true;
+            randomNum = Random.Range(0, destinations.Length);
+
+            agent.destination = destinations[randomNum].position;
+            Debug.Log("destination changed to:" + agent.destination);
         }
+     
     }
 
 }

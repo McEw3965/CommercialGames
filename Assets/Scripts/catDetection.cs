@@ -15,6 +15,7 @@ public class catDetection : MonoBehaviour
     private Vector3 catLocation;
     private GameObject cat;
     public bool catPickedUp = false;
+    public bool cathasbeenthrown = false;
     private Vector3 throwForce = new (1f, 0f, 1f);
     private GameObject holeCentre;
 
@@ -44,22 +45,24 @@ public class catDetection : MonoBehaviour
 
     private void detectCat()
     {
-        
+        if(!cathasbeenthrown) { 
         Collider[] objectsInRange = Physics.OverlapSphere(centre, radius);
-        for (int i = 0; i < objectsInRange.Length; i++)
-        {
-            if (objectsInRange[i].tag == "Cat")
+            for (int i = 0; i < objectsInRange.Length; i++)
             {
-                Debug.Log("Cat Detected");
-                catDetected = true;
-                catLocation.x = objectsInRange[i].gameObject.transform.position.x;
-                catLocation.y = objectsInRange[i].gameObject.transform.position.y;
-                catLocation.z = objectsInRange[i].gameObject.transform.position.z;
-                cat = objectsInRange[i].gameObject;
-                break;
-            } else if (objectsInRange[i].tag != "Cat")
-            {
-                catDetected = false;
+                if (objectsInRange[i].tag == "Cat")
+                {
+                    Debug.Log("Cat Detected");
+                    catDetected = true;
+                    catLocation.x = objectsInRange[i].gameObject.transform.position.x;
+                    catLocation.y = objectsInRange[i].gameObject.transform.position.y;
+                    catLocation.z = objectsInRange[i].gameObject.transform.position.z;
+                    cat = objectsInRange[i].gameObject;
+                    break;
+                }
+                else if (objectsInRange[i].tag != "Cat")
+                {
+                    catDetected = false;
+                }
             }
         }
     }
@@ -71,39 +74,50 @@ public class catDetection : MonoBehaviour
 
     public void pickUpCat()
     {
-        cat.transform.position = this.gameObject.transform.position + new Vector3 (0, 3f, 0);
-        cat.GetComponent<CatMovement>().enabled = false;
-        
-        catagent.isStopped = true;
-        cat.GetComponent<NavMeshAgent>().enabled = false;
-        cat.GetComponent<Collider>().enabled = false;
-        cat.GetComponent<Rigidbody>().useGravity = false;
-        cat.transform.rotation = this.transform.rotation;
-        cat.GetComponent<Rigidbody>().freezeRotation = true;
+      
+            cat.transform.position = gameObject.transform.position + new Vector3(0, 3f, 0); // cat position is the aliens position, but higher
+          
+            if(cat.gameObject.GetComponent<NavMeshAgent>().enabled)
+            {
+                catagent.isStopped = true; //this stops the nav mesh agent so the cat does not move
+            }
+           
+            cat.transform.rotation = transform.rotation;
+
+            cat.GetComponent<CatMovement>().enabled = false; //turns off the cat movement
+           // cat.GetComponent<Animator>().enabled = false;
+            cat.GetComponent<NavMeshAgent>().enabled = false;
+            cat.GetComponent<CapsuleCollider>().enabled = false;
+            cat.GetComponent<Rigidbody>().useGravity = false;
+            cat.GetComponent<Rigidbody>().freezeRotation = true;
+
         catPickedUp = true;
-        
+     
     }
 
     public void holdCatOverHole()
     {
+
         catPickedUp = false;
         catDetected = false;
-        cat.GetComponent<Rigidbody>().useGravity = false;
         cat.GetComponent<Rigidbody>().isKinematic = true;
 
         cat.transform.position = holeCentre.gameObject.transform.position + new Vector3(0, 0f, 0);
-        Invoke("throwCat", 30f);
+    
+       // Invoke("throwCat", 30f);
+
+
+        throwCat();
     }
 
     public void throwCat()
     {
         Debug.Log("Throw Cat");
-        cat.GetComponent<Collider>().enabled = true;
+        
+        cat.GetComponent<CapsuleCollider>().enabled = true;
         cat.GetComponent<Rigidbody>().useGravity = true;
         cat.GetComponent<Rigidbody>().isKinematic = false;
-
-        //cat.GetComponent<Rigidbody>().AddForce(throwForce, ForceMode.Impulse);
-
+        cathasbeenthrown = true;
     }
 
 }

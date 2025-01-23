@@ -21,15 +21,16 @@ public class CatMovement : MonoBehaviour
     private void Start()
     {
 
-       
+
         animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         alien = GameObject.Find("Waving Alien");
         CD = alien.GetComponent<catDetection>();
 
-        StartCoroutine(GenerateRandomNum()); //generate a random number very 40 seconds
         StartCoroutine(catSits());
         StartCoroutine(meowing());
+
+
     }
 
 
@@ -38,13 +39,14 @@ public class CatMovement : MonoBehaviour
 
         if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance && !CD.catPickedUp)
         {
-            StartCoroutine(GenerateRandomNum());
-        } else if (CD.catPickedUp)
+            GenerateRandomNum();
+        }
+        else if (CD.catPickedUp)
         {
-            
-            
             agent.destination = alien.transform.position;
         }
+
+
 
     }
 
@@ -53,53 +55,35 @@ public class CatMovement : MonoBehaviour
 
         meow.Play();
         yield return new WaitForSeconds(5f);
-      
+
     }
     IEnumerator catSits()
     {
-        if (agent != null && agent.enabled )
-        
-            {
-            while (true)
-            {
 
-                    yield return new WaitForSeconds(15f); //if its been 15 seconds then the cat sits
-                    purring.Play();
-                    isCatSitting = true;
-                    animator.SetBool("isSitting", isCatSitting);
-                    agent.isStopped = true;
 
-                    yield return new WaitForSeconds(10f); //the cat walks after 10 seconds
-                    purring.Stop();
-                    isCatSitting = false;
-                    agent.isStopped = false;
-                    animator.SetBool("isSitting", isCatSitting);
-                
-                if(CD.catPickedUp)
-                {
-                    break;
-                }
-               
-            }
-        }
-    }
-    IEnumerator GenerateRandomNum()
-    {
-        if (!CD.catPickedUp)
+        if (gameObject.GetComponent<NavMeshAgent>().enabled)
         {
+            yield return new WaitForSeconds(15f); //if its been 15 seconds then the cat sits
+            purring.Play();
+            isCatSitting = true;
+            animator.SetBool("isSitting", isCatSitting);
+            agent.isStopped = true;
 
 
-            if (!isCatSitting)
-            {
-                randomNum = Random.Range(0, destinations.Length);
 
-                Debug.Log("Generated arndom number");
-                agent.destination = destinations[randomNum].position;
-                yield return new WaitForSeconds(10f);
-            }
+            yield return new WaitForSeconds(10f); //the cat walks after 10 seconds
+            purring.Stop();
+            isCatSitting = false;
+            agent.isStopped = false;
+            animator.SetBool("isSitting", isCatSitting);
         }
+
     }
-
-
-   }
-
+   public void GenerateRandomNum()
+    {
+        Debug.Log("destination changed to:" + agent.destination);
+        randomNum = Random.Range(0, destinations.Length);
+        agent.destination = destinations[randomNum].position;
+    
+    }
+}
