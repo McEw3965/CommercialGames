@@ -23,14 +23,15 @@ public class incineratorSwitch : MonoBehaviour
     {
         if (!doorsOpen)
         {
+            doorAnimator.SetBool("IsDoorOpen?", true);
+
             doorsOpen = true;
 
-            doorAnimator.SetBool("IsDoorOpen?", doorsOpen);
         } else
         {
+            doorAnimator.SetBool("IsDoorOpen?", false);
             doorsOpen = false;
-            doorAnimator.SetBool("IsDoorOpen?", doorsOpen);
-         
+
         }
 
     }

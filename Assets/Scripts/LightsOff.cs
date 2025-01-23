@@ -8,7 +8,7 @@ public class LightsOff : MonoBehaviour
     [SerializeField] private Timer timer;
     public taskTerminal TT;
     public GameObject lights;
-    public Animator lightSwitchAnimation;
+  //  public Animator lightSwitchAnimation;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +30,7 @@ public class LightsOff : MonoBehaviour
        
         TT.lightTaskActive = false;
         lights.SetActive(true);
-        lightSwitchAnimation.SetBool("TopPressed", true);
+        //lightSwitchAnimation.SetBool("TopPressed", true);
         TT.removeFromList("TaskLights");
 
     }
@@ -38,6 +38,6 @@ public class LightsOff : MonoBehaviour
     public void turnOffLights()
     {
         lights.SetActive(false);
-        lightSwitchAnimation.SetBool("BottomPressed", true);
+      //  lightSwitchAnimation.SetBool("BottomPressed", true);
     }
 }

@@ -14,8 +14,8 @@ public class AlienMovement : MonoBehaviour
     private GameObject hole;
     private GameObject holeCentre;
     private GameObject openFloor;
+    public Animator doorAnimator;
     public incineratorSwitch IS;
-
     private float time = 0;
 
     private void Start()
@@ -50,18 +50,15 @@ public class AlienMovement : MonoBehaviour
 
         } else //cat is picked up
         {
-           
-            
+
+
             if(!IS.doorsOpen)
             {
-                agent.destination = openFloor.transform.position;
                 IS.openDoors();
             }
-           
+         
 
-            if(IS.doorsOpen)
-            {
-                agent.destination = hole.transform.position;
+            agent.destination = hole.transform.position;
 
 
                 if (agent.remainingDistance <= agent.stoppingDistance && CD.catPickedUp)
@@ -70,7 +67,7 @@ public class AlienMovement : MonoBehaviour
                     this.gameObject.transform.LookAt(holeCentre.transform.position);
                         
                 }
-            }
+            
          
             
         }

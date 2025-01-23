@@ -21,6 +21,7 @@ public class catDetection : MonoBehaviour
 
     private Animator animator;
     private int ThrowLayerIndex;
+    private int CarryLayerIndex;
     public bool inPosition = false;
 
     private float time = 0;
@@ -32,6 +33,8 @@ public class catDetection : MonoBehaviour
         holeCentre = GameObject.Find("Hole Marker");
         animator = GetComponent<Animator>();
         ThrowLayerIndex = animator.GetLayerIndex("Throw");
+        CarryLayerIndex = animator.GetLayerIndex("Carry");
+
 
     }
 
@@ -42,12 +45,14 @@ public class catDetection : MonoBehaviour
         if (inPosition)
         {
             time += Time.deltaTime;
+            animator.SetLayerWeight(CarryLayerIndex, 0f);
+
             animator.SetLayerWeight(ThrowLayerIndex, 1f);
 
             animator.SetTrigger("Throw");
 
 
-            if(time > 2.5f)
+            if(time > 2.2f)
             {
                 holdCatOverHole();
             }
@@ -68,6 +73,7 @@ public class catDetection : MonoBehaviour
     private void detectCat()
     {
         if(!cathasbeenthrown) { 
+           
         Collider[] objectsInRange = Physics.OverlapSphere(centre, radius);
             for (int i = 0; i < objectsInRange.Length; i++)
             {
@@ -96,8 +102,10 @@ public class catDetection : MonoBehaviour
 
     public void pickUpCat()
     {
-      
-            cat.transform.position = gameObject.transform.position + new Vector3(0, 3f, 0); // cat position is the aliens position, but higher
+        animator.SetLayerWeight(CarryLayerIndex, 1f);
+
+        
+            cat.transform.position = gameObject.transform.position + new Vector3(0f, 2f, 0.2f); // cat position is the aliens position, but higher
           
             if(cat.gameObject.GetComponent<NavMeshAgent>().enabled)
             {
