@@ -16241,7 +16241,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   ventNumber: 0
-  trashManager: {fileID: 5556060087913639076}
   ventTaskActive: 0
   alarmTaskActive: 0
   radioTaskActive: 0
@@ -48366,12 +48365,7 @@ MonoBehaviour:
   - {fileID: 113775862}
   - {fileID: 744395330}
   - {fileID: 53709437}
-  children:
-  - {fileID: 2208436539085217189}
-  - {fileID: 2103569305058415846}
-  - {fileID: 6570655070180282462}
-  - {fileID: 7513470824708523005}
-  - {fileID: 5730414618031889220}
+  doonce: 0
   TT: {fileID: 639017881}
   UIManager: {fileID: 361056453}
   timer: {fileID: 454720996}
@@ -51030,6 +51024,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f598d1e7fc751f949b6ec368ec8f46d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trash: {fileID: 5556060087913639076}
   timer: {fileID: 454720996}
 --- !u!82 &8577702485940694800
 AudioSource:

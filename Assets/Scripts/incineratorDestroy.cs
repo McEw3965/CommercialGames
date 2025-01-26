@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class incineratorDestroy : MonoBehaviour
 {
-
+    [SerializeField] private TrashBagManager trash;
     public Timer timer;
     private AudioSource meow;
 
@@ -14,7 +14,7 @@ public class incineratorDestroy : MonoBehaviour
     {
         switch (other.name) {
             case "Trash_Bag":
-                other.GetComponent<TrashBagManager>().resetPositon();
+                trash.resetPositon();
                 Debug.Log("Trash Destroyed");
                 break;
             case "Cat":

@@ -8,7 +8,7 @@ public class taskTerminal : MonoBehaviour
     public ventBehaviour[] ventBehaviour;
     public AudioSource[] speakers;
     public int ventNumber;
-    public TrashBagManager trashManager;
+  //  public TrashBagManager trashManager;
 
     //public CutSceneEnter cutscene;
     [Header("Tasks Active:")]
@@ -116,7 +116,7 @@ public class taskTerminal : MonoBehaviour
 
     public void randomselectTask()
     {
-        chosenTask = Random.Range(0, 6);
+        chosenTask = Random.Range(5, 6);
 
         selectTask(chosenTask);
     }
@@ -173,7 +173,6 @@ public class taskTerminal : MonoBehaviour
                 if (!trashTaskActive)
                 {
                     trashTaskActive = true;
-                    trashManager.spawnTrash();
                     addToList("Take out the trash! + 7s", "TaskTrash", Color.yellow);
                 }
                 break;

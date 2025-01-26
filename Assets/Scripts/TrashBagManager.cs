@@ -11,12 +11,10 @@ public class TrashBagManager : MonoBehaviour
     [SerializeField] private GameObject initialPos;
     [SerializeField] private GameObject[] spawnPoints;
 
+    public bool doonce = false;
 
     private Vector3 binBagPosition;
     private int chosenSpawn;
-
-
-    public MeshRenderer[] children;
 
     public taskTerminal TT;
     public MainUIManager UIManager;
@@ -26,13 +24,24 @@ public class TrashBagManager : MonoBehaviour
     private void Start()
     {
         pickup = GameObject.FindWithTag("Player").GetComponent<PickUpItem>();
-        initialPos = GameObject.Find("Trash Initial Position");
-        binBagPosition = gameObject.GetComponent<Transform>().localPosition;
+     //   initialPos = GameObject.Find("Trash Initial Position");
+     //   binBagPosition = gameObject.GetComponent<Transform>().localPosition;
 
     }
     // Update is called once per frame
     void Update()
     {
+
+        if (TT.trashTaskActive) { //if this task is active
+
+            if (!doonce)
+            {
+                spawnTrash();
+                doonce = true;
+            }
+          }
+
+
         if (pickup.itemInHand && pickup.currentItem.name == "Trash_Bag" || pickup.currentItem.name == "Trash_Bag 2" && pickup.itemInHand)
         {
 
@@ -48,32 +57,24 @@ public class TrashBagManager : MonoBehaviour
     public void spawnTrash()
     {
         chosenSpawn = Random.Range(0, spawnPoints.Length);
-        binBagPosition = spawnPoints[chosenSpawn].GetComponent<Transform>().position;
-        enableMesh(chosenSpawn);
+        //gameObject.transform.localPosition = spawnPoints[chosenSpawn].GetComponent<Transform>().position;
+        gameObject.transform.position = spawnPoints[0].GetComponent<Transform>().position;
+        Debug.Log("Spawn trash");
     }
 
 
     public void resetPositon()
     {
+        Debug.Log("Reset trash");
         gameObject.GetComponent<Rigidbody>().isKinematic = false;
-        binBagPosition = initialPos.GetComponent<Transform>().position;
         deactivateTask();
-        disableMesh(chosenSpawn);
+        doonce = false;
     }
 
-    public void enableMesh(int num)
-    {
-           children[num].enabled = true;
-        
-    }
-
-    public void disableMesh(int num)
-    {
-            children[num].enabled = false;   
-    }
 
     public void deactivateTask()
     {
+       
         TT.trashTaskActive = false;
         UIManager.AdjustScore(25);
         TT.removeFromList("TaskTrash");
