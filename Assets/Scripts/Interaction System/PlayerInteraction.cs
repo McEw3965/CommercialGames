@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+//https://www.youtube.com/watch?v=b7Yf6BFx6js&ab_channel=Kabungus video reference
 public class PlayerInteraction : MonoBehaviour
 {
     public float playerReach = 3f;
